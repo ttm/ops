@@ -18,6 +18,8 @@ U=r.URIRef
 
 # declarações auxiliares
 ops = r.Namespace("http://purl.org/socialparticipation/ops/")
+snap = r.Namespace("http://www.ifomis.org/bfo/1.1/snap#")
+span = r.Namespace("http://www.ifomis.org/bfo/1.1/span#")
 xsd = r.namespace.XSD
 rdf = r.namespace.RDF
 rdfs = r.namespace.RDFS
@@ -63,7 +65,6 @@ G(ops.Organization,  rdfs.label, L(u"Organization",0,"en")
 G(ops.Organization,  rdfs.label, L(u"Organização",0,"pt")
 G(ops.Organization,  rdfs.label, L(u"Organización",0,"es")
 G(ops.Organization,  rdfs.comment, L(u"social actor is a group of individuals, organized formally or informally (e.g. movements, collectives)",0,"en"))
-G(ops.Organization, rdfs.subClassOf,foaf.Organization)
 
 G(ops.Executor,  rdf.type, rdfs.Class)
 G(ops.Executor,  rdf.type, owl.Class)
@@ -126,6 +127,13 @@ G(ops.Action,  rdfs.label, L(u"Ação",0,"pt")
 G(ops.Action,  rdfs.label, L(u"Acción",0,"es")
 G(ops.Action,  rdfs.comment, L(u"what is done in terms os social participation",0,"en"))
 
+G(ops.Scope,  rdf.type, rdfs.Class)
+G(ops.Scope,  rdf.type, owl.Class)
+G(ops.Scope,  rdfs.label, L(u"Scope",0,"en")
+G(ops.Scope,  rdfs.label, L(u"Escopo",0,"pt")
+G(ops.Scope,  rdfs.label, L(u"Ambito",0,"es")
+G(ops.Scope,  rdfs.comment, L(u"the scope of Action",0,"en"))
+
 G(ops.Result,  rdf.type, rdfs.Class)
 G(ops.Result,  rdf.type, owl.Class)
 G(ops.Result,  rdfs.label, L(u"Result",0,"en")
@@ -148,11 +156,32 @@ G(ops.Problem,  rdfs.label, L(u"Problema",0,"es")
 G(ops.Problem,  rdfs.comment, L(u"the problem that the Action aims to solve",0,"en"))
 
 
-
-
-
-## Conexão com ontologias de topo: FOAF e BFO
-G(ops.Person, rdfs.subClassOf,foaf.Person)
+# Relações disjoint entre as classes
 G(ops.Organization, owl.disjointWith,ops.Person)
 
+## Conexão com ontologias de topo: FOAF e BFO
+# FOAF
+G(ops.Person, rdfs.subClassOf,       foaf.Person)
+G(ops.Organization, rdfs.subClassOf, foaf.Organization)
 
+# BFO
+G(ops.Action, rdfs.subClassOf, span.ProcessualEntity)
+
+G(ops.Theme,   rdfs.subClassOf, snap.IndependentContinuant)
+G(ops.Cause,   rdfs.subClassOf, snap.IndependentContinuant)
+G(ops.Problem, rdfs.subClassOf, snap.IndependentContinuant)
+
+G(ops.Person,       rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Organization, rdfs.subClassOf, snap.MaterialEntity)
+G(ops.SocialActor,  rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Executor,     rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Initiator,    rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Supporter,    rdfs.subClassOf, snap.MaterialEntity)
+snap.DependentContinuant
+
+G(ops.Solution,                    rdfs.subClassOf, snap.DependentContinuant)
+G(ops.Result,                      rdfs.subClassOf, snap.DependentContinuant)
+G(ops.ParticipationCharacteristic, rdfs.subClassOf, snap.DependentContinuant)
+G(ops.ActionScope,                 rdfs.subClassOf, snap.DependentContinuant)
+
+# Propriedades
