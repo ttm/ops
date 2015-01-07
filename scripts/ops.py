@@ -105,6 +105,51 @@ G(ops.ParticipationCharacteristic,  rdfs.label, L(u"Característica de Participa
 G(ops.ParticipationCharacteristic,  rdfs.label, L(u"Característica de Participación",0,"es")
 G(ops.ParticipationCharacteristic,  rdfs.comment, L(u"the way the participation of specific actor is happening",0,"en"))
 
+G(ops.Cause,  rdf.type, rdfs.Class)
+G(ops.Cause,  rdf.type, owl.Class)
+G(ops.Cause,  rdfs.label, L(u"Cause",0,"en")
+G(ops.Cause,  rdfs.label, L(u"Causa",0,"pt")
+G(ops.Cause,  rdfs.label, L(u"Causa",0,"es")
+G(ops.Cause,  rdfs.comment, L(u"the motivation for Action",0,"en"))
+
+G(ops.Theme,  rdf.type, rdfs.Class)
+G(ops.Theme,  rdf.type, owl.Class)
+G(ops.Theme,  rdfs.label, L(u"Theme",0,"en")
+G(ops.Theme,  rdfs.label, L(u"Tema",0,"pt")
+G(ops.Theme,  rdfs.label, L(u"Tema",0,"es")
+G(ops.Theme,  rdfs.comment, L(u"the theme in focus by Action",0,"en"))
+
+G(ops.Action,  rdf.type, rdfs.Class)
+G(ops.Action,  rdf.type, owl.Class)
+G(ops.Action,  rdfs.label, L(u"Action",0,"en")
+G(ops.Action,  rdfs.label, L(u"Ação",0,"pt")
+G(ops.Action,  rdfs.label, L(u"Acción",0,"es")
+G(ops.Action,  rdfs.comment, L(u"what is done in terms os social participation",0,"en"))
+
+G(ops.Result,  rdf.type, rdfs.Class)
+G(ops.Result,  rdf.type, owl.Class)
+G(ops.Result,  rdfs.label, L(u"Result",0,"en")
+G(ops.Result,  rdfs.label, L(u"Resultado",0,"pt")
+G(ops.Result,  rdfs.label, L(u"Resultado",0,"es")
+G(ops.Result,  rdfs.comment, L(u"the result obtained with Action",0,"en"))
+
+G(ops.Solution,  rdf.type, rdfs.Class)
+G(ops.Solution,  rdf.type, owl.Class)
+G(ops.Solution,  rdfs.label, L(u"Solution",0,"en")
+G(ops.Solution,  rdfs.label, L(u"Solução",0,"pt")
+G(ops.Solution,  rdfs.label, L(u"Solución",0,"es")
+G(ops.Solution,  rdfs.comment, L(u"solution achieved with Action",0,"en"))
+
+G(ops.Problem,  rdf.type, rdfs.Class)
+G(ops.Problem,  rdf.type, owl.Class)
+G(ops.Problem,  rdfs.label, L(u"Problem",0,"en")
+G(ops.Problem,  rdfs.label, L(u"Problema",0,"pt")
+G(ops.Problem,  rdfs.label, L(u"Problema",0,"es")
+G(ops.Problem,  rdfs.comment, L(u"the problem that the Action aims to solve",0,"en"))
+
+
+
+
 
 ## Conexão com ontologias de topo: FOAF e BFO
 G(ops.Person, rdfs.subClassOf,foaf.Person)
