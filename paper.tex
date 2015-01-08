@@ -26,8 +26,10 @@
 \usepackage{multirow}
 \usepackage{color} % for the notes
 \usepackage{etex}
+\usepackage{hyperref}
 \reserveinserts{58}
 \usepackage{morefloats}
+\usepackage[section]{placeins}
 
 %%%%%%%%%%%%
 \usepackage{listings}
@@ -184,6 +186,7 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\wwwc}{\textsc{w3c}}
 \newcommand{\skos}{\textsc{skos}}
 \newcommand{\etherpad}{\textsc{e}therpad}
+\newcommand{\ogp}{\textsc{ogp}}
 \begin{abstract}
     Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. At 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}), as a public and online process. By May, 2013, first reference documents were publicized, together with a preliminary \owl\ code,
 logos, and a diagram of a general ``public consultation''.
@@ -232,82 +235,61 @@ Also, The term \emph{common} was dropped when \ops\ was conceived, as the term i
 
 Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, OWL code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: derreferatiation, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
 
-\section{Related work: CVSP}
-From April to December, 2012, the ``Common \emph{Vocabulary} of Social Participation'' (CVSP) was first conceived. In the registered online process, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
+\section{\vcps\ original documentation}
+From April to December, 2012, the \vcps\ was first conceived. In the online process, as registered by Corais platform, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
 
 \subsection{Reference textual documents}\label{refDocs}
 The main documents are:
 \begin{itemize}
-    \item ``Commented methodology''~\cite{metodologia}: this document describes the public process of ontology conception. It is composed by brief inspections of forum topics, pointing both pertinent characteristics of the online collective process and ontological observations (about classes and properties). Considerations are made about tightening relations to the Open Government Partnership, an international initiative to foster transparency and open practices in governments worldwide~\cite{OGP}, and the Brazilian formal action plan, as means to achieve ontology usage. 
-     There is also a proposal of a systematic study about electronic government initiatives, so that the CVSP might be better contextualized. This document ends by proposing an agenda of meetings with academics, entrepreneurs and government parties.
-    \item ``Conceptual modeling, version 0.1 (in natural language)''~\cite{conceptualMod}: this document is a description, in ordinary English, of the CVSP ontology. The introduction is mainly a collage of the document above~\cite{metodologia}. Both the itemized description of the ontology, and the considerations for its usage, are of great value as reference. Figure~\ref{fig:v1}, shows a diagram representation of the ontology, which is also associated with this document and is further described in the next section.
+    \item ``Commented methodology''~\cite{metodologia}: this document describes the public process of ontology conception. It is composed by brief inspections of forum topics, pointing both pertinent characteristics of the online collective process and ontological observations (about classes and properties). Considerations are made about tightening relations to the Open Government Partnership (\ogp), an international initiative to foster transparency and open practices in governments worldwide~\cite{OGP}, and the Brazilian formal action plan, as means to achieve ontology usage. 
+     There is also a proposal of a systematic study about electronic government initiatives, so that the \vcps\ might be better contextualized. This document ends by proposing an agenda of meetings with academics, entrepreneurs and government parties.
+ \item ``Conceptual modeling, version 0.1 (in natural language)''~\cite{conceptualMod}: this document is a description, in common English, of the \vcps\ ontology. The introduction is mainly a collage of the document above~\cite{metodologia}. Both the itemized description of the ontology, and the considerations for its usage, are of great value as reference. Figure~\ref{fig:v1} is heavily influenced by a diagram related to this document and further described in Section~\ref{sec:im}.
 \end{itemize}
 
-\subsection{Images}
-There are various images associated with the ontology, most notably in~\footnote{http://corais.org/vocabulariodaparticipacao/node/1517}. 
+\subsection{Images}\label{sec:im}
+There are various images associated with the ontology\footnote{Corais platform page with many images: \url{http://corais.org/vocabulariodaparticipacao/node/1517}.}, most notably:
 
 \begin{itemize}
-    \item Various proposals for the OSP logo, some of which are in figure~\ref{logo}.
-    \item Figure~\ref{fig:v1} shows an English and completed version of the original diagram of CVSP in the document~\cite{conceptualMod}.
-    \item A diagram for general public consultations. An OWL implementation of this model is envisioned for near future, as described in Section~\ref{public}. Figure~\ref{fig:consult} has the diagram itself.
+    \item Various proposals for the \vcps\ logo, some of which are in Figure~\ref{logo}.
+    \item Figure~\ref{fig:v1} shows an English and completed version of the original diagram of \ops\ in the document~\cite{conceptualMod}. For completeness of exposition, the original diagram is in Appendix~\ref{ap:dia}, Figure~\ref{fig:diaorig}.
+    \item A diagram for general public consultations. Given the details and the pertinence of public consultations for \ops, the digram is exposed in Appendix~\ref{ap:public} and Figure~\ref{fig:consult}.
 \end{itemize}
 
 \begin{figure}[hb]
     \centering
     \includegraphics[width=0.4\textwidth]{figs/logoUnificadoDoPDF}
-    \caption{Some of the various logos for the OSP. (a) is a colored text logo proposal; (b) is a figurative logo; (c) is mixture of both ideas. It can be seen that these logos were conceived for the ontology when it was called a \emph{vocabulary}. Community documents reflect this nomenclature, which is being changed with this article and subsequent work.}
+    \caption{Some of the various logos for the \ops. (a) is a colored text logo proposal; (b) is a figurative logo; (c) is mixture of both ideas. It can be seen that these logos were conceived for the ontology when it was called a \emph{vocabulary}. Community documents reflect this nomenclature, which is being changed with this article and subsequent work.}
     \label{logo}
 \end{figure}
 
+\subsection{OWL code of \vcps}\label{owl}
 
-%\begin{figure}[hb]
-%    \centering
-%    \includegraphics[width=0.2\textwidth]{figs/logo3}
-%    \caption{A figurative logo for the Common Vocabulary of Social Participation. There are dozens of variants of this logo, black and white, RGBY colored, mixed with text, etc. See figure~\ref{logo} for a textual version, and figure~\ref{logo3} for a mixture.}
-%    \label{logo2}
-%\end{figure}
-%
-%\begin{figure}[hb]
-%    \centering
-%    \includegraphics[width=0.2\textwidth]{figs/logo2_vocab_participa}
-%    \caption{A logo with text and figure, a mixture of logos in figures~\ref{logo} and~\ref{logo2}, with Spanish text.}
-%    \label{logo3}
-%\end{figure}
-%
-
-
-
-\subsection{OWL code of CVSP}\label{owl}
-
-The OWL code for the CVSP is online~\cite{owlVcps}. 
-% Estou voando nas alturas
-The CVSP OWL code did not contain all relation from Figure~\ref{fig:v1}. This is directly addressed in Section~\ref{exp}, which exposes the implementation of all relations in the OSP, including CVSP OWL corrections and adjustments to best practices. The complete and correct OSP ontology is then expanded in Section~\ref{downwards}.
-A diagram representation OSP taxonomy is presented in Figure~\ref{fig:vcpsCC}, while the ontology diagram is at Figure~\ref{fig:v1}.
+The \owl\ code for the \vcps\ is online~\cite{owlVcps} and deprecated by \ops\ advent. 
+The \vcps\ \owl\ code did not contain all relation from Figure~\ref{fig:v1} (or Figure~\ref{fig:diaorig}). This is directly addressed in Section~\ref{exp}, which exposes the implementation of all relations in the \ops, including \vcps\ \owl\ corrections and adjustments to best practices. The complete and correct \ops\ is further contextualized in Section~\ref{ospUtil}.
 
 \subsection{Blog Posts}
-The CVSP blog~\cite{coraisBlog}
+The \vcps\ blog~\cite{coraisBlog}
 aggregates both important discussions and documents in no more than twenty posts to date.
-All OWL code, final documents, public consultations, mental map and images are posted in the blog~\cite{coraisBlog}. 
-The first post was in July 24, 2012. Last post to date is from May 7, 2013.
-Most blog posts are from the first day (almost half of them). They received more than
-twenty commentaries. Two ``out-of-season'' blog posts, one in August 9, 2012 and another in October  22, 2012, separate first day posts from last posts. Both have about ten commentaries.
+All \owl\ code, final documents, public consultations, mental map and images are posted in the blog~\cite{coraisBlog}. 
+The first post if from July 24, 2012. Last post about \vcps\ is from May 7, 2013. Most blog posts are from the first day (almost half of them). They received more than
+twenty commentaries. Two ``out-of-season'' blog posts, one from August 9, 2012 and another from October  22, 2012, separate first day posts from last posts. Both have about ten commentaries.
 Last blog posts occurred as a few days burst and a final message, a month after.
 
-There are three more recent blog posts, from November and December, 2013. But these already address OPS conception from CVSP.
+There are three more recent blog posts, from November and December, 2013. But these already address \ops\ conception from \vcps.
 
 \subsection{Discussions and etherpads}
-There are numerous commentaries in the blog posts, in which collective elaboration was registered. Besides that, four etherpads 
-were written (these are interfaces that allows writting online texts with multiple simulteneous contributors~\cite{etherpads}):
+Besides blog registries of collective elaborations, four etherpads
+were written~\cite{etherpads} (these are interfaces that allows writing online texts with multiple simultaneous contributors~\cite{etherpads2}):
 \begin{itemize}
     \item A pad for important words.
-    \item A pad dedicated to a second phase of the common vocabulary elaboration, which did not happen yet.
+    \item A pad dedicated to a second phase of \vcps\ elaboration, which did not happen yet.
     \item A pad for process documentation. It became the first document described in Section~\ref{refDocs}. 
     \item A pad for both vocabulary specification and ``questions not addressed to in the webinar''.
 \end{itemize}
 
 
 
-\section{OSP: the Ontology of Social Participation}\label{exp}
+\section{\ops: the Ontology of Social Participation}\label{exp}
 %A próxima secao já é a conclusão. Alem dessa sessão ter ficado grande, voce precisa uma sessão onde demonstra que essa ontologia é util para alguma coisa
 
 \begin{figure*}
@@ -536,14 +518,6 @@ Future work involves careful consideration of Basic Formal Ontology to enhance l
 Also, further detailing subclasses might be carefully modeled for different instances, with respective interested parties. 
 
 
-\begin{figure*}
-    \centering
-    \includegraphics[width=0.9\textwidth]{figs/publicConsultation__}
-    \caption{A diagram representation of a general public consultation. The OWL implementation of this model is in subsection~\ref{public}.}
-    \label{fig:consult}
-\end{figure*}
-
-
 
 \begin{acknowledgments}
 This article is heavily influenced by Protege and BFO documentation. Authors thank community and researchers related to these projects~\cite{protege,bfo}.
@@ -555,6 +529,7 @@ Authors thank Silvio Domingos Cardoso.
 
 \appendix
 
+
 \section{Upper and domain ontologies}\label{upper}
 There are various ontologies of interest for participatory democracy. To exemplify, three upper ontologies were chosen:
 \begin{itemize}
@@ -563,11 +538,19 @@ There are various ontologies of interest for participatory democracy. To exempli
     \item W3C recommendations for open-government, these are the work product of specialized groups and are regarded in high account by the semantic web community~\cite{egovW3C}.
 \end{itemize}
 
-\section{Public consultation}\label{public}
+\section{Public consultation}\label{ap:public}
 Public consultations have core importance in participatory democracy and the model in figure~\ref{fig:consult} was conceived as part of OSP community documentation.
 Therefore, an OWL implementation of such public consultation, should be developed and made public, with dedicated attention.
 Considerations of this public consultation with respect to the OSP and formal existent instances should be addressed as well.
 This public consultation model is observed here for completeness of exposition and further details goes beyond the scope of this article.
+
+
+\begin{figure*}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figs/publicConsultation__}
+    \caption{A diagram representation of a general public consultation. The OWL implementation of this model is in subsection~\ref{public}.}
+    \label{fig:consult}
+\end{figure*}
 
 
 
@@ -576,7 +559,17 @@ This public consultation model is observed here for completeness of exposition a
 
 
 \lstinputlisting[language=owlms]{rdf/ops.ttl}
-\nocite{*}
+
+\section{Original diagram of \ops}\label{ap:dia}
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figs/diagramaOriginal}
+    \caption{Original diagram of \ops. Although there were substantial OWL modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as the \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
+    \label{fig:diaorig}
+\end{figure*}
+
+\newpage
+%\nocite{*}
 \bibliography{paper}% Produces the bibliography via BibTeX.
 
 \end{document}
