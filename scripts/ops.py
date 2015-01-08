@@ -33,6 +33,8 @@ g.namespace_manager.bind("rdf",  rdf)
 g.namespace_manager.bind("rdfs", rdfs)    
 g.namespace_manager.bind("owl",  owl)
 g.namespace_manager.bind("foaf", foaf)
+g.namespace_manager.bind("span", span)
+g.namespace_manager.bind("snap", snap)
 
 # faz ontologia:
 # 1) info sobre esta ontologia
@@ -159,31 +161,6 @@ G(ops.Problem,  rdfs.comment, L(u"the problem that the Action aims to solve",0,"
 # Relações disjoint entre as classes
 G(ops.Organization, owl.disjointWith,ops.Person)
 
-## Conexão com ontologias de topo: FOAF e BFO
-# FOAF
-G(ops.Person, rdfs.subClassOf,       foaf.Person)
-G(ops.Organization, rdfs.subClassOf, foaf.Organization)
-
-# BFO
-G(ops.Action, rdfs.subClassOf, span.ProcessualEntity)
-
-G(ops.Theme,   rdfs.subClassOf, snap.IndependentContinuant)
-G(ops.Cause,   rdfs.subClassOf, snap.IndependentContinuant)
-G(ops.Problem, rdfs.subClassOf, snap.IndependentContinuant)
-
-G(ops.Person,       rdfs.subClassOf, snap.MaterialEntity)
-G(ops.Organization, rdfs.subClassOf, snap.MaterialEntity)
-G(ops.SocialActor,  rdfs.subClassOf, snap.MaterialEntity)
-G(ops.Executor,     rdfs.subClassOf, snap.MaterialEntity)
-G(ops.Initiator,    rdfs.subClassOf, snap.MaterialEntity)
-G(ops.Supporter,    rdfs.subClassOf, snap.MaterialEntity)
-snap.DependentContinuant
-
-G(ops.Solution,                    rdfs.subClassOf, snap.DependentContinuant)
-G(ops.Result,                      rdfs.subClassOf, snap.DependentContinuant)
-G(ops.ParticipationCharacteristic, rdfs.subClassOf, snap.DependentContinuant)
-G(ops.Scope,                 rdfs.subClassOf, snap.DependentContinuant)
-
 # Propriedades
 G(ops.theme, rdf.type, rdf.Property)
 G(ops.theme, rdf.type, owl.ObjectProperty)
@@ -281,22 +258,244 @@ G(ops.trait, rdfs.label, L(u"rasgo",0,"es"))
 #G(ops.trait, rdfs.domain, ops.SocialActor)
 #G(ops.trait, rdfs.range,  ops.ParticipationCharacteristic)
 
+## Relacionada propriedades com ontologias externas
+# NENHUM RELACIONAMENTO por não haver relações triviais
+
+## Conexão com ontologias de topo: FOAF e BFO
+# FOAF
+G(ops.Person, rdfs.subClassOf,       foaf.Person)
+G(ops.Organization, rdfs.subClassOf, foaf.Organization)
+
+# BFO
+G(ops.Action, rdfs.subClassOf, span.ProcessualEntity)
+
+G(ops.Person,       rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Organization, rdfs.subClassOf, snap.MaterialEntity)
+G(ops.SocialActor,  rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Executor,     rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Initiator,    rdfs.subClassOf, snap.MaterialEntity)
+G(ops.Supporter,    rdfs.subClassOf, snap.MaterialEntity)
+
+G(ops.Theme,   rdfs.subClassOf, snap.IndependentContinuant)
+G(ops.Cause,   rdfs.subClassOf, snap.IndependentContinuant)
+G(ops.Problem, rdfs.subClassOf, snap.IndependentContinuant)
+
+G(ops.Solution,                    rdfs.subClassOf, snap.DependentContinuant)
+G(ops.Result,                      rdfs.subClassOf, snap.DependentContinuant)
+G(ops.ParticipationCharacteristic, rdfs.subClassOf, snap.DependentContinuant)
+G(ops.Scope,                       rdfs.subClassOf, snap.DependentContinuant)
+
+## Adiciona classes externas conectadas aa OPS
+dsrc="""
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .
+@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .
 
 
+foaf:Organization a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization." ;
+    rdfs:isDefinedBy foaf: ;
+    rdfs:subClassOf foaf:Agent ;
+    owl:disjointWith foaf:Document,
+        foaf:Person ;
+    vs:term_status "stable" .
 
+foaf:Person a rdfs:Class,
+        owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:comment "A person." ;
+    rdfs:isDefinedBy foaf: ;
+    rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>,
+        foaf:Agent ;
+    owl:disjointWith foaf:Organization,
+        foaf:Project ;
+    owl:equivalentClass <http://schema.org/Person>,
+        <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
+    vs:term_status "stable" .
 
+span:ProcessualEntity a owl:Class ;
+    rdfs:label "processual_entity"^^xsd:string ;
+    rdfs:comment "Definition: An occurrent [span:Occurrent] that exists in time by occurring or happening, has temporal parts and always involves and depends on some entity."^^xsd:string,
+        "Examples: the life of an organism, the process of meiosis, the course of a disease, the flight of a bird"^^xsd:string ;
+    rdfs:subClassOf span:Occurrent ;
+    owl:disjointWith span:SpatiotemporalRegion,
+        span:TemporalRegion ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( span:FiatProcessPart span:Process span:ProcessAggregate span:ProcessBoundary span:ProcessualContext ) ] .
 
+snap:MaterialEntity a owl:Class ;
+    rdfs:label "material_entity"^^xsd:string ;
+    rdfs:comment "Definition: An independent continuant [snap:IndependentContinuant] that is spatially extended whose identity is independent of that of other entities and can be maintained through time. Note: Material entity [snap:MaterialEntity] subsumes object [snap:Object], fiat object part [snap:FiatObjectPart], and object aggregate [snap:ObjectAggregate], which assume a three level theory of granularity, which is inadequate for some domains, such as biology."^^xsd:string,
+        "Examples: collection of random bacteria, a chair, dorsal surface of the body"^^xsd:string ;
+    rdfs:subClassOf snap:IndependentContinuant ;
+    owl:disjointWith snap:ObjectBoundary,
+        snap:Site ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( snap:FiatObjectPart snap:Object snap:ObjectAggregate ) ] .
 
+snap:IndependentContinuant a owl:Class ;
+    rdfs:label "independent_continuant"^^xsd:string ;
+    rdfs:comment "Definition: A continuant [snap:Continuant] that is a bearer of quality [snap:Quality] and realizable entity [snap:RealizableEntity] entities, in which other entities inhere and which itself cannot inhere in anything."^^xsd:string,
+        "Examples: an organism, a heart, a leg, a person, a symphony orchestra, a chair, the bottom right portion of a human torso, the lawn and atmosphere in front of our building"^^xsd:string,
+        "Synonyms: substantial entity"^^xsd:string ;
+    rdfs:subClassOf snap:Continuant ;
+    owl:disjointWith snap:DependentContinuant,
+        snap:SpatialRegion ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( snap:MaterialEntity snap:ObjectBoundary snap:Site ) ] .
 
+snap:DependentContinuant a owl:Class ;
+    rdfs:label "dependent_continuant"^^xsd:string ;
+    rdfs:comment "Definition: A continuant [snap:Continuant] that is either dependent on one or other independent continuant [snap:IndependentContinuant] bearers or inheres in or is borne by other entities."^^xsd:string ;
+    rdfs:subClassOf snap:Continuant ;
+    owl:disjointWith snap:IndependentContinuant,
+        snap:SpatialRegion ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:unionOf ( snap:GenericallyDependentContinuant snap:SpecificallyDependentContinuant ) ] ."""
 
+#g.parse(data=dsrc, format="nt")
 
+dsrc2="""<?xml version="1.0"?>
 
+<!DOCTYPE rdf:RDF [
+<!ENTITY base "http://www.ifomis.org/bfo/1.1">
+<!ENTITY bfo "&base;#">
+<!ENTITY snap "&base;/snap#">
+<!ENTITY span "&base;/span#">
+<!ENTITY dc "http://purl.org/dc/elements/1.1/">
+<!ENTITY w3 "http://www.w3.org">
+<!ENTITY owl "&w3;/2002/07/owl#">
+<!ENTITY rdf "&w3;/1999/02/22-rdf-syntax-ns#">
+<!ENTITY rdfs "&w3;/2000/01/rdf-schema#">
+<!ENTITY xsd "&w3;/2001/XMLSchema#">
+]>
+<rdf:RDF xmlns:bfo="&bfo;"
+		xmlns:snap="&snap;"
+		xmlns:span="&span;"
+		xmlns:dc="&dc;"
+		xmlns:owl="&owl;"
+		xmlns:rdf="&rdf;"
+		xmlns:rdfs="&rdfs;"
+		xmlns:xsd="&xsd;"
+                xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" 
+		xml:base="&base;">
 
+  <rdfs:Class rdf:about="http://xmlns.com/foaf/0.1/Person" rdfs:label="Person" rdfs:comment="A person." vs:term_status="stable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
+    <owl:equivalentClass rdf:resource="http://schema.org/Person" />
+    <owl:equivalentClass rdf:resource="http://www.w3.org/2000/10/swap/pim/contact#Person" />
+<!--    <rdfs:subClassOf><owl:Class rdf:about="http://xmlns.com/wordnet/1.6/Person"/></rdfs:subClassOf> -->
+    <rdfs:subClassOf><owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent"/></rdfs:subClassOf>
+<!--    <rdfs:subClassOf><owl:Class rdf:about="http://xmlns.com/wordnet/1.6/Agent"/></rdfs:subClassOf> -->
+    <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing" rdfs:label="Spatial Thing"/></rdfs:subClassOf>
+    <!-- aside: 
+	are spatial things always spatially located? 
+	Person includes imaginary people... discuss... -->
+    <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
 
+<!--    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Document"/> this was a mistake; tattoo'd people, for example. -->
 
+    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
+  </rdfs:Class>
 
+  <rdfs:Class rdf:about="http://xmlns.com/foaf/0.1/Organization" rdfs:label="Organization" rdfs:comment="An organization." vs:term_status="stable">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<!--    <rdfs:subClassOf><owl:Class rdf:about="http://xmlns.com/wordnet/1.6/Organization"/></rdfs:subClassOf> -->
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+  </rdfs:Class>
 
+	<owl:Class rdf:about="&span;ProcessualEntity">
+		<rdfs:subClassOf rdf:resource="&span;Occurrent"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="&span;FiatProcessPart"/>
+					<owl:Class rdf:about="&span;Process"/>
+					<owl:Class rdf:about="&span;ProcessAggregate"/>
+					<owl:Class rdf:about="&span;ProcessBoundary"/>						
+					<owl:Class rdf:about="&span;ProcessualContext"/>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+		<owl:disjointWith rdf:resource="&span;TemporalRegion"/>
+		<owl:disjointWith rdf:resource="&span;SpatiotemporalRegion"/>
+		<rdfs:label rdf:datatype="&xsd;string">processual_entity</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Definition: An occurrent [span:Occurrent] that exists in time by occurring or happening, has temporal parts and always involves and depends on some entity.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Examples: the life of an organism, the process of meiosis, the course of a disease, the flight of a bird</rdfs:comment>
+	</owl:Class>
 
+	<owl:Class rdf:about="&snap;MaterialEntity">
+		<rdfs:subClassOf rdf:resource="&snap;IndependentContinuant"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="&snap;FiatObjectPart"/>
+					<owl:Class rdf:about="&snap;Object"/>
+					<owl:Class rdf:about="&snap;ObjectAggregate"/>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+		<owl:disjointWith rdf:resource="&snap;ObjectBoundary"/>
+		<owl:disjointWith rdf:resource="&snap;Site"/>
+		<rdfs:label rdf:datatype="&xsd;string">material_entity</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Definition: An independent continuant [snap:IndependentContinuant] that is spatially extended whose identity is independent of that of other entities and can be maintained through time. Note: Material entity [snap:MaterialEntity] subsumes object [snap:Object], fiat object part [snap:FiatObjectPart], and object aggregate [snap:ObjectAggregate], which assume a three level theory of granularity, which is inadequate for some domains, such as biology.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Examples: collection of random bacteria, a chair, dorsal surface of the body</rdfs:comment>
+	</owl:Class>
 
+	<owl:Class rdf:about="&snap;DependentContinuant">
+		<rdfs:subClassOf rdf:resource="&snap;Continuant"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="&snap;GenericallyDependentContinuant"/>
+					<owl:Class rdf:about="&snap;SpecificallyDependentContinuant"/>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+		<owl:disjointWith rdf:resource="&snap;IndependentContinuant"/>
+		<owl:disjointWith rdf:resource="&snap;SpatialRegion"/>
+		<rdfs:label rdf:datatype="&xsd;string">dependent_continuant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Definition: A continuant [snap:Continuant] that is either dependent on one or other independent continuant [snap:IndependentContinuant] bearers or inheres in or is borne by other entities.</rdfs:comment>
+	</owl:Class>
 
+	<owl:Class rdf:about="&snap;IndependentContinuant">
+		<rdfs:subClassOf rdf:resource="&snap;Continuant"/>
+		<owl:equivalentClass>
+			<owl:Class>
+				<owl:unionOf rdf:parseType="Collection">
+					<owl:Class rdf:about="&snap;MaterialEntity"/>
+					<owl:Class rdf:about="&snap;ObjectBoundary"/>
+					<owl:Class rdf:about="&snap;Site"/>
+				</owl:unionOf>
+			</owl:Class>
+		</owl:equivalentClass>
+		<owl:disjointWith rdf:resource="&snap;DependentContinuant"/>
+		<owl:disjointWith rdf:resource="&snap;SpatialRegion"/>
+		<rdfs:label rdf:datatype="&xsd;string">independent_continuant</rdfs:label>
+		<rdfs:comment rdf:datatype="&xsd;string">Definition: A continuant [snap:Continuant] that is a bearer of quality [snap:Quality] and realizable entity [snap:RealizableEntity] entities, in which other entities inhere and which itself cannot inhere in anything.</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Examples: an organism, a heart, a leg, a person, a symphony orchestra, a chair, the bottom right portion of a human torso, the lawn and atmosphere in front of our building</rdfs:comment>
+		<rdfs:comment rdf:datatype="&xsd;string">Synonyms: substantial entity</rdfs:comment>
+	</owl:Class>
+</rdf:RDF>
+"""
+
+g.parse(data=dsrc2, format="xml")
+# Escreve OWL e TTL
+
+f=open("../rdf/ops.owl","wb")
+f.write(g.serialize())
+f.close()
+f=open("../rdf/ops.ttl","wb")
+f.write(g.serialize(format="turtle"))
+f.close()
 
