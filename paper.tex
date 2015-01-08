@@ -82,9 +82,9 @@ literate=%
 
 \begin{document}
 
-\preprint{XXXXX (preprint)}
+%\preprint{XXXXX (preprint)}
 
-\title[Ontology of Social Participation (OSP)]{Ontology of Social Participation: Community Documentation, Expansion and Examples of Use}% Force line breaks with \\
+\title[OPS: Social Participation Ontology]{Social Participation Ontology: community documentation, enhancements and use examples}% Force line breaks with \\
 
 \author{Renato Fabbri}%
  \homepage{http://ifsc.usp.br/~fabbri/}
@@ -151,17 +151,17 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 % \altaffiliation[Also at ]{IFSC-USP}%Lines break automatically or can be forced with \\
 %
 
-\author{Flor Karina Mamani Amanqui}
-  \homepage{http://java.icmc.usp.br}
-  \email{florkarina27@gmail.com}
- \altaffiliation{Instituto de Ci\^encias Matemáticas e de Computação (ICMC/USP)}%Lines break automatically or can be forced with \\
-
-
-
-\author{Dilvan A. Moreira}
-  \homepage{http://java.icmc.usp.br}
-  \email{dilvan@icmc.usp.br}
- \altaffiliation[also at ]{(ICMC/USP)}%Lines break automatically or can be forced with \\
+%\author{Flor Karina Mamani Amanqui}
+%  \homepage{http://java.icmc.usp.br}
+%  \email{florkarina27@gmail.com}
+% \altaffiliation{Instituto de Ci\^encias Matemáticas e de Computação (ICMC/USP)}%Lines break automatically or can be forced with \\
+%
+%
+%
+%\author{Dilvan A. Moreira}
+%  \homepage{http://java.icmc.usp.br}
+%  \email{dilvan@icmc.usp.br}
+% \altaffiliation[also at ]{(ICMC/USP)}%Lines break automatically or can be forced with \\
 
 
 
@@ -169,54 +169,68 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 
 \date{\today}% It is always \today, today,
              %  but any date may be explicitly specified
-
+\newcommand{\ops}{\textsc{ops}}
+\newcommand{\vcps}{\textsc{vcps}}
+\newcommand{\owl}{\textsc{owl}}
+\newcommand{\sparql}{\textsc{s}par\textsc{ql}}
+\newcommand{\bfo}{\textsc{bfo}}
+\newcommand{\dbpedia}{\textsc{db}pedia}
+\newcommand{\foaf}{\textsc{foaf}}
+\newcommand{\ict}{\textsc{ict}}
+\newcommand{\html}{\textsc{html}}
+\newcommand{\node}{\textsc{n}ode.js}
+\newcommand{\facebook}{\textsc{f}acebook}
+\newcommand{\twitter}{\textsc{t}witter}
+\newcommand{\wwwc}{\textsc{w3c}}
+\newcommand{\skos}{\textsc{skos}}
+\newcommand{\etherpad}{\textsc{e}therpad}
 \begin{abstract}
-Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. At 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (CVSP), as a public and online process. By May, 2013, first reference documents were online, together with a preliminary OWL code,
+    Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. At 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}), as a public and online process. By May, 2013, first reference documents were publicized, together with a preliminary \owl\ code,
 logos, and a diagram of a general ``public consultation''.
-To ease this process, the Corais platform was used, which kept online records of the process, like discussions and preparation of texts. 
-This article exposes this material and proposes elementary unfolding, including the ``Ontology of Social Participation'' (OSP). To exhibit this new ontology, this steps were considered: completion of CVSP OWL code for current OSP, with necessary translations and corrections; an expansion of the ontology by further specifying classes; finally, use examples regarding knowledge organization and a SparQL endpoint. Further work involves association with the social participation federal portal from Brazil,
-expansion to a more structured participation artifact, and careful consideration of upper ontologies such as BFO and DBpedia.
+The Corais Platform kept online records of the process, like discussions and preparation of texts. 
+This article exposes this material and proposes elementary unfolding, highlighting the ``Social Participation Ontology'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}). To exhibit this new ontology, this steps were considered: completion of \vcps\ \owl\ code for preliminary \ops, with necessary translations and corrections; correction of ontological contradictions and enhancements of class names and labels in Portuguese, Spanish and English; a toy expansion of the ontology by further specifying classes; use cases of \ops\ by researchers and public managers; and use examples regarding knowledge organization and a \sparql\ endpoint. Ongoing work involves incorporation by the official Brazilian social participation federal portal, incorporation by civil participative organizations, linkage to other participative ontologies. \ops\ is being used as an upper ontology, and all classes linked to \foaf\ and \bfo\ as higher upper ontologies.
 \end{abstract}
 
-\pacs{89.65-s,07.05.Kf}% PACS, the Physics and Astronomy
-\keywords{OWL, electronic government, electronic democracy, participatory democracy, semantic web, linked data, social network analysis}%Use showkeys class option if keyword
+\pacs{89.65-s,07.05.Bx,07.05.Kf}% PACS, the Physics and Astronomy
+\keywords{OWL, semantic web, linked data, electronic democracy, participatory democracy, social systems}%Use showkeys class option if keyword
 \maketitle
 
 
 \section{Introduction}\label{sec:into}
-Easy access to social media is reshaping citizen participation in government affairs~\cite{socMed}.
-Information and communication technologies (ICTs) have exhibited such an impact on the way individuals interact
- that it is giving birth to new organizational methods to social movements, like the 2010 Arab Spring and the 2013 Brazilian protests. These events gathered millions of people and, although recent, have shown direct and strong impact in governments and new laws, and the forecast is an intensification of the process~\cite{digRev1,digRev2,digRev3}.
+Easy access to social media is reshaping citizen participation in government affairs~\cite{socMed}. 
+Information and communication technologies (\ict s) have exhibited such an impact on the way individuals interact
+ that it is giving birth to new organizational methods in social movements. These changes can be observed, for example, in the 2010 Arab Spring and the 2013 Brazilian protests. These events gathered millions of people and, although recent, have shown direct and strong impact in governments and new laws, and the forecast is an intensification of the process~\cite{digRev1,digRev2,digRev3}.
 
-Concomitantly, electronic government initiatives are flourishing. Favored mainly by the ubiquity of Internet technologies (e.g. Web 2.0, HTML 5, open source browsers, etc.) and by the need for renewal of representative democracy practices. 
-These initiatives have taken place in various platforms, including usual social networks (e.g. Facebook, Tweeter, etc)
+Concomitantly, electronic government initiatives are flourishing. Favored mainly by the ubiquity of Internet technologies (e.g. \html\ 5, \node, open source browsers) and by the need for renewal of representative democracy practices. 
+These initiatives have taken place in various platforms, including usual social networks (e.g. \facebook, \twitter)
  and dedicated clients created by both government and civil society agents~\cite{socMed,pita2010arquitetura,barros2010alem,knowledge}.
 
-A natural challenge arises: how to link all information produced into an unified knowledge base. This is being addressed, at the technology level, by semantic web developments. Endorsed by World Wide Web Consortium (W3C), current semantic web technologies include~\cite{Sem1}:
+A natural challenge arises: how to link all information produced into an unified knowledge base. This is being addressed, at the technology level, by semantic web developments. Endorsed by World Wide Web Consortium (\wwwc), current semantic web technologies include~\cite{Sem1}:
 \begin{itemize}
     \item reasoning by means of ontological specifications,
     \item linking data from different sources (e.g. databases),
-    \item organization of domain knowledge for clarification and coherent consideration.
+    \item organization of domain knowledge for coherent consideration.
 \end{itemize}
 
 Key among these technologies, ontologies are considered one of the pillars of the Semantic Web. An ontology is a formal specification of a shared conceptualization~\cite{gruber}.
-They are used in the semantic web mainly to give meaning to data. So, if one wants to make datasets available on the web and also wants to use semantic web technology to make them automatically retrievable and linkable with other datasets, an ontology (or some ontologies) is needed to describe them. The W3C created the Web Ontology Language (OWL) as a standard to represent ontologies in the web. 
-The second version of the language, from 2009 is called OWL 2 and offers greater expressive power~\cite{owl2}.
+They are used in the semantic web mainly to give meaning to data, useful for datasets available on the web to make them automatically retrievable and linkable with other datasets. The \wwwc\ created the Web Ontology Language (\owl) as a standard to represent ontologies in the web.
+The second version of the language is called \owl\ 2 and offers greater expressive power~\cite{owl2}.
 
-In this context, to describe and give meaning to social participation, the ``Common Vocabulary of Social Participation'' (CVSP) is being proposed as a joint effort of Latin American academic, civil and governmental groups~\cite{corais}. Although started in 2012, a very recent initiative, it already yielded relevant material, including a public preliminary OWL ontology with a concise taxonomy. Also important are the reference documents reporting results from a first working phase, from July to December, 2012. 
-As stated by the community, the initiative was propelled by three goals: 1) to ease adoption of the vocabulary; 2) to stimulate the creation of public tools to understand, visualize and summarize how participation is happening; 3) to meet the need of participative initiatives to open and link their data. 
+In this context, to describe and give meaning to social participation, the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}) was proposed as a joint effort of Latin America academic, civil and governmental groups~\cite{corais}. Although started in 2012, a recent initiative for ontological developments, it already yielded relevant material, including a public preliminary \owl\ ontology with a concise taxonomy. Also important are the reference documents reporting results from a first working phase, from July to December, 2012. 
+As stated by the community, \vcps\ was propelled by three goals: 1) to ease adoption of the vocabulary; 2) to stimulate the creation of public tools to understand, visualize and summarize how participation is happening; 3) to meet the need of participative initiatives to open and link their data. 
 
-It is important to notice this ontology was called the ``Common \emph{Vocabulary} of Social Participation'', both to make ease understanding of the general public and because it started as a vocabulary. The present article presents the ``Ontology of Social Participation'' (OSP), based on CVSP, in which the term \emph{vocabulary} has been changed to ``ontology'' for the following reasons:
+It is important to notice that \vcps, an ontology, was called a \emph{vocabulary} both to ease understanding of the general public and because it started as a vocabulary. The present article presents the ``Ontology of Social Participation'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}), based on \vcps, in which the term \emph{vocabulary} was substituted by the term \emph{ontology} for the following reasons:
 
 \begin{itemize}
-    \item The usage of the word ``vocabulary'' can lead to confusion is some situations, as OSP is an ontology.
+    \item The usage of the word ``vocabulary'' can lead to confusion is some situations as \ops\ is an \owl\ ontology (not, for example, a \skos\ vocabulary).
     \item Documentation seems inconsistent when an ontology is repeatedly called a vocabulary.
-    \item OSP is, in reality, an ontology, with a vocabulary, a taxonomic organization and properties further relating the terms.
-    \item This coherent naming is a prerequisite for further formal adoption by government instances, such as the Brazilian Federal Portal of Open Data~\cite{dadosGov}.
+    \item \ops\ is, in fact, an ontology, with a vocabulary, a taxonomic organization and properties further relating the terms.
+    \item This coherent naming is a prerequisite for for academic acceptance and further formal adoption by government instances, such as the Brazilian Federal Portal of Open Data~\cite{dadosGov} and of Social Participation~\cite{participabr}.
 \end{itemize}
-\noindent Also the term ``common'' was dropped when OSP was conceived, as the term was considered redundant for an ontology name. The CVSP presented other difficulties, such as missing classes, incorrect URI specifications (containing spaces), and unecessary out-of-standards restrictions. This context lead to the creation of OSP.
 
-The next section is dedicated to an inspection of the documents delivered by the CVSP. Section~\ref{exp} presents OSP, an example expansion to the OSP and examples of use. Final remarks are stated with future work, in section~\ref{conc}. 
+Also, The term \emph{common} was dropped when \ops\ was conceived, as the term is redundant for an ontology. The \vcps\ presented other difficulties, such as missing classes, incorrect URI specifications (containing spaces), some logical flaws, and unnecessary out-of-standards restrictions. This were all solved within \ops\ (to the extent authors were able to, of course).
+
+Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, OWL code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: derreferatiation, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
 
 \section{Related work: CVSP}
 From April to December, 2012, the ``Common \emph{Vocabulary} of Social Participation'' (CVSP) was first conceived. In the registered online process, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
@@ -235,7 +249,7 @@ There are various images associated with the ontology, most notably in~\footnote
 \begin{itemize}
     \item Various proposals for the OSP logo, some of which are in figure~\ref{logo}.
     \item Figure~\ref{fig:v1} shows an English and completed version of the original diagram of CVSP in the document~\cite{conceptualMod}.
-    \item A diagram for general public consultations. An OWL implementation of this model is envisioned for near future, as described in subsection~\ref{public}. Figure~\ref{fig:consult} has the diagram itself.
+    \item A diagram for general public consultations. An OWL implementation of this model is envisioned for near future, as described in Section~\ref{public}. Figure~\ref{fig:consult} has the diagram itself.
 \end{itemize}
 
 \begin{figure}[hb]
@@ -287,7 +301,7 @@ were written (these are interfaces that allows writting online texts with multip
 \begin{itemize}
     \item A pad for important words.
     \item A pad dedicated to a second phase of the common vocabulary elaboration, which did not happen yet.
-    \item A pad for process documentation. It became the first document described in Subsection~\ref{refDocs}. 
+    \item A pad for process documentation. It became the first document described in Section~\ref{refDocs}. 
     \item A pad for both vocabulary specification and ``questions not addressed to in the webinar''.
 \end{itemize}
 
@@ -304,9 +318,9 @@ were written (these are interfaces that allows writting online texts with multip
 \end{figure*}
 
  
-Followng the exposition in Section~\ref{sec:into}, from the CVSP the OSP was conceived. This section makes four considerations about OSP: first is label standardization and an exhibition of implemented and unimplemented CVSP classes, properties and restrictions. Features present in Figure~\ref{fig:v1}, but not present in the community release, are fully implemented in Section~\ref{impl}. Elementary further specification of subclasses is addressed in Section~\ref{downwards}. Examples of usage are addressed in subsection~\ref{examplesUsage}. 
+Followng the exposition in Section~\ref{sec:into}, from the CVSP the OSP was conceived. This section makes four considerations about OSP: first is label standardization and an exhibition of implemented and unimplemented CVSP classes, properties and restrictions. Features present in Figure~\ref{fig:v1}, but not present in the community release, are fully implemented in Section~\ref{impl}. Elementary further specification of subclasses is addressed in Section~\ref{downwards}. Examples of usage are addressed in Section~\ref{examplesUsage}. 
 
-For completeness of exposition and deference to CVSP community efforts, consideration of upper ontologies is at Subsection~\ref{upper} and the public consultation model depicted in Figure~\ref{fig:consult} is considered at Subsection~\ref{public}. 
+For completeness of exposition and deference to CVSP community efforts, consideration of upper ontologies is at Section~\ref{upper} and the public consultation model depicted in Figure~\ref{fig:consult} is considered at Section~\ref{public}. 
 
 \subsection{Standardization and exhibition of implemented features}\label{impl}
 Without explicit criteria, CVSP IRI was \url{http://lumii.lv/ontologies/Corais.owl}. OPS IRI was chosen to be \url{http://purl.org/socialparticipation/ops} for the following reasons:
