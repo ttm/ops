@@ -3,418 +3,241 @@
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-   xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
 >
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Initiator">
-    <rdfs:label xml:lang="pt">Iniciador</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-    <rdfs:label xml:lang="es">Iniciador</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment xml:lang="en">originates cause, individually or collaborativelly</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
-    <rdfs:label xml:lang="en">Initiator</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Problem">
-    <rdfs:label xml:lang="en">Problem</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">the problem that the Action aims to solve</rdfs:comment>
-    <rdfs:label xml:lang="pt">Problema</rdfs:label>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Cause">
+    <rdfs:label xml:lang="pt">Causa</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
-    <rdfs:label xml:lang="es">Problema</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/ops.owl">
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPS</rdfs:label>
-    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/vbs"/>
-    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/aa"/>
-    <rdfs:label xml:lang="es">Ontología de la participación social</rdfs:label>
-    <rdfs:comment xml:lang="pt">Ontologia de Participação Social capitaneada pelo Cidade Democrática, Governo Federal Brazileiro e Plataforma Corais, em colaboração direta com dezenas de agentes de toda américa latina</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/opa"/>
-    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.02</owl:versionInfo>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/obs"/>
-    <rdfs:comment xml:lang="en">Social Participation Ontology headed by Cidade Democrática, Brazilian Federal Government and Corais Platform, in direct collaboration with dozens of actors throughout latin america</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/ocd"/>
-    <rdfs:label xml:lang="en">Social Participation Ontology</rdfs:label>
-    <rdfs:comment xml:lang="es">Ontología de Participación Social conducida por el Cidade Democrática, el Gobierno Federal de Brasil y la Plataforma Corais, en colaboración directa con docenas de actores en toda América Latina</rdfs:comment>
-    <rdfs:label xml:lang="pt">Ontologia de Participação Social</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/trait">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="pt">traço</rdfs:label>
-    <rdfs:label xml:lang="en">trait</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="es">rasgo</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization">
-    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-    <rdfs:comment>An organization.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:label>Organization</rdfs:label>
-    <vs:term_status>stable</vs:term_status>
-    <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Executor">
-    <rdfs:label xml:lang="en">Executor</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:label xml:lang="es">Ejecutor</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="pt">Executor</rdfs:label>
-    <rdfs:comment xml:lang="en">performs action directly and is responsible for results</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N185e3698c8d840f4bee27fab2b7eac52">
-    <rdf:rest rdf:nodeID="N0d58701a13de42239f5053b2995407e0"/>
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Solution">
-    <rdfs:label xml:lang="en">Solution</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment xml:lang="en">solution achieved with Action</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="pt">Solução</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
-    <rdfs:label xml:lang="es">Solución</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N22e741ceba024a7d8cbc28329f0ffa57">
-    <owl:unionOf rdf:nodeID="N374e7f34e02748a7a1dbb8a6e668833a"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/action">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">action</rdfs:label>
-    <rdfs:label xml:lang="es">acción</rdfs:label>
-    <rdfs:label xml:lang="pt">ação</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/solves">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="es">resuelve</rdfs:label>
-    <rdfs:label xml:lang="pt">soluciona</rdfs:label>
-    <rdfs:label xml:lang="en">solves</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Supporter">
-    <rdfs:label xml:lang="en">Supporter</rdfs:label>
-    <rdfs:comment xml:lang="en">supports cause with resources of any kind (e.g. cognitive, financial, equipments)</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-    <rdfs:label xml:lang="es">Apoyador</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
-    <rdfs:label xml:lang="pt">Apoiador</rdfs:label>
+    <rdfs:comment xml:lang="en">the motivation for Action</rdfs:comment>
+    <rdfs:label xml:lang="en">Cause</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Causa</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity">
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Definition: An occurrent [span:Occurrent] that exists in time by occurring or happening, has temporal parts and always involves and depends on some entity.</rdfs:comment>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Theme">
+    <rdfs:label xml:lang="pt">Tema</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
+    <rdfs:comment xml:lang="en">the theme in focus by Action</rdfs:comment>
+    <rdfs:label xml:lang="es">Tema</rdfs:label>
+    <rdfs:label xml:lang="en">Theme</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/span#TemporalRegion"/>
-    <owl:equivalentClass rdf:nodeID="N22e741ceba024a7d8cbc28329f0ffa57"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Examples: the life of an organism, the process of meiosis, the course of a disease, the flight of a bird</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#Occurrent"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/span#SpatiotemporalRegion"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">processual_entity</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/theme">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">theme</rdfs:label>
-    <rdfs:label xml:lang="pt">tema</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/socialparticipation/ops/Theme"/>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="es">tema</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/proposes">
     <rdfs:label xml:lang="pt">propõe</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="es">propone</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="es">propone</rdfs:label>
     <rdfs:label xml:lang="en">proposes</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity">
-    <owl:equivalentClass rdf:nodeID="Nd638b7aae0de478aac24dda3570506cc"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/snap#ObjectBoundary"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Examples: collection of random bacteria, a chair, dorsal surface of the body</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Definition: An independent continuant [snap:IndependentContinuant] that is spatially extended whose identity is independent of that of other entities and can be maintained through time. Note: Material entity [snap:MaterialEntity] subsumes object [snap:Object], fiat object part [snap:FiatObjectPart], and object aggregate [snap:ObjectAggregate], which assume a three level theory of granularity, which is inadequate for some domains, such as biology.</rdfs:comment>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">material_entity</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Site"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person">
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>A person.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-    <owl:equivalentClass rdf:resource="http://schema.org/Person"/>
-    <rdfs:label>Person</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <owl:disjointWith rdf:resource="http://xmlns.com/foaf/0.1/Project"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing"/>
-    <owl:equivalentClass rdf:resource="http://www.w3.org/2000/10/swap/pim/contact#Person"/>
-    <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
-    <vs:term_status>stable</vs:term_status>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/produces">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">produces</rdfs:label>
-    <rdfs:label xml:lang="pt">produz</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="es">produce</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing">
-    <rdfs:label>Spatial Thing</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Result">
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
-    <rdfs:comment xml:lang="en">the result obtained with Action</rdfs:comment>
-    <rdfs:label xml:lang="pt">Resultado</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:label xml:lang="es">Resultado</rdfs:label>
-    <rdfs:label xml:lang="en">Result</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/ParticipationCharacteristic">
-    <rdfs:label xml:lang="pt">Característica de Participação</rdfs:label>
-    <rdfs:label xml:lang="es">Característica de Participación</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
     <rdfs:label xml:lang="en">Participation Characteristic</rdfs:label>
+    <rdfs:label xml:lang="es">Característica de Participación</rdfs:label>
+    <rdfs:label xml:lang="pt">Característica de Participação</rdfs:label>
     <rdfs:comment xml:lang="en">the way the participation of specific actor is happening</rdfs:comment>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/snap#SpatialRegion"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Definition: A continuant [snap:Continuant] that is either dependent on one or other independent continuant [snap:IndependentContinuant] bearers or inheres in or is borne by other entities.</rdfs:comment>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dependent_continuant</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
-    <owl:equivalentClass rdf:nodeID="Nfdd9c259d95a47ef9bad9009c27df532"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nfdd9c259d95a47ef9bad9009c27df532">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="N185e3698c8d840f4bee27fab2b7eac52"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/executes">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="pt">executa</rdfs:label>
-    <rdfs:label xml:lang="es">ejecuta</rdfs:label>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/theme">
+    <rdfs:label xml:lang="es">tema</rdfs:label>
+    <rdfs:label xml:lang="pt">tema</rdfs:label>
+    <rdfs:label xml:lang="en">theme</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">executes</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Person">
-    <rdfs:label xml:lang="pt">Pessoa</rdfs:label>
-    <rdfs:label xml:lang="es">Persona</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">a person (social actor is a person)</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
-    <rdfs:label xml:lang="en">Person</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/SocialActor">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="es">Actor Social</rdfs:label>
-    <rdfs:label xml:lang="pt">Ator Social</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:label xml:lang="en">Social Actor</rdfs:label>
-    <rdfs:comment xml:lang="en">entity that might have a participatory role</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Organization">
-    <rdfs:label xml:lang="es">Organización</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:disjointWith rdf:resource="http://purl.org/socialparticipation/ops/Person"/>
-    <rdfs:label xml:lang="en">Organization</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:comment xml:lang="en">social actor is a group of individuals, organized formally or informally (e.g. movements, collectives)</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
-    <rdfs:label xml:lang="pt">Organização</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7266dbc2ffaa4bee873686c6ce2e700b">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
-    <rdf:rest rdf:nodeID="Ne8d32300d06f4d81bc808acc88e9effb"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:range rdf:resource="http://purl.org/socialparticipation/ops/Theme"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/contributesTo">
-    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdfs:label xml:lang="pt">contribui para</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="es">contribuye a la</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">contributes to</rdfs:label>
-    <rdfs:label xml:lang="es">contribuye a la</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Scope">
-    <rdfs:comment xml:lang="en">the scope of Action</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
-    <rdfs:label xml:lang="en">Scope</rdfs:label>
-    <rdfs:label xml:lang="es">Ambito</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="pt">Escopo</rdfs:label>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Person">
+    <rdfs:label xml:lang="en">Person</rdfs:label>
+    <rdfs:label xml:lang="pt">Pessoa</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
+    <rdfs:comment xml:lang="en">a person (social actor is a person)</rdfs:comment>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N34891130e6ad4ec0accc534d801ff3d5">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#ObjectAggregate"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Action">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:label xml:lang="en">Action</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
-    <rdfs:label xml:lang="es">Acción</rdfs:label>
-    <rdfs:comment xml:lang="en">what is done in terms os social participation</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
+    <rdfs:label xml:lang="es">Persona</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="pt">Ação</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Supporter">
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
+    <rdfs:label xml:lang="en">Supporter</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="es">Apoyador</rdfs:label>
+    <rdfs:comment xml:lang="en">supports cause with resources of any kind (e.g. cognitive, financial, equipments)</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="pt">Apoiador</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/action">
+    <rdfs:label xml:lang="es">acción</rdfs:label>
+    <rdfs:label xml:lang="pt">ação</rdfs:label>
+    <rdfs:label xml:lang="en">action</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Executor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
+    <rdfs:label xml:lang="en">Executor</rdfs:label>
+    <rdfs:label xml:lang="es">Ejecutor</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment xml:lang="en">performs action directly and is responsible for results</rdfs:comment>
+    <rdfs:label xml:lang="pt">Executor</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Organization">
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="es">Organización</rdfs:label>
+    <rdfs:label xml:lang="pt">Organização</rdfs:label>
+    <owl:disjointWith rdf:resource="http://purl.org/socialparticipation/ops/Person"/>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
+    <rdfs:label xml:lang="en">Organization</rdfs:label>
+    <rdfs:comment xml:lang="en">social actor is a group of individuals, organized formally or informally (e.g. movements, collectives)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/starts">
+    <rdfs:label xml:lang="pt">inicia</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">starts</rdfs:label>
+    <rdfs:label xml:lang="es">inicia</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/SocialActor">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment xml:lang="en">entity that might have a participatory role</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
+    <rdfs:label xml:lang="es">Actor Social</rdfs:label>
+    <rdfs:label xml:lang="pt">Ator Social</rdfs:label>
+    <rdfs:label xml:lang="en">Social Actor</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/belongsTo">
     <rdfs:label xml:lang="es">pertence al</rdfs:label>
+    <rdfs:label xml:lang="pt">pertence ao</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/socialparticipation/ops/Scope"/>
     <rdfs:label xml:lang="en">belongs to</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:range rdf:resource="http://purl.org/socialparticipation/ops/Scope"/>
-    <rdfs:label xml:lang="pt">pertence ao</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Theme">
-    <rdfs:label xml:lang="pt">Tema</rdfs:label>
-    <rdfs:comment xml:lang="en">the theme in focus by Action</rdfs:comment>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/ops.owl">
+    <rdfs:label xml:lang="en">Social Participation Ontology</rdfs:label>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OPS</rdfs:label>
+    <rdfs:label xml:lang="pt">Ontologia de Participação Social</rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/obs"/>
+    <rdfs:label xml:lang="es">Ontología de la participación social</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/aa"/>
+    <rdfs:comment xml:lang="es">Ontología de Participación Social conducida por el Cidade Democrática, el Gobierno Federal de Brasil y la Plataforma Corais, en colaboración directa con docenas de actores en toda América Latina</rdfs:comment>
+    <rdfs:comment xml:lang="en">Social Participation Ontology headed by Cidade Democrática, Brazilian Federal Government and Corais Platform, in direct collaboration with dozens of actors throughout latin america</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/vbs"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/ocd"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/socialparticipation/opa"/>
+    <rdfs:comment xml:lang="pt">Ontologia de Participação Social capitaneada pelo Cidade Democrática, Governo Federal Brazileiro e Plataforma Corais, em colaboração direta com dezenas de agentes de toda américa latina</rdfs:comment>
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.02</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Action">
+    <rdfs:label xml:lang="en">Action</rdfs:label>
+    <rdfs:label xml:lang="es">Acción</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdfs:label xml:lang="en">Theme</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
+    <rdfs:comment xml:lang="en">what is done in terms os social participation</rdfs:comment>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="es">Tema</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Cause">
-    <rdfs:label xml:lang="es">Causa</rdfs:label>
-    <rdfs:label xml:lang="pt">Causa</rdfs:label>
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment xml:lang="en">the motivation for Action</rdfs:comment>
-    <rdfs:label xml:lang="en">Cause</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd909c4b6cf3f462a995bb796e23511a1">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Object"/>
-    <rdf:rest rdf:nodeID="N34891130e6ad4ec0accc534d801ff3d5"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1b09aaa8f06d41809dd536cd035a2f90">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Site"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualEntity"/>
+    <rdfs:label xml:lang="pt">Ação</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/supports">
-    <rdfs:label xml:lang="pt">apoia</rdfs:label>
-    <rdfs:label xml:lang="es">apoya</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">supports</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="es">apoya</rdfs:label>
+    <rdfs:label xml:lang="pt">apoia</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant">
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
-    <owl:equivalentClass rdf:nodeID="Ne5db4588ce6341448834509f27dbffa3"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">independent_continuant</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#Continuant"/>
-    <owl:disjointWith rdf:resource="http://www.ifomis.org/bfo/1.1/snap#SpatialRegion"/>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Definition: A continuant [snap:Continuant] that is a bearer of quality [snap:Quality] and realizable entity [snap:RealizableEntity] entities, in which other entities inhere and which itself cannot inhere in anything.</rdfs:comment>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synonyms: substantial entity</rdfs:comment>
-    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Examples: an organism, a heart, a leg, a person, a symphony orchestra, a chair, the bottom right portion of a human torso, the lawn and atmosphere in front of our building</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Agent">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#FiatProcessPart">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0c08c629018543b9acd78ccb5af2b44f">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessAggregate"/>
-    <rdf:rest rdf:nodeID="N09d69d9340864bc186193b6f89088dfe"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N09d69d9340864bc186193b6f89088dfe">
-    <rdf:rest rdf:nodeID="Nf790a38174ec457b973172283c114c9b"/>
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessBoundary"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/starts">
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/produces">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:label xml:lang="en">starts</rdfs:label>
+    <rdfs:label xml:lang="pt">produz</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
-    <rdfs:label xml:lang="pt">inicia</rdfs:label>
-    <rdfs:label xml:lang="es">inicia</rdfs:label>
+    <rdfs:label xml:lang="en">produces</rdfs:label>
+    <rdfs:label xml:lang="es">produce</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne8d32300d06f4d81bc808acc88e9effb">
-    <rdf:rest rdf:nodeID="N1b09aaa8f06d41809dd536cd035a2f90"/>
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#ObjectBoundary"/>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Initiator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ops/SocialActor"/>
+    <rdfs:comment xml:lang="en">originates cause, individually or collaborativelly</rdfs:comment>
+    <rdfs:label xml:lang="es">Iniciador</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#MaterialEntity"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:label xml:lang="pt">Iniciador</rdfs:label>
+    <rdfs:label xml:lang="en">Initiator</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/solves">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="en">solves</rdfs:label>
+    <rdfs:label xml:lang="es">resuelve</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="pt">soluciona</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Scope">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Scope</rdfs:label>
+    <rdfs:label xml:lang="pt">Escopo</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
+    <rdfs:label xml:lang="es">Ambito</rdfs:label>
+    <rdfs:comment xml:lang="en">the scope of Action</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/trait">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">trait</rdfs:label>
+    <rdfs:label xml:lang="pt">traço</rdfs:label>
+    <rdfs:label xml:lang="es">rasgo</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/executes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:label xml:lang="pt">executa</rdfs:label>
+    <rdfs:label xml:lang="es">ejecuta</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+    <rdfs:label xml:lang="en">executes</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/generates">
-    <rdfs:label xml:lang="en">generates</rdfs:label>
-    <rdfs:label xml:lang="es">genera</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="pt">gera</rdfs:label>
+    <rdfs:label xml:lang="en">generates</rdfs:label>
+    <rdfs:label xml:lang="es">genera</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#ProcessAggregate">
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Solution">
+    <rdfs:label xml:lang="pt">Solução</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
+    <rdfs:label xml:lang="en">Solution</rdfs:label>
+    <rdfs:label xml:lang="es">Solución</rdfs:label>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment xml:lang="en">solution achieved with Action</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne5db4588ce6341448834509f27dbffa3">
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Result">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <owl:unionOf rdf:nodeID="N7266dbc2ffaa4bee873686c6ce2e700b"/>
+    <rdfs:comment xml:lang="en">the result obtained with Action</rdfs:comment>
+    <rdfs:label xml:lang="es">Resultado</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#DependentContinuant"/>
+    <rdfs:label xml:lang="pt">Resultado</rdfs:label>
+    <rdfs:label xml:lang="en">Result</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#ProcessualContext">
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ops/Problem">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#SpecificallyDependentContinuant">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Site">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#Object">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#FiatObjectPart">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd638b7aae0de478aac24dda3570506cc">
-    <owl:unionOf rdf:nodeID="Nc93a416317674c8facac6c936ab03fe9"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N0d58701a13de42239f5053b2995407e0">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#SpecificallyDependentContinuant"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#ObjectAggregate">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#ObjectBoundary">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N5b401bfbd4b648f6bfce8ff792ef51f3">
-    <rdf:rest rdf:nodeID="N0c08c629018543b9acd78ccb5af2b44f"/>
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/span#Process"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#Process">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf790a38174ec457b973172283c114c9b">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/span#ProcessualContext"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/span#ProcessBoundary">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N374e7f34e02748a7a1dbb8a6e668833a">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/span#FiatProcessPart"/>
-    <rdf:rest rdf:nodeID="N5b401bfbd4b648f6bfce8ff792ef51f3"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nc93a416317674c8facac6c936ab03fe9">
-    <rdf:first rdf:resource="http://www.ifomis.org/bfo/1.1/snap#FiatObjectPart"/>
-    <rdf:rest rdf:nodeID="Nd909c4b6cf3f462a995bb796e23511a1"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.ifomis.org/bfo/1.1/snap#GenericallyDependentContinuant">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+    <rdfs:comment xml:lang="en">the problem that the Action aims to solve</rdfs:comment>
+    <rdfs:label xml:lang="pt">Problema</rdfs:label>
+    <rdfs:label xml:lang="en">Problem</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant"/>
+    <rdfs:label xml:lang="es">Problema</rdfs:label>
   </rdf:Description>
 </rdf:RDF>

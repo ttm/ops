@@ -285,82 +285,14 @@ G(ops.Result,                      rdfs.subClassOf, snap.DependentContinuant)
 G(ops.ParticipationCharacteristic, rdfs.subClassOf, snap.DependentContinuant)
 G(ops.Scope,                       rdfs.subClassOf, snap.DependentContinuant)
 
+f=open("../rdf/ops.owl","wb")
+f.write(g.serialize())
+f.close()
+f=open("../rdf/ops.ttl","wb")
+f.write(g.serialize(format="turtle"))
+f.close()
+
 ## Adiciona classes externas conectadas aa OPS
-dsrc="""
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
-
-@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .
-@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .
-
-
-foaf:Organization a rdfs:Class,
-        owl:Class ;
-    rdfs:label "Organization" ;
-    rdfs:comment "An organization." ;
-    rdfs:isDefinedBy foaf: ;
-    rdfs:subClassOf foaf:Agent ;
-    owl:disjointWith foaf:Document,
-        foaf:Person ;
-    vs:term_status "stable" .
-
-foaf:Person a rdfs:Class,
-        owl:Class ;
-    rdfs:label "Person" ;
-    rdfs:comment "A person." ;
-    rdfs:isDefinedBy foaf: ;
-    rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>,
-        foaf:Agent ;
-    owl:disjointWith foaf:Organization,
-        foaf:Project ;
-    owl:equivalentClass <http://schema.org/Person>,
-        <http://www.w3.org/2000/10/swap/pim/contact#Person> ;
-    vs:term_status "stable" .
-
-span:ProcessualEntity a owl:Class ;
-    rdfs:label "processual_entity"^^xsd:string ;
-    rdfs:comment "Definition: An occurrent [span:Occurrent] that exists in time by occurring or happening, has temporal parts and always involves and depends on some entity."^^xsd:string,
-        "Examples: the life of an organism, the process of meiosis, the course of a disease, the flight of a bird"^^xsd:string ;
-    rdfs:subClassOf span:Occurrent ;
-    owl:disjointWith span:SpatiotemporalRegion,
-        span:TemporalRegion ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( span:FiatProcessPart span:Process span:ProcessAggregate span:ProcessBoundary span:ProcessualContext ) ] .
-
-snap:MaterialEntity a owl:Class ;
-    rdfs:label "material_entity"^^xsd:string ;
-    rdfs:comment "Definition: An independent continuant [snap:IndependentContinuant] that is spatially extended whose identity is independent of that of other entities and can be maintained through time. Note: Material entity [snap:MaterialEntity] subsumes object [snap:Object], fiat object part [snap:FiatObjectPart], and object aggregate [snap:ObjectAggregate], which assume a three level theory of granularity, which is inadequate for some domains, such as biology."^^xsd:string,
-        "Examples: collection of random bacteria, a chair, dorsal surface of the body"^^xsd:string ;
-    rdfs:subClassOf snap:IndependentContinuant ;
-    owl:disjointWith snap:ObjectBoundary,
-        snap:Site ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( snap:FiatObjectPart snap:Object snap:ObjectAggregate ) ] .
-
-snap:IndependentContinuant a owl:Class ;
-    rdfs:label "independent_continuant"^^xsd:string ;
-    rdfs:comment "Definition: A continuant [snap:Continuant] that is a bearer of quality [snap:Quality] and realizable entity [snap:RealizableEntity] entities, in which other entities inhere and which itself cannot inhere in anything."^^xsd:string,
-        "Examples: an organism, a heart, a leg, a person, a symphony orchestra, a chair, the bottom right portion of a human torso, the lawn and atmosphere in front of our building"^^xsd:string,
-        "Synonyms: substantial entity"^^xsd:string ;
-    rdfs:subClassOf snap:Continuant ;
-    owl:disjointWith snap:DependentContinuant,
-        snap:SpatialRegion ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( snap:MaterialEntity snap:ObjectBoundary snap:Site ) ] .
-
-snap:DependentContinuant a owl:Class ;
-    rdfs:label "dependent_continuant"^^xsd:string ;
-    rdfs:comment "Definition: A continuant [snap:Continuant] that is either dependent on one or other independent continuant [snap:IndependentContinuant] bearers or inheres in or is borne by other entities."^^xsd:string ;
-    rdfs:subClassOf snap:Continuant ;
-    owl:disjointWith snap:IndependentContinuant,
-        snap:SpatialRegion ;
-    owl:equivalentClass [ a owl:Class ;
-            owl:unionOf ( snap:GenericallyDependentContinuant snap:SpecificallyDependentContinuant ) ] ."""
-
-#g.parse(data=dsrc, format="nt")
-
 dsrc2="""<?xml version="1.0"?>
 
 <!DOCTYPE rdf:RDF [
@@ -492,10 +424,10 @@ dsrc2="""<?xml version="1.0"?>
 g.parse(data=dsrc2, format="xml")
 # Escreve OWL e TTL
 
-f=open("../rdf/ops.owl","wb")
+f=open("../rdf/opsClassesExtra.owl","wb")
 f.write(g.serialize())
 f.close()
-f=open("../rdf/ops.ttl","wb")
+f=open("../rdf/opsClassesExtra.ttl","wb")
 f.write(g.serialize(format="turtle"))
 f.close()
-
+print time.time()-T

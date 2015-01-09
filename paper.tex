@@ -31,6 +31,8 @@
 \usepackage{morefloats}
 \usepackage[section]{placeins}
 \usepackage{xcolor}
+\usepackage{rotating}
+%\usepackage{pdflscape}
 \hypersetup{
         colorlinks,
             linkcolor={red!50!black},
@@ -206,6 +208,14 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\obs}{\textsc{obs}}
 \newcommand{\pubby}{\textsc{p}ubby}
 \newcommand{\rdf}{\textsc{rdf}}
+\newcommand{\mysql}{\textsc{m}y\textsc{sql}}
+\newcommand{\aan}{\textsc{aa}}
+\newcommand{\cidadedemocratica}{\textsc{c}idade \textsc{d}emocr\'atica}
+\newcommand{\participa}{\textsc{p}articipa.br}
+\newcommand{\ontop}{\textsc{o}n\textsc{T}op}
+\newcommand{\quest}{\textsc{Q}uest}
+\newcommand{\obda}{\textsc{obda}}
+
 %\newcommand{\t}[1]{\texttt{#1}}
 \begin{abstract}
     Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. At 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}), as a public and online process. By May, 2013, first reference documents were publicized, together with a preliminary \owl\ code,
@@ -404,12 +414,12 @@ Upper ontologies usage with \ops\ is under development and should be available i
 
 Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties and relations to \foaf\ and \bfo. Actually, Figure~\ref{fig:v1} is more informative than \ops\ \owl\ code, as restrictions were removed and not all properties have defined domain and range. Therefore, the diagram is the remaining source of relations envisioned by \ops\ creators.
 
-\begin{figure}
+\begin{figure*}
     \centering
-    \includegraphics[width=\columnwidth]{figs/cospTax}
-    \caption{A taxonomic diagram of the Ontology of Social Participation (OSP). This image was rendered inside Protege, with the OWL code in Appendix~\ref{owl:vcps}.}
+    \includegraphics[width=\textwidth]{figs/opsTax}
+    \caption{A taxonomic tree of the Ontology of Social Participation (OSP). This image was rendered inside Protege, with the OWL code in Appendix~\ref{owl:vcps}. Figure~\ref{fig:v1} contains all this information, but this diagram is more standard and might be simpler for the newcommer. Note that the taxonomic tree does not present any information about properties further linking these classes.}
     \label{fig:owlCC}
-\end{figure}
+\end{figure*}
 
 %\subsubsection{SparQL examples of usage}
 
@@ -424,17 +434,15 @@ All \ops\ classes and properties \uri s are accessible via \http. A \pubby\ inst
 
 \begin{figure}[!h]
     \centering
-    %\includegraphics[width=\columnwidth]{figs/pubbyDer}
-    \includegraphics[width=\columnwidth]{figs/foo}
+    \includegraphics[width=\columnwidth]{figs/pubbyDer}
+    %\includegraphics[width=\columnwidth]{figs/foo}
     \caption{Dereferencing an \ops\ class: the \uri\ is also an \urll, which, reached by \http, delivers information for the user as shown. Also, if the client is not a browser, but a crawler or a linked data application, \pubby\ delivers plain \rdf, not user-friendly \html.}
-    \label{fig:owlCC}
+    \label{fig:deref}
 \end{figure}
 
-
-
-
 \subsection{Usage of \ops\ through a \sparql\ endpoint}
-Accessing multiple databases is one of the OWL ontology basic purposes. The standard way to acess these data via ontologies is by using a SparQL endpoint. This endpoint delivers data from a triplestore or, with more experimental technology, relational database systems, such as a MySQL server (e.g. via OnTop/Quest~\cite{onTop}). Either way, the query is the same, i.e. the user or machine reaching the endpoint uses the same protocol in order to retrieve information through semantic criteria. Figure~\ref{endpoint} is a schematic representation of OBDA (Ontology Based Database Access), which is a common name for this multiple database access through ontologies.
+
+Linking multiple databases is an \owl\ technology core purpose. The standard way to access these data via ontologies is by using a \sparql endpoint. This endpoint delivers data from a triplestore (collection of \rdf\ triples) or, with more experimental technology, relational database systems, such as a \mysql\ server (e.g. via \ontop/\quest~\cite{onTop}). Either way, the query is the same: the user or machine reaching the endpoint uses the \sparql\ protocol in order to retrieve information through semantic criteria. Figure~\ref{endpoint} is a schematic representation of \obda (Ontology Based Database Access), which is a common name for this multiple database access through ontologies.
 
 \begin{figure}
     \centering
@@ -445,34 +453,26 @@ Accessing multiple databases is one of the OWL ontology basic purposes. The stan
 
 Some examples of this usage can be given by SparQL queries and concise explanations:
 \begin{itemize}
-    \item \texttt{"select ?s ?s2 ?s3 where \{?s a ops:SocialActor . ?s2 a ops:Person . ?s3 a ops:Organization\}"}: this query retrieves all social actors (\texttt{?s}), be each a person or an organization, all persons (\texttt{?s2}) and all organizations (\texttt{?s3}). In a similar manner, one can retrieve all roles played, all executers, all initiators and all supporters.
-    \item \texttt{"select ?s ?o where \{?s ops:startsCause ?o\}"}: this query retrieves all causes started and their initiators.
-    \item \texttt{"select ?s ?s2 ?o ?o2 where \{ ?s a ops:Action . ?s ops:belongsToField ?o . ?s2 ops:executesAction ?s . ?s ops:producesResults ?o2\}"}: this query retrieves all actions (\texttt{?s}) along their Action Field (\texttt{?o}), their Executer (\texttt{?s2}) and their Results (\texttt{?o2}).
+    \item \texttt{"select ?s ?s2 ?s3 where \{?s a ops:SocialActor . ?s2 a ops:Person . ?s3 a ops:Organization\}"}: this query retrieves all social actors (returned in variable \texttt{?s}), be each a person or an organization; retrieves all persons (variable \texttt{?s2}); and retrieves all organizations (\texttt{?s3}). In a similar manner, one can retrieve all roles played, all executers, all initiators and all supporters.
+    \item \texttt{"select ?s ?o where \{?s ops:starts ?o\}"}: this query retrieves all causes ({\tt ?o}) and their initiators ({\tt ?s}).
+    \item \texttt{"select ?s ?s2 ?o ?o2 where \{?s a ops:Action . ?s ops:belongsTo ?o . ?s2 ops:executes ?s . ?s ops:produces ?o2\}"}: this query retrieves all actions (\texttt{?s}) along their Action Field (\texttt{?o}), their Executer (\texttt{?s2}) and their Results (\texttt{?o2}).
 \end{itemize}
 
-\subsection{Discursive examples of usage}\label{examplesUsage}
+Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \participa\ participants, {\tt ocd:Participant} can be used to retrieve all \cidadedemocratica\ participants, and {\tt aa:User} can be used to retrieve all \aan\ participants, their upper ontology class {\tt opa:Participant} retrieves all of them and relates these entities directly to the class of generic actors of social participation processes.
 
-OSP usage might not be obvious at first. How is data being linked? How is field knowledge being organized? Core principles of this utility, reflecting the exposition in Section~\ref{sec:into}, can be understood by the following observations:
-\begin{itemize}
-    \item Different participation instances have social actors, actions being developed, organizations involved, problems being tackled, etc. These can yield one consistent database by means of OSP usage.
-    \item One can understand the mutually exclusive nature of being a paid or a voluntary contributor by observing the expanded version of OSP, exposed above. Also, noticing the fact that a mob can be very big or not, and that it can be convoqued or not by a Network, can make the field more neat for a newcommer or ease discussions and problematizations for senior researchers or politicians.
-\end{itemize}
+\subsection{OPS expansion}\label{downwards}
 
-Imagined examples are useful to make these points clear:
-\begin{itemize}
-    \item Suppose a public SparQL endpoint unifies several participation instances by means of OSP. Thus, the number of participants (Social Actors) is publicly available. Also, depending on the platforms, one can observe how many are individuals, how many are organizations, and understand to which extent the corporative influence is explicit. One can observe how many of the participants are the same in each platform, and what roles they take, and make conclusions about how much society is really participating or if these processes are manipulated by the same agents. One can also gaze uppon the problems being discussed and which solutions are being proposed, therefore easing the sense of what is being considered important and valid as public discussions. This list of possibilities is endless, specially when OSP variations and expansions are considered.
-    \item Suppose a person, say Jessica, has a new proposal for a participative system that uses OSP. She can have a quite concise understanding of the concepts involved, and how they relate, by means of OSP. She can now make very objective observations and deliver clear suggestions that relate directly to the system being used. She can even make an OSP variation or another ontology, as a way to confront the schemes.
-    \item Supose there is an automatic system for exhibiting indicators about social participation (how effective it has been, how wide the scope of interests, etc). Instances that are integrated by OSP are queried for information and, for example, this system registers any organization involved as a social actor. In the case of the expanded OSP exposed above, for example, the system registers any mob, whose incidence was recorded in the database as a \texttt{DownloadedMob}, as related to some social network, be the network known or not.
-\end{itemize}
-\subsection{OSP growth}\label{downwards}
-
-\begin{figure*}
-    \centering
-        \includegraphics[width=2\columnwidth]{figs/cospExp}
+%\begin{landscape}
+%\begin{figure}
+\begin{sidewaysfigure*}
+    \vspace{24.5em}
+    \hspace*{-3.5em}
+        \includegraphics[width=1.05\textwidth]{figs/opsExpandedTax}
     \caption{A taxonomic diagram of an expanded instance of OSP. Darker orange marks defined classes: PaidExecutor is defined as being the subject of a \texttt{receivesFrom} relation with a \texttt{SocialActor}; \texttt{DownloadedMob} is defined by being the subject of a \texttt{convoquedBy} relation with a \texttt{SocialNetwork}. OWL code is online for live editing~\cite{owlExp}. The new classes added to OSP are in Table~\ref{ospFooClass}}
     \label{fig:owlExp}
-\end{figure*}
-
+\end{sidewaysfigure*}
+%\end{figure}
+%\end{landscape}
 To this point, OSP is complete (no missing classes, properties and restrictions with respect to documentation), correct (no spaces in URIs and \texttt{min 1} restrictions specified as existential restrictions), and names of classes and properties standardized (English in CamelCase and headlessCamelCase). This way, OSP matches, with coherence, CVSP community online documentation~\cite{corais}. As no greater consensus was reached, further developments of OPA should wait feedback and unroll of community processes.
 
 As an example of possible aditional classes, another instance of the ontology is uploaded to Webprotege, from which some newly created classes and properties are exhibited~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these aditional classes while Figure~\ref{fig:owlExp} exhibits the resulting taxonomic structure.
@@ -510,6 +510,22 @@ PaidExecutor & Executor & an Executor that receives formal reward for the tasks 
   \label{ospFooClass}
 \end{table*}
 
+\subsection{Fictional examples of usage}\label{examplesUsage}
+
+OSP usage might not be obvious at first. How is data being linked? How is field knowledge being organized? Core principles of this utility, reflecting the exposition in Section~\ref{sec:into}, can be understood by the following observations:
+\begin{itemize}
+    \item Different participation instances have social actors, actions being developed, organizations involved, problems being tackled, etc. These can yield one consistent database by means of OSP usage.
+    \item One can understand the mutually exclusive nature of being a paid or a voluntary contributor by observing the expanded version of OSP, exposed above. Also, noticing the fact that a mob can be very big or not, and that it can be convoqued or not by a Network, can make the field more neat for a newcommer or ease discussions and problematizations for senior researchers or politicians.
+\end{itemize}
+
+Imagined examples are useful to make these points clear:
+\begin{itemize}
+    \item Suppose a public SparQL endpoint unifies several participation instances by means of OSP. Thus, the number of participants (Social Actors) is publicly available. Also, depending on the platforms, one can observe how many are individuals, how many are organizations, and understand to which extent the corporative influence is explicit. One can observe how many of the participants are the same in each platform, and what roles they take, and make conclusions about how much society is really participating or if these processes are manipulated by the same agents. One can also gaze uppon the problems being discussed and which solutions are being proposed, therefore easing the sense of what is being considered important and valid as public discussions. This list of possibilities is endless, specially when OSP variations and expansions are considered.
+    \item Suppose a person, say Jessica, has a new proposal for a participative system that uses OSP. She can have a quite concise understanding of the concepts involved, and how they relate, by means of OSP. She can now make very objective observations and deliver clear suggestions that relate directly to the system being used. She can even make an OSP variation or another ontology, as a way to confront the schemes.
+    \item Supose there is an automatic system for exhibiting indicators about social participation (how effective it has been, how wide the scope of interests, etc). Instances that are integrated by OSP are queried for information and, for example, this system registers any organization involved as a social actor. In the case of the expanded OSP exposed above, for example, the system registers any mob, whose incidence was recorded in the database as a \texttt{DownloadedMob}, as related to some social network, be the network known or not.
+\end{itemize}
+
+\subsection{Real use cases}\label{examplesUsage}
 
 \section{Concluding remarks and future work}\label{conc}
 OSP, based in CVSP, % Essa aqui? Mesmo que voce decida usar o mesmo nome para as duas, vai ter que fazer algo OSP 1 e OSP 2 para separar as duas de forma a não haver mais confusão.
