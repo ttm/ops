@@ -215,6 +215,10 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\ontop}{\textsc{o}n\textsc{T}op}
 \newcommand{\quest}{\textsc{Q}uest}
 \newcommand{\obda}{\textsc{obda}}
+\newcommand{\pnud}{\textsc{pnud}}
+\newcommand{\onu}{\textsc{onu}}
+\newcommand{\serpro}{\textsc{S}erpro}
+% triplification of data
 
 %\newcommand{\t}[1]{\texttt{#1}}
 \begin{abstract}
@@ -451,19 +455,17 @@ Linking multiple databases is an \owl\ technology core purpose. The standard way
     \label{endpoint}
 \end{figure}
 
-Some examples of this usage can be given by SparQL queries and concise explanations:
+Some examples of this usage can be given by \sparql\ queries and concise explanations:
 \begin{itemize}
     \item \texttt{"select ?s ?s2 ?s3 where \{?s a ops:SocialActor . ?s2 a ops:Person . ?s3 a ops:Organization\}"}: this query retrieves all social actors (returned in variable \texttt{?s}), be each a person or an organization; retrieves all persons (variable \texttt{?s2}); and retrieves all organizations (\texttt{?s3}). In a similar manner, one can retrieve all roles played, all executers, all initiators and all supporters.
     \item \texttt{"select ?s ?o where \{?s ops:starts ?o\}"}: this query retrieves all causes ({\tt ?o}) and their initiators ({\tt ?s}).
     \item \texttt{"select ?s ?s2 ?o ?o2 where \{?s a ops:Action . ?s ops:belongsTo ?o . ?s2 ops:executes ?s . ?s ops:produces ?o2\}"}: this query retrieves all actions (\texttt{?s}) along their Action Field (\texttt{?o}), their Executer (\texttt{?s2}) and their Results (\texttt{?o2}).
 \end{itemize}
 
-Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \participa\ participants, {\tt ocd:Participant} can be used to retrieve all \cidadedemocratica\ participants, and {\tt aa:User} can be used to retrieve all \aan\ participants, their upper ontology class {\tt opa:Participant} retrieves all of them and relates these entities directly to the class of generic actors of social participation processes.
+Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \participa\ participants, {\tt ocd:Participant} can be used to retrieve all \cidadedemocratica\ participants, and {\tt aa:User} can be used to retrieve all \aan\ participants; their upper ontology class {\tt ops:SocialActor} retrieves all of them and relates these entities directly to the class of generic actors of social participation processes.
 
 \subsection{OPS expansion}\label{downwards}
 
-%\begin{landscape}
-%\begin{figure}
 \begin{sidewaysfigure*}
     \vspace{24.5em}
     \hspace*{-3.5em}
@@ -471,21 +473,16 @@ Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \part
     \caption{A taxonomic diagram of an expanded instance of OSP. Darker orange marks defined classes: PaidExecutor is defined as being the subject of a \texttt{receivesFrom} relation with a \texttt{SocialActor}; \texttt{DownloadedMob} is defined by being the subject of a \texttt{convoquedBy} relation with a \texttt{SocialNetwork}. OWL code is online for live editing~\cite{owlExp}. The new classes added to OSP are in Table~\ref{ospFooClass}}
     \label{fig:owlExp}
 \end{sidewaysfigure*}
-%\end{figure}
-%\end{landscape}
-To this point, OSP is complete (no missing classes, properties and restrictions with respect to documentation), correct (no spaces in URIs and \texttt{min 1} restrictions specified as existential restrictions), and names of classes and properties standardized (English in CamelCase and headlessCamelCase). This way, OSP matches, with coherence, CVSP community online documentation~\cite{corais}. As no greater consensus was reached, further developments of OPA should wait feedback and unroll of community processes.
 
-As an example of possible aditional classes, another instance of the ontology is uploaded to Webprotege, from which some newly created classes and properties are exhibited~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these aditional classes while Figure~\ref{fig:owlExp} exhibits the resulting taxonomic structure.
+\opsi\ matches, \vcps\ online documentation~\cite{corais}. An example of additional classes, an expanded \ops\ ontology is exposed in this section and is uploaded to Webprotege~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these additional classes while Figure~\ref{fig:owlExp} presents the resulting taxonomic structure.
 
-The property \texttt{receivesFrom} was also added and has an inverse: \texttt{SocialActor ``paysTo'' Executor}. Also, the \texttt{DownloadedMod} class is a defined class by the restricton: \texttt{Mob convoquedBy Network}, with a newly defined property \texttt{convoquedBy}.
+The property {\tt ops:receivesFrom} was also added and has an inverse: \texttt{ops:SocialActor ops:paysTo ops:Executor}. Also, the {\tt ops:DownloadedMod} class is a defined class by the restriction: \texttt{ops:Mob ops:convoquedBy ops:Network}, with a newly defined property \texttt{ops:convoquedBy}.
 
-This is one of the numerous ways by which OSP might deal with further classes, properties and restrictions. This particular expansion was chosen as an example by plain observance of community documentation and recent social affairs, such as the Brazilian protests.
-
-
+This is one of the numerous ways by which \ops\ might deal with further classes, properties and restrictions. This particular expansion was chosen as an example by direct observance of \vcps\ documentation and recent social affairs, such as the Brazilian protests.
 
 \begin{table*}
   \centering
-  \caption{New classes considered for expansion of the OSP. The taxonomic organization of these classes, within OSP can be oberved in Figure~\ref{fig:owlExp}. Further information is in Section~\ref{downwards}.}
+  \caption{New classes considered for expansion of the \ops. The taxonomic organization of these classes, within \ops\ can be observed in Figure~\ref{fig:owlExp}. Further information is in Section~\ref{downwards}.}
   \begin{tabular}{|l|l|p{5cm}|p{5cm}|}\hline
 {\bf new class} & {\bf subclass of} & {\bf description} & {\bf further notes} \\\hline\hline
 SocialNetwork & Organization & a social structure made up of social actors (such as individuals or organizations) and a set of dyadic ties between these actors & --//--\\\hline
@@ -512,20 +509,28 @@ PaidExecutor & Executor & an Executor that receives formal reward for the tasks 
 
 \subsection{Fictional examples of usage}\label{examplesUsage}
 
-OSP usage might not be obvious at first. How is data being linked? How is field knowledge being organized? Core principles of this utility, reflecting the exposition in Section~\ref{sec:into}, can be understood by the following observations:
+\opsi\ usage might not be obvious at first. How is data being linked? How is field knowledge being organized? Why and by whom? Core principles of this \ops\ utilities, can be understood by the following observations:
 \begin{itemize}
-    \item Different participation instances have social actors, actions being developed, organizations involved, problems being tackled, etc. These can yield one consistent database by means of OSP usage.
-    \item One can understand the mutually exclusive nature of being a paid or a voluntary contributor by observing the expanded version of OSP, exposed above. Also, noticing the fact that a mob can be very big or not, and that it can be convoqued or not by a Network, can make the field more neat for a newcommer or ease discussions and problematizations for senior researchers or politicians.
+    \item Different participation instances have social actors, actions being developed, organizations involved, problems being tackled, etc. These can yield one consistent database by means of \ops\ usage.
+    \item One can understand and share the mutually exclusive nature of being a paid or a voluntary contributor by observing the expanded version of \ops\ (see Section~\ref{downwards}. Also, noticing the fact that a mob can be very big or not, and that it can be convoked or not by a Network, can make the field more neat for a newcomer or ease discussions and problematization for senior researchers or politicians.
+    \item Other fields of human knowledge and practice also have agents, problems and so forth. These can be linked to participatory data and ontologies by means of \ops.
 \end{itemize}
 
-Imagined examples are useful to make these points clear:
+Fictional examples are useful to make these points clear:
 \begin{itemize}
-    \item Suppose a public SparQL endpoint unifies several participation instances by means of OSP. Thus, the number of participants (Social Actors) is publicly available. Also, depending on the platforms, one can observe how many are individuals, how many are organizations, and understand to which extent the corporative influence is explicit. One can observe how many of the participants are the same in each platform, and what roles they take, and make conclusions about how much society is really participating or if these processes are manipulated by the same agents. One can also gaze uppon the problems being discussed and which solutions are being proposed, therefore easing the sense of what is being considered important and valid as public discussions. This list of possibilities is endless, specially when OSP variations and expansions are considered.
-    \item Suppose a person, say Jessica, has a new proposal for a participative system that uses OSP. She can have a quite concise understanding of the concepts involved, and how they relate, by means of OSP. She can now make very objective observations and deliver clear suggestions that relate directly to the system being used. She can even make an OSP variation or another ontology, as a way to confront the schemes.
-    \item Supose there is an automatic system for exhibiting indicators about social participation (how effective it has been, how wide the scope of interests, etc). Instances that are integrated by OSP are queried for information and, for example, this system registers any organization involved as a social actor. In the case of the expanded OSP exposed above, for example, the system registers any mob, whose incidence was recorded in the database as a \texttt{DownloadedMob}, as related to some social network, be the network known or not.
+    \item Suppose a public \sparql\ endpoint unifies several participation instances by means of \ops\ (we will see in Section~\ref{sec:real} that this is not really fictional). Thus, the number of participants is publicly available ({\tt |ops:SocialActor|}). Also, depending on the platforms involved, one can observe how many of these participants are individuals ({\tt ops:Person}), how many are organizations ({\tt ops:Organization}), and understand to which extent the corporative influence is explicit. One can observe how many of the participants are the same in each platform, and what roles they take, and make conclusions about how much the society is really participating or if these processes are manipulated by a few agents ({\tt ops:SocialActor}). One can also gaze uppon the problems being discussed and which solutions are being proposed, therefore easing the sense of what is being considered important and valid as public discussions. This list of possibilities is endless, specially when \ops\ variations and expansions are considered.
+    \item Suppose a person, say Jessica, has a new proposal for a participative system that uses \ops. She can have a quite concise understanding of the concepts involved, and how they relate. She can now make very objective observations and deliver clear suggestions that relate directly to the systems used or envisioned. She can make an \ops\ variation or another ontology, as a way to confront paradigms.
+    \item Suppose there is a system for exhibiting indicators about social participation (how effective it has been, how wide the scope of interests, etc.). Instances that are integrated by \ops\ can be queried for information and, for example, this system registers any organization involved as a social actor. Also, reflecting the expanded \ops\ exposed above, the system registers any mob involved, whose incidence was recorded in the database as a \texttt{DownloadedMob}, as related to some social network (the network might be unknown).
 \end{itemize}
 
-\subsection{Real use cases}\label{examplesUsage}
+\subsection{Real use cases}\label{sec:real}
+\opsi\ is a recent ontology. Even so, some real use cases can be pointed, from which are most notable:
+\begin{itemize}
+        \item The \pnud/\onu\ consultant contract 2013/00056, project BRA/12/018, was heavily influenced by \ops. Within written products delivered are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments where done by the computational the physics researcher Renato Fabbri (main author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aa and \cidadedemocratica, these are also related to \ops.
+    \item Another \pnud/\onu\ contract was responsible for some advances in information technologies. A special case is a dedicated \ops\ expansion\cite{opsFernando}.
+    \item The Brazilian Federal Data Processing Service (\serpro) is triplifying \participa\ data (the Brazilian federal social participation portal). Is this process, they as making direct use of \ops~\cite{tripSerpro}.
+    \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud/\onu documentation and \serpro\ triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{eventoParticipativo,documentacaoParticipativa}.
+\end{itemize}
 
 \section{Concluding remarks and future work}\label{conc}
 OSP, based in CVSP, % Essa aqui? Mesmo que voce decida usar o mesmo nome para as duas, vai ter que fazer algo OSP 1 e OSP 2 para separar as duas de forma a não haver mais confusão.
@@ -630,6 +635,7 @@ This public consultation model is observed here for completeness of exposition a
     \label{fig:diaorig}
 \end{figure*}
 
+\section{Glossary of terms, achronims and abbreviations}\label{ap:glossary}
 \newpage
 %\nocite{*}
 \bibliography{paper}% Produces the bibliography via BibTeX.
