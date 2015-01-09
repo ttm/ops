@@ -200,6 +200,12 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\urll}{\textsc{url}}
 \newcommand{\ngo}{\textsc{ngo}}
 \newcommand{\http}{\textsc{http}}
+\newcommand{\opa}{\textsc{op}a}
+\newcommand{\ocd}{\textsc{ocd}}
+\newcommand{\ontologiaa}{\textsc{o}ntologiaa}
+\newcommand{\obs}{\textsc{obs}}
+\newcommand{\pubby}{\textsc{p}ubby}
+\newcommand{\rdf}{\textsc{rdf}}
 %\newcommand{\t}[1]{\texttt{#1}}
 \begin{abstract}
     Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. At 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}), as a public and online process. By May, 2013, first reference documents were publicized, together with a preliminary \owl\ code,
@@ -247,7 +253,7 @@ It is important to notice that \vcps, an ontology, was called a \emph{vocabulary
 
 Also, The term \emph{common} was dropped when \ops\ was conceived, as the term is redundant for an ontology. The \vcps\ presented other difficulties, such as missing classes, incorrect URI specifications (containing spaces), some logical flaws, and unnecessary out-of-standards restrictions. This were all solved within \ops\ (to the extent authors were able to, of course).
 
-Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, OWL code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: derreferatiation, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
+Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, OWL code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: dereferencing, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
 
 \section{\vcps\ original documentation}
 From April to December, 2012, the \vcps\ was first conceived. In the online process, as registered by Corais platform, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
@@ -407,12 +413,27 @@ Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties a
 
 %\subsubsection{SparQL examples of usage}
 
-\section{OSP utility}\label{ospUtil}
-OSP is meant to be useful. First, as a sistematization of what is social participation to Latin America groups, as conceived by CVSP. Second, as a mean to ease linked data, and enable integration of various instances for social participation. An indicative of this pertinence is OPA, an ontology that already uses OSP.
+\section{\ops\ utility}\label{ospUtil}
+\opsi\ is meant to be useful. First, as a systematization of what is social participation to Latin America groups, as conceived by \vcps. Second, as a mean to ease linked data, and enable integration of various instances for social participation. An indicative of this pertinence is \opa~\cite{opa}, \ocd~\cite{ocd}, \ontologiaa~\cite{ontologiaa}, and \obs~\cite{obs}, ontologies that already uses \ops\ as upper ontology.
+
+This section explores different \ops\ uses: dereferencing, \sparql\ queries, expansion, discursive fictional cases, and real use cases.
+
+\subsection{Usage of \ops\ through dereferencing}
+
+All \ops\ classes and properties \uri s are accessible via \http. A \pubby\ instance delivers information like name, labels and relations to other classes and properties. As an example, the \uri\ \url{http://purl.org/socialparticipation/ops/SocialActor} returns information about this class and all subclasses it is related to, as shown in Figure~\ref{fig:deref}.
+
+\begin{figure}[!h]
+    \centering
+    %\includegraphics[width=\columnwidth]{figs/pubbyDer}
+    \includegraphics[width=\columnwidth]{figs/foo}
+    \caption{Dereferencing an \ops\ class: the \uri\ is also an \urll, which, reached by \http, delivers information for the user as shown. Also, if the client is not a browser, but a crawler or a linked data application, \pubby\ delivers plain \rdf, not user-friendly \html.}
+    \label{fig:owlCC}
+\end{figure}
 
 
 
-\subsection{Usage of OSP via a SparQL endpoint}
+
+\subsection{Usage of \ops\ through a \sparql\ endpoint}
 Accessing multiple databases is one of the OWL ontology basic purposes. The standard way to acess these data via ontologies is by using a SparQL endpoint. This endpoint delivers data from a triplestore or, with more experimental technology, relational database systems, such as a MySQL server (e.g. via OnTop/Quest~\cite{onTop}). Either way, the query is the same, i.e. the user or machine reaching the endpoint uses the same protocol in order to retrieve information through semantic criteria. Figure~\ref{endpoint} is a schematic representation of OBDA (Ontology Based Database Access), which is a common name for this multiple database access through ontologies.
 
 \begin{figure}
