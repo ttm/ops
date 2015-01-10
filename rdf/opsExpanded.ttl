@@ -1,0 +1,560 @@
+@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
+@prefix ops: <http://purl.org/socialparticipation/ops/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix snap: <http://www.ifomis.org/bfo/1.1/snap#> .
+@prefix span: <http://www.ifomis.org/bfo/1.1/span#> .
+@base <http://purl.org/socialparticipation/ops/ops.owl> .
+
+<http://purl.org/socialparticipation/ops/ops.owl> rdf:type owl:Ontology ;
+                                                  
+                                                  rdfs:label "OPS"^^xsd:string ,
+                                                             "Social Participation Ontology"@en ,
+                                                             "Ontología de la participación social"@es ,
+                                                             "Ontologia de Participação Social"@pt ;
+                                                  
+                                                  owl:versionInfo "0.02"^^xsd:string ;
+                                                  
+                                                  rdfs:comment "Social Participation Ontology headed by Cidade Democrática, Brazilian Federal Government and Corais Platform, in direct collaboration with dozens of actors throughout latin america"@en ,
+                                                               "Ontología de Participación Social conducida por el Cidade Democrática, el Gobierno Federal de Brasil y la Plataforma Corais, en colaboración directa con docenas de actores en toda América Latina"@es ,
+                                                               "Ontologia de Participação Social capitaneada pelo Cidade Democrática, Governo Federal Brazileiro e Plataforma Corais, em colaboração direta com dezenas de agentes de toda américa latina"@pt ;
+                                                  
+                                                  rdfs:seeAlso <http://purl.org/socialparticipation/aa> ,
+                                                               <http://purl.org/socialparticipation/obs> ,
+                                                               <http://purl.org/socialparticipation/ocd> ,
+                                                               <http://purl.org/socialparticipation/opa> ,
+                                                               <http://purl.org/socialparticipation/vbs> .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://purl.org/socialparticipation/ops/action
+
+ops:action rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "action"@en ,
+                      "acción"@es ,
+                      "ação"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/belongsTo
+
+ops:belongsTo rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "belongs to"@en ,
+                         "pertence al"@es ,
+                         "pertence ao"@pt ;
+              
+              rdfs:range ops:Scope .
+
+
+
+###  http://purl.org/socialparticipation/ops/contributesTo
+
+ops:contributesTo rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:label "contributes to"@en ,
+                             "contribuye a la"@es ,
+                             "contribui para"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/executes
+
+ops:executes rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "executes"@en ,
+                        "ejecuta"@es ,
+                        "executa"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/generates
+
+ops:generates rdf:type owl:ObjectProperty ;
+              
+              rdfs:label "generates"@en ,
+                         "genera"@es ,
+                         "gera"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/produces
+
+ops:produces rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "produces"@en ,
+                        "produce"@es ,
+                        "produz"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/proposes
+
+ops:proposes rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "proposes"@en ,
+                        "propone"@es ,
+                        "propõe"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/solves
+
+ops:solves rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "solves"@en ,
+                      "resuelve"@es ,
+                      "soluciona"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/starts
+
+ops:starts rdf:type owl:ObjectProperty ;
+           
+           rdfs:label "starts"@en ,
+                      "inicia"@es ,
+                      "inicia"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/supports
+
+ops:supports rdf:type owl:ObjectProperty ;
+             
+             rdfs:label "supports"@en ,
+                        "apoya"@es ,
+                        "apoia"@pt .
+
+
+
+###  http://purl.org/socialparticipation/ops/theme
+
+ops:theme rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "theme"@en ,
+                     "tema"@es ,
+                     "tema"@pt ;
+          
+          rdfs:range ops:Theme .
+
+
+
+###  http://purl.org/socialparticipation/ops/trait
+
+ops:trait rdf:type owl:ObjectProperty ;
+          
+          rdfs:label "trait"@en ,
+                     "rasgo"@es ,
+                     "traço"@pt .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://purl.org/socialparticipation/ops/AcademicInstitution
+
+ops:AcademicInstitution rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf ops:Institution .
+
+
+
+###  http://purl.org/socialparticipation/ops/Action
+
+ops:Action rdf:type owl:Class ;
+           
+           rdfs:label "Action"@en ,
+                      "Acción"@es ,
+                      "Ação"@pt ;
+           
+           rdfs:subClassOf span:ProcessualEntity ;
+           
+           rdfs:comment "what is done in terms os social participation"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/Cause
+
+ops:Cause rdf:type owl:Class ;
+          
+          rdfs:label "Cause"@en ,
+                     "Causa"@es ,
+                     "Causa"@pt ;
+          
+          rdfs:subClassOf snap:IndependentContinuant ;
+          
+          rdfs:comment "the motivation for Action"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/DownloadedMob
+
+ops:DownloadedMob rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf ops:Mob .
+
+
+
+###  http://purl.org/socialparticipation/ops/ErdosRenyiNetwork
+
+ops:ErdosRenyiNetwork rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf ops:SocialNetwork .
+
+
+
+###  http://purl.org/socialparticipation/ops/Executor
+
+ops:Executor rdf:type owl:Class ;
+             
+             rdfs:label "Executor"@en ,
+                        "Ejecutor"@es ,
+                        "Executor"@pt ;
+             
+             rdfs:subClassOf ops:SocialActor ,
+                             snap:MaterialEntity ;
+             
+             rdfs:comment "performs action directly and is responsible for results"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/ExoticInstitution
+
+ops:ExoticInstitution rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf ops:Institution .
+
+
+
+###  http://purl.org/socialparticipation/ops/FreeScaleNetwork
+
+ops:FreeScaleNetwork rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf ops:SocialNetwork .
+
+
+
+###  http://purl.org/socialparticipation/ops/GeographicNetwork
+
+ops:GeographicNetwork rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf ops:SocialNetwork .
+
+
+
+###  http://purl.org/socialparticipation/ops/GiantMob
+
+ops:GiantMob rdf:type owl:Class ;
+             
+             rdfs:subClassOf ops:Mob .
+
+
+
+###  http://purl.org/socialparticipation/ops/InformalOrganization
+
+ops:InformalOrganization rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf ops:Organization .
+
+
+
+###  http://purl.org/socialparticipation/ops/Initiator
+
+ops:Initiator rdf:type owl:Class ;
+              
+              rdfs:label "Initiator"@en ,
+                         "Iniciador"@es ,
+                         "Iniciador"@pt ;
+              
+              rdfs:subClassOf ops:SocialActor ,
+                              snap:MaterialEntity ;
+              
+              rdfs:comment "originates cause, individually or collaborativelly"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/Institution
+
+ops:Institution rdf:type owl:Class ;
+                
+                rdfs:subClassOf ops:Organization .
+
+
+
+###  http://purl.org/socialparticipation/ops/Mob
+
+ops:Mob rdf:type owl:Class ;
+        
+        rdfs:subClassOf ops:InformalOrganization .
+
+
+
+###  http://purl.org/socialparticipation/ops/NGO
+
+ops:NGO rdf:type owl:Class ;
+        
+        rdfs:subClassOf ops:Institution .
+
+
+
+###  http://purl.org/socialparticipation/ops/Organization
+
+ops:Organization rdf:type owl:Class ;
+                 
+                 rdfs:label "Organization"@en ,
+                            "Organización"@es ,
+                            "Organização"@pt ;
+                 
+                 rdfs:subClassOf ops:SocialActor ,
+                                 snap:MaterialEntity ,
+                                 foaf:Organization ;
+                 
+                 owl:disjointWith ops:Person ;
+                 
+                 rdfs:comment "social actor is a group of individuals, organized formally or informally (e.g. movements, collectives)"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/PaidExecutor
+
+ops:PaidExecutor rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf ops:Executor .
+
+
+
+###  http://purl.org/socialparticipation/ops/ParticipationCharacteristic
+
+ops:ParticipationCharacteristic rdf:type owl:Class ;
+                                
+                                rdfs:label "Participation Characteristic"@en ,
+                                           "Característica de Participación"@es ,
+                                           "Característica de Participação"@pt ;
+                                
+                                rdfs:subClassOf snap:DependentContinuant ;
+                                
+                                rdfs:comment "the way the participation of specific actor is happening"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/Person
+
+ops:Person rdf:type owl:Class ;
+           
+           rdfs:label "Person"@en ,
+                      "Persona"@es ,
+                      "Pessoa"@pt ;
+           
+           rdfs:subClassOf ops:SocialActor ,
+                           snap:MaterialEntity ,
+                           foaf:Person ;
+           
+           rdfs:comment "a person (social actor is a person)"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/PrivateInstitution
+
+ops:PrivateInstitution rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf ops:Institution .
+
+
+
+###  http://purl.org/socialparticipation/ops/Problem
+
+ops:Problem rdf:type owl:Class ;
+            
+            rdfs:label "Problem"@en ,
+                       "Problema"@es ,
+                       "Problema"@pt ;
+            
+            rdfs:subClassOf snap:IndependentContinuant ;
+            
+            rdfs:comment "the problem that the Action aims to solve"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/PublicInstitution
+
+ops:PublicInstitution rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf ops:Institution .
+
+
+
+###  http://purl.org/socialparticipation/ops/Result
+
+ops:Result rdf:type owl:Class ;
+           
+           rdfs:label "Result"@en ,
+                      "Resultado"@es ,
+                      "Resultado"@pt ;
+           
+           rdfs:subClassOf snap:DependentContinuant ;
+           
+           rdfs:comment "the result obtained with Action"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/Scope
+
+ops:Scope rdf:type owl:Class ;
+          
+          rdfs:label "Scope"@en ,
+                     "Ambito"@es ,
+                     "Escopo"@pt ;
+          
+          rdfs:subClassOf snap:DependentContinuant ;
+          
+          rdfs:comment "the scope of Action"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/SmallWorldNetwork
+
+ops:SmallWorldNetwork rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf ops:SocialNetwork .
+
+
+
+###  http://purl.org/socialparticipation/ops/SocialActor
+
+ops:SocialActor rdf:type owl:Class ;
+                
+                rdfs:label "Social Actor"@en ,
+                           "Actor Social"@es ,
+                           "Ator Social"@pt ;
+                
+                rdfs:subClassOf snap:MaterialEntity ;
+                
+                rdfs:comment "entity that might have a participatory role"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/SocialNetwork
+
+ops:SocialNetwork rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf ops:Organization .
+
+
+
+###  http://purl.org/socialparticipation/ops/Solution
+
+ops:Solution rdf:type owl:Class ;
+             
+             rdfs:label "Solution"@en ,
+                        "Solución"@es ,
+                        "Solução"@pt ;
+             
+             rdfs:subClassOf snap:DependentContinuant ;
+             
+             rdfs:comment "solution achieved with Action"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/SpuriousInstitution
+
+ops:SpuriousInstitution rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf ops:Institution .
+
+
+
+###  http://purl.org/socialparticipation/ops/Supporter
+
+ops:Supporter rdf:type owl:Class ;
+              
+              rdfs:label "Supporter"@en ,
+                         "Apoyador"@es ,
+                         "Apoiador"@pt ;
+              
+              rdfs:subClassOf ops:SocialActor ,
+                              snap:MaterialEntity ;
+              
+              rdfs:comment "supports cause with resources of any kind (e.g. cognitive, financial, equipments)"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/Theme
+
+ops:Theme rdf:type owl:Class ;
+          
+          rdfs:label "Theme"@en ,
+                     "Tema"@es ,
+                     "Tema"@pt ;
+          
+          rdfs:subClassOf snap:IndependentContinuant ;
+          
+          rdfs:comment "the theme in focus by Action"@en .
+
+
+
+###  http://purl.org/socialparticipation/ops/VoluntaryExecutor
+
+ops:VoluntaryExecutor rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf ops:Executor .
+
+
+
+###  http://www.ifomis.org/bfo/1.1/snap#DependentContinuant
+
+snap:DependentContinuant rdf:type owl:Class .
+
+
+
+###  http://www.ifomis.org/bfo/1.1/snap#IndependentContinuant
+
+snap:IndependentContinuant rdf:type owl:Class .
+
+
+
+###  http://www.ifomis.org/bfo/1.1/snap#MaterialEntity
+
+snap:MaterialEntity rdf:type owl:Class .
+
+
+
+###  http://www.ifomis.org/bfo/1.1/span#ProcessualEntity
+
+span:ProcessualEntity rdf:type owl:Class .
+
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+
+foaf:Organization rdf:type owl:Class .
+
+
+
+###  http://xmlns.com/foaf/0.1/Person
+
+foaf:Person rdf:type owl:Class .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
