@@ -217,6 +217,9 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\obda}{\textsc{obda}}
 \newcommand{\pnud}{\textsc{pnud}}
 \newcommand{\onu}{\textsc{onu}}
+\newcommand{\vbs}{\textsc{vbs}}
+\newcommand{\lod}{\textsc{lod}}
+\newcommand{\corais}{\textsc{c}orais}
 \newcommand{\serpro}{\textsc{S}erpro}
 % triplification of data
 
@@ -526,34 +529,31 @@ Fictional examples are useful to make these points clear:
 \subsection{Real use cases}\label{sec:real}
 \opsi\ is a recent ontology. Even so, some real use cases can be pointed, from which are most notable:
 \begin{itemize}
-        \item The \pnud/\onu\ consultant contract 2013/00056, project BRA/12/018, was heavily influenced by \ops. Within written products delivered are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments where done by the computational the physics researcher Renato Fabbri (main author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aa and \cidadedemocratica, these are also related to \ops.
+        \item The \pnud/\onu\ consultant contract 2013/00056, project BRA/12/018, was heavily influenced by \ops. Within written products delivered are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments where done by the computational the physics researcher Renato Fabbri (main author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aa and \cidadedemocratica, these are also related to \ops. These linked data resources are available in \sparql\ endpoints and can be dereferenced, in a similar fashion as done for \ops. As these are all executed in research facilities, they might lack maintenance and should be kept by a dedicated team.
     \item Another \pnud/\onu\ contract was responsible for some advances in information technologies. A special case is a dedicated \ops\ expansion\cite{opsFernando}.
     \item The Brazilian Federal Data Processing Service (\serpro) is triplifying \participa\ data (the Brazilian federal social participation portal). Is this process, they as making direct use of \ops~\cite{tripSerpro}.
     \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud/\onu documentation and \serpro\ triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{eventoParticipativo,documentacaoParticipativa}.
 \end{itemize}
 
 \section{Concluding remarks and future work}\label{conc}
-OSP, based in CVSP, % Essa aqui? Mesmo que voce decida usar o mesmo nome para as duas, vai ter que fazer algo OSP 1 e OSP 2 para separar as duas de forma a não haver mais confusão.
-yields initial steps in achieving an effective social participation ontology: community has registered activities and delivered reference documents, including the OWL ontology presented in this article. If on one hand such an ontology is difficult to be obtained in short term, on the other hand this is a precedent in which deeper observations can take place.
+\opsi, based in \vcps,
+yields initial steps in achieving an effective social participation ontology: community has registered activities and delivered reference documents, including this article.
+Sections~\ref{ospUtil},~\ref{downwards},~\ref{upper} and~\ref{public} have expansion directions for the ontology, regarding uses, further definition of classes, upper ontologies and related ontological structures.
 
-Sections~\ref{ospUtil},~\ref{downwards},~\ref{upper} and~\ref{public} have expansion directions for the ontology, regarding uses, further definition of classes, upper ontologies and related ontologic structures.
-
-On the practical side, the use of this ontology or related developments for the Brazilian federal participation portal (\url{Participa.br}~\cite{participa}) is a desirable possibility, as it implies usage and good maintenance. The parties responsible for such portal and for Brazilian government vocabularies and ontologies have already taken a step towards this development, with direct contact with authors and the publication of OSP in a government instance~\cite{pubVocab}. Moreover, an ontology was done for \url{Participa.br}, based in the OSP~\cite{opa}. This is confluent with the presidential Decree that establish a policy and commitment for social participation\cite{decree}. In this context, presidential and ministerial parties have come close, to start formalizing current legal participatory mechanisms (e.g. conferences, forums, roundtables) in ontological terms.
-Hosting of ontologies on Webprotege~\cite{webprotege} have become central, as a way to share specific ontologies and collects commentaries.
+On the practical side, the use of this ontology or related developments for the Brazilian federal participation portal (\participa~\cite{participa}) is a desirable reality, as it implies usage and good maintenance.  Moreover, an ontology was done for \url{Participa.br}, based in the \ops: the \opa~\cite{opa} (Ontology of \url{Participa.br}). This is confluent with the presidential Decree that establishes a policy and commitment for social participation\cite{decree}. In this context, presidential and ministerial parties have come close, to start formalizing current legal participatory mechanisms (e.g. conferences, councils, forums, public consultations, round tables) in ontological terms, which resulted in the Social Library Ontology (\obs) and the Social Library Vocabulary (\vbs).
+Hosting of ontologies on Webprotege~\cite{webprotege} have become central, as a way to share specific ontologies in a friendly environment and to collects observations.
 
 \subsection{Further work}
-Further works involves observing community manifestations about OSP and this article, accomplishing use by means of formal instances and civil society, studying upper ontologies usage with OSP and creating new ontologies for each Brazilian formal social participation instances (e.g. ombudsman office, roundtables, councils, foruns, conferences). The use of OSP (or a variant) in different instances is envisioned for creating indicatives of social participation and easing participation processes, which should be better studied.
+Further works involves observing community manifestations about \ops\ and this article, accomplishing use by means of formal instances and civil society, studying upper ontologies usage with \ops\. The use of \ops\ (or a variant) in different instances is being tackled for the creation of social participation indicators and easing participation processes.
 
-Future work involves careful consideration of Basic Formal Ontology to enhance linking participation data to scientific research. 
-Also, further detailing subclasses might be carefully modeled for different instances, with respective interested parties. 
+Academic texts dedicated to each new participation ontology created (\ocd, \obs, \ontologiaa, \opa) should be written and submitted to peer review for enhancements and quality assurance.
 
-
+Data related to these ontologies were found in relational databases and preliminary scripts were written to make them available as \rdf. A sound linkage of this data and relation to the Linked Open Data (\lod~\cite{}) cloud is planed for a near future. This should make Brazilian participative structures and data part of the Giant Global Graph~\cite{ggg}.
 
 \begin{acknowledgments}
-This article is heavily influenced by Protege and BFO documentation. Authors thank community and researchers related to these projects~\cite{protege,bfo}.
-Renato Fabbri is grateful to CNPq (project 870336/1997-5) and 
-the Postgraduate Committee of the IFSC/USP.
-Authors thank Silvio Domingos Cardoso.
+This article is deeply influenced by Protege and BFO documentation. Authors thank community and researchers related to these projects~\cite{protege,bfo}.
+Renato Fabbri is grateful to CNPq (project 870336/1997-5), PNUD/ONU (contract 2013/00056, project BRA/12/018), SNAS/SG-PR, and the Postgraduate Committee of the IFSC/USP. Authors thank \corais\ Platform maintainers for their efforts in delivering a collaborative platform which gave birth to \vcps\ documentation. Authors thanks Prof. Dr. Dilvan de Abreu Moreira (ICMC/USP) for all help and incentives in the genesis of this article. Authors thank Flor Karina Mamani Amanqui for initial Spanish labels.
+% 2013/00056, projeto BRA/12/018 (pelo que?? nao me lembro mais e nao anotamos)
 \end{acknowledgments}
 
 
@@ -635,6 +635,8 @@ This public consultation model is observed here for completeness of exposition a
     \label{fig:diaorig}
 \end{figure*}
 
+\section{Script for constructing current \ops}\label{ap:script}
+Script python. Explicação rápida e link.
 \section{Glossary of terms, achronims and abbreviations}\label{ap:glossary}
 \newpage
 %\nocite{*}
