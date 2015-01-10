@@ -583,45 +583,45 @@ Renato Fabbri is grateful to CNPq (process 140860/2013-4, project 870336/1997-5)
 %
 %This list is endless and further work should narrow the interest to essential upper ontologies. As part of the linkage to other participatory instances and even to other domains, this is a core 
 %
-\section{Restrictions in \vcps\ and initial \ops\ which were removed for the time being}\label{ap:restr}
+\section{Restrictions in VCPS and initial OPS which were removed for the time being}\label{ap:restr}
 
 These restrictions were part of \vcps\ documentation, but not implemented in \vcps\ \owl\ code:
 \begin{itemize}
     \item Restriction: {\tt ops:Role ops:hasParticipationCharacteristic some ops:ParticipationCharacteristic}.
     \item Restriction: {\tt ops:Results ops:composesSolution some ops:Solution}.
-    \item Restriction: {\tt Problem generatesCause some Cause}.
+    \item Restriction: {\tt ops:Problem ops:generatesCause some ops:Cause}.
 \end{itemize}
 
-Present in preliminary \ops\ implementation, all restrictions were removed from current \ops\ as explained in Section~\ref{impl}
-\begin{table}
+Present in preliminary \ops\ implementation, all restrictions were removed from current \ops\ as explained in Section~\ref{impl}.
+\begin{table}[!h]
   \centering
-  \caption{Restrictions of the OSP (Ontology of Social Participation). All OSP restrictions are existential (\texttt{owl:someValuesFrom)}.}
+  \caption{Restrictions of the \ops\ (Ontology of Social Participation). All \ops\ restrictions are existential (\texttt{owl:someValuesFrom)}.}
   \begin{tabular}{|l|l|l|}\hline
 {\bf subject} & {\bf predicate} & {\bf object} \\\hline\hline
-Initiator    & startsCause        & Cause\\\hline
-Supporter    & supportsCause      & Cause\\\hline
-Executer     & executesAction     & Action\\\hline
-Solution     & solvesProblem      & Problem\\\hline
+Initiator    & starts        & Cause\\\hline
+Supporter    & supports      & Cause\\\hline
+Executer     & executes     & Action\\\hline
+Solution     & solves      & Problem\\\hline
 SocialActor  & hasRole            & Role\\\hline
-Action       & producesResults    & Results\\\hline
-Result       & composesSolution   & Solution\\\hline
-Cause        & dasAction          & Action\\\hline
-Action       & belongsToScope     & Scope\\\hline
-Cause        & hasTheme           & Theme\\\hline
-Cause        & proposesSolution   & Solution\\\hline
-Problem      & generatesCause     & Cause\\\hline
+Action       & produces    & Results\\\hline
+Result       & contributesTo   & Solution\\\hline
+Cause        & action          & Action\\\hline
+Action       & belongsTo     & Scope\\\hline
+Cause        & theme           & Theme\\\hline
+Cause        & proposes   & Solution\\\hline
+Problem      & generates     & Cause\\\hline
   \end{tabular}
   \label{ospRestr}
 \end{table}
 
 Such \owl\ restrictions are valid, to the best of chances, for the final state of a participatory process (for example, in an arbitrary snapshot, a \texttt{SocialActor} may be not tied to a role). This might lead to NULL or ``not yet defined'' field supplies.
 Also, in \vcps, existential restrictions were  written as ``min 1''. 
-These were changed to the standard ``some'' existential restriction in preliminary \ops\ and were completely removed afterwards, as a way to avoid making \ops\ usage rigid and a more complicated.
+These were changed to the standard ``some'' existential restriction in preliminary \ops\ and were completely removed afterwards, as a way to avoid making \ops\ usage rigid and more complicated.
 
 
 
 \section{Public consultation}\label{ap:public}
-Public consultations have core importance in participatory democracy and the model in figure~\ref{fig:consult} was conceived as part of \vcps\ community documentation.
+Public consultations have core importance in participatory democracy and the model in Figure~\ref{fig:consult} was conceived as part of \vcps\ community documentation.
 An \owl\ implementation of such public consultation was meant to be developed and made public, with dedicated attention.
 Considerations of this public consultation with respect to the \ops\ and formal existent instances was envisioned as well.
 This public consultation model is observed here for completeness of exposition and further details goes beyond the scope of this article. A public consultations along the lines of a recent Presidential decree~\cite{decree} was formalized in \obs\ \owl\ and in \vbs\ \skos~\cite{pnud5}.
@@ -629,7 +629,7 @@ This public consultation model is observed here for completeness of exposition a
 \begin{figure*}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{figs/publicConsultation__}
-    \caption{A diagram representation of a general public consultation. Further context of this image is in Appendix~\ref{ap:public}.}
+    \caption{A diagram representation of a general public consultation, part of initial \vcps\ documentation. Further context of this image is in Appendix~\ref{ap:public}.}
     \label{fig:consult}
 \end{figure*}
 
@@ -642,17 +642,19 @@ This public consultation model is observed here for completeness of exposition a
 \lstinputlisting[language=owlms]{rdf/ops.ttl}
 
 \section{Original diagram of \ops}\label{ap:dia}
+Although deprecated, Figure~\ref{fig:diaorig} is the basis of \vcps\ and \ops. It is displayed here for completeness of exposition and as support for discussions within this article. 
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.8\textwidth]{figs/diagramaOriginal}
-    \caption{Original diagram of \ops. Although there were substantial OWL modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as the \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
+    \caption{Original \vcps diagram. Although there were substantial \owl\ modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as a \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
     \label{fig:diaorig}
 \end{figure*}
 
 \section{Script for constructing current \ops}\label{ap:script}
-Preliminary \ops\ was done with Protege software~\cite{protege}. Current \ops\ is the output of a Python script~\cite{opsScript}. Actually, this article, latex files, the \owl\ code, the \python script and auxiliary files are in a public git repository~\cite{opsRepo}, as is the common practice of the first author of this article.
+Preliminary \ops\ was done with \protege\ software~\cite{protege}. Current \ops\ is the output of a Python script~\cite{opsScript}. Actually, this article, latex files, the \owl\ code, the \python script and auxiliary files are in a public git repository~\cite{opsRepo}, as is the common practice of the first author of this article.
 
 \section{Glossary of terms, acronyms and abbreviations}\label{ap:glossary}
+The subjects involved in this article have numerous jargons, acronyms and abbreviations. Table~\ref{tab:glos} should help readers as a concise references.
 \begin{table}[!h]
   \footnotesize
   \centering
