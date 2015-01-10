@@ -206,6 +206,7 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\ogp}{\textsc{ogp}}
 \newcommand{\iri}{\textsc{iri}}
 \newcommand{\uri}{\textsc{uri}}
+\newcommand{\urii}{U\textsc{ri}}
 \newcommand{\urll}{\textsc{url}}
 \newcommand{\ngo}{\textsc{ngo}}
 \newcommand{\http}{\textsc{http}}
@@ -227,8 +228,9 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
 \newcommand{\vbs}{\textsc{vbs}}
 \newcommand{\lod}{\textsc{lod}}
 \newcommand{\corais}{\textsc{c}orais}
-\newcommand{\serpro}{\textsc{S}erpro}
-\newcommand{\python}{\textsc{P}ython}
+\newcommand{\serpro}{\textsc{s}erpro}
+\newcommand{\python}{\textsc{p}ython}
+\newcommand{\protege}{\textsc{p}rot\`eg\`e}
 % triplification of data
 
 %\newcommand{\t}[1]{\texttt{#1}}
@@ -236,7 +238,7 @@ Instituto de F\'isica de S\~ao Carlos, Universidade de S\~ao Paulo (IFSC/USP)%\\
     Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. In 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}), as a public and online process. By May, 2013, first reference documents were publicized, together with a preliminary \owl\ code,
 logos, and a diagram of a general ``public consultation''.
 The \corais\ platform kept online records of the process, like discussions and preparation of texts. 
-This article exposes this material and proposes an elementary unfolding: the ``Social Participation Ontology'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}). To exhibit this new ontology, these steps were considered: correction of ontological contradictions and \owl\ protocol use errors; completion of \vcps\ \owl\ code; translations and standardizations; enhancements of class names and labels in Portuguese, Spanish and English; a toy expansion of the ontology by further specifying classes; linked data examples regarding dereferencing, a \sparql\ endpoint and participatory instances; use cases by researchers and public managers. Ongoing work involves further adoption of \ops\ by the official Brazilian social participation federal portal, further adoption by civil participative organizations, and linkage to other participative ontologies. \ops\ is being used as an upper ontology, and all classes linked further to \foaf\ and \bfo\ as higher upper ontologies.
+This article exposes this material and proposes an elementary unfolding: the ``Social Participation Ontology'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}). To exhibit this new ontology, these steps were considered: correction of ontological contradictions and \owl\ protocol use errors; completion of \vcps\ \owl\ code into a preliminary version of the \ops; translations and standardizations; enhancements of class names and labels in Portuguese, Spanish and English; a toy expansion of the ontology by further specifying classes; linked data examples regarding dereferencing, a \sparql\ endpoint and participatory instances; use cases by researchers and public managers. Ongoing work involves further adoption of \ops\ by the official Brazilian federal portal of social participation, further adoption by civil participative organizations, and linkage to other participative ontologies. \ops\ is being used as an upper ontology, and all classes linked further to \foaf\ and \bfo\ as higher upper ontologies.
 \end{abstract}
 
 \pacs{89.65-s,07.05.Bx,07.05.Kf}% PACS, the Physics and Astronomy
@@ -249,20 +251,20 @@ Easy access to social media is reshaping citizen participation in government aff
 Information and communication technologies (\ict s) have exhibited such an impact on the way individuals interact
  that it is giving birth to new organizational methods in social movements. These changes can be observed, for example, in the 2010 Arab Spring and the 2013 Brazilian protests. These events gathered millions of people and, although recent, have shown direct and strong impact in governments and new laws, and the forecast is an intensification of the process~\cite{digRev1,digRev2,digRev3}.
 
-Concomitantly, electronic government initiatives are flourishing. Favored mainly by the ubiquity of Internet technologies (e.g. \html\ 5, \node, open source browsers) and by the need for renewal of representative democracy practices. 
+Concomitantly, electronic government initiatives are flourishing, favored mainly by the ubiquity of Internet technologies (e.g. \html\ 5, \node, open source browsers) and by the need for renewal of representative democracy practices. 
 These initiatives have taken place in various platforms, including usual social networks (e.g. \facebook, \twitter)
  and dedicated clients created by both government and civil society agents~\cite{socMed,pita2010arquitetura,barros2010alem,knowledge}.
 
-A natural challenge arises: how to link all information produced into an unified knowledge base. This is being addressed, at the technology level, by semantic web developments. Endorsed by World Wide Web Consortium (\wwwc), current semantic web technologies include~\cite{Sem1}:
+A natural challenge arises: how to link information produced into an unified knowledge base. This is being addressed, at the technology level, by semantic web developments. Endorsed by World Wide Web Consortium (\wwwc), current semantic web technologies include~\cite{Sem1}:
 \begin{itemize}
     \item reasoning by means of ontological specifications,
     \item linking data from different sources (e.g. databases),
     \item organization of domain knowledge for coherent consideration.
 \end{itemize}
 
-Key among these technologies, ontologies are considered one of the pillars of the Semantic Web. An ontology is a formal specification of a shared conceptualization~\cite{gruber}.
-They are used in the semantic web mainly to give meaning to data, useful for datasets available on the web to make them automatically retrievable and linkable with other datasets. The \wwwc\ created the Web Ontology Language (\owl) as a standard to represent ontologies in the web.
-The second version of the language is called \owl\ 2 and offers greater expressive power~\cite{owl2}.
+Key among these technologies, ontologies are considered one of the pillars of the semantic web. An ontology is usually defined as a formal specification of a shared conceptualization~\cite{gruber}.
+They give meaning to data and are useful for datasets available on the web to make them automatically retrievable and linkable with other datasets. The \wwwc\ created the Web Ontology Language (\owl) as a standard to represent ontologies in the web.
+The second version of the language is called \owl\ 2 and offers greater expressive power~\cite{owl2}, but the version is omitted with very few exceptions.
 
 In this context, to describe and give meaning to social participation, the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}) was proposed as a joint effort of Latin America academic, civil and governmental groups~\cite{corais}. Although started in 2012, a recent initiative for ontological developments, it already yielded relevant material, including a public preliminary \owl\ ontology with a concise taxonomy. Also important are the reference documents reporting results from a first working phase, from July to December, 2012. 
 As stated by the community, \vcps\ was propelled by three goals: 1) to ease adoption of the vocabulary; 2) to stimulate the creation of public tools to understand, visualize and summarize how participation is happening; 3) to meet the need of participative initiatives to open and link their data. 
@@ -273,22 +275,22 @@ It is important to notice that \vcps, an ontology, was called a \emph{vocabulary
     \item The usage of the word ``vocabulary'' can lead to confusion is some situations as \ops\ is an \owl\ ontology (not, for example, a \skos\ vocabulary).
     \item Documentation seems inconsistent when an ontology is repeatedly called a vocabulary.
     \item \opsi\ is, in fact, an ontology, with a vocabulary, a taxonomic organization and properties further relating the terms.
-    \item This coherent naming is a prerequisite for for academic acceptance and further formal adoption by government instances, such as the Brazilian Federal Portal of Open Data~\cite{dadosGov} and of Social Participation~\cite{participabr}.
+    \item This coherent naming is a prerequisite for for academic acceptance and further formal adoption by government instances, such as the Brazilian Federal Portal of Open Data~\cite{dadosGov} and the Brazilian Federal Portal of Social Participation~\cite{participa}.
 \end{itemize}
 
-Also, The term \emph{common} was dropped when \ops\ was conceived, as the term is redundant for an ontology. The \vcps\ presented other difficulties, such as missing classes, incorrect URI specifications (containing spaces), some logical flaws, and unnecessary out-of-standards restrictions. This were all solved within \ops\ (to the extent authors were able to, of course).
+Also, the term \emph{common} was dropped when \ops\ was conceived, as the term is redundant for an ontology. The \vcps\ presented other difficulties, such as missing classes, incorrect \uri\ specifications (containing spaces), some logical flaws, and unnecessary out-of-standards restrictions. This were all solved within \ops\ (to the extent authors were able to, of course).
 
-Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, OWL code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: dereferencing, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
+Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, \owl\ code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: dereferencing, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
 
 \section{\vcps\ original documentation}
-From April to December, 2012, the \vcps\ was first conceived. In the online process, as registered by Corais platform, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
+From April to December, 2012, \vcps\ was first conceived. In the online process, as registered by \corais\ platform, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
 
 \subsection{Reference textual documents}\label{refDocs}
 The main documents are:
 \begin{itemize}
-    \item ``Commented methodology''~\cite{metodologia}: this document describes the public process of ontology conception. It is composed by brief inspections of forum topics, pointing both pertinent characteristics of the online collective process and ontological observations (about classes and properties). Considerations are made about tightening relations to the Open Government Partnership (\ogp), an international initiative to foster transparency and open practices in governments worldwide~\cite{OGP}, and the Brazilian formal action plan, as means to achieve ontology usage. 
-     There is also a proposal of a systematic study about electronic government initiatives, so that the \vcps\ might be better contextualized. This document ends by proposing an agenda of meetings with academics, entrepreneurs and government parties.
- \item ``Conceptual modeling, version 0.1 (in natural language)''~\cite{conceptualMod}: this document is a description, in common English, of the \vcps\ ontology. The introduction is mainly a collage of the document above~\cite{metodologia}. Both the itemized description of the ontology, and the considerations for its usage, are of great value as reference. Figure~\ref{fig:v1} is heavily influenced by a diagram related to this document and further described in Section~\ref{sec:im}.
+    \item ``Commented methodology''~\cite{metodologia}: this document describes the public process of \vcps\ conception. It is composed by brief inspections of forum topics, pointing both pertinent characteristics of the online collective process and ontological observations (about classes and properties). Considerations are made about tightening relations with the Open Government Partnership (\ogp), an international initiative to foster transparency and open practices in governments worldwide~\cite{OGP}, and the Brazilian formal action plan, as means to achieve ontology usage. 
+     There is also a proposal of a systematic study of electronic government initiatives, so that the \vcps\ might be better contextualized. This document ends by proposing an agenda of meetings with academics, entrepreneurs and government parties.
+ \item ``Conceptual modeling, version 0.1 (in natural language)''~\cite{conceptualMod}: this document is a description, in common English, of the \vcps. The introduction is mainly a collage of the document above~\cite{metodologia}. Both the itemized description of the ontology, and the considerations for its usage, are of great value as reference. Figure~\ref{fig:v1} is heavily influenced by a diagram related to this document and further described in Section~\ref{sec:im}.
 \end{itemize}
 
 \subsection{Images}\label{sec:im}
@@ -300,20 +302,20 @@ There are various images associated with the ontology\footnote{Corais platform p
     \item A diagram for general public consultations. Given the details and the pertinence of public consultations for \ops, the digram is exposed in Appendix~\ref{ap:public} and Figure~\ref{fig:consult}.
 \end{itemize}
 
-\begin{figure}[hb]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.4\textwidth]{figs/logoUnificadoDoPDF}
-    \caption{Some of the various logos for the \ops. (a) is a colored text logo proposal; (b) is a figurative logo; (c) is mixture of both ideas. It can be seen that these logos were conceived for the ontology when it was called a \emph{vocabulary}. Community documents reflect this nomenclature, which is being changed with this article and subsequent work.}
+    \caption{Some of the various logos for of the \vcps. (a) is a colored text logo proposal; (b) is a figurative logo; (c) is mixture of both ideas. It can be seen that these logos were conceived for the ontology when it was called a \emph{vocabulary}. Community documents reflect this nomenclature, which is being changed with this article and subsequent work with \ops\ advent.}
     \label{logo}
 \end{figure}
 
-\subsection{OWL code of \vcps}\label{owl}
+\subsection{OWL code of VCPS}\label{owl}
 
-The \owl\ code for the \vcps\ is online~\cite{owlVcps} and deprecated by \ops\ advent. 
+The \owl\ code of \vcps\ is online~\cite{owlVcps} and deprecated by \ops\ advent. 
 The \vcps\ \owl\ code did not contain all relation from Figure~\ref{fig:v1} (or Figure~\ref{fig:diaorig}). This is directly addressed in Section~\ref{exp}, which exposes the implementation of all relations in the \ops, including \vcps\ \owl\ corrections and adjustments to best practices. The complete and correct \ops\ is further contextualized in Section~\ref{ospUtil}.
 
 \subsection{Blog Posts}
-The \vcps\ blog~\cite{coraisBlog}
+The \vcps\ blog
 aggregates both important discussions and documents in no more than twenty posts to date.
 All \owl\ code, final documents, public consultations, mental map and images are posted in the blog~\cite{coraisBlog}. 
 The first post if from July 24, 2012. Last post about \vcps\ is from May 7, 2013. Most blog posts are from the first day (almost half of them). They received more than
@@ -323,7 +325,7 @@ Last blog posts occurred as a few days burst and a final message, a month after.
 There are three more recent blog posts, from November and December, 2013. But these already address \ops\ conception from \vcps.
 
 \subsection{Discussions and etherpads}
-Besides blog registries of collective elaborations, four etherpads
+Besides blog registries of collective elaborations, four \etherpad s
 were written~\cite{etherpads} (these are interfaces that allows writing online texts with multiple simultaneous contributors~\cite{etherpads2}):
 \begin{itemize}
     \item A pad for important words.
@@ -340,82 +342,82 @@ were written~\cite{etherpads} (these are interfaces that allows writing online t
 \begin{figure*}
     \centering
     \includegraphics[width=0.9\textwidth]{figs/opsBFO___}
-    \caption{Diagram representation of the Ontology of Social Participation (OSP). Arrows with white heads indicates ``is a'' relations (subclass points to superclass). Arrows with black heads indicates property relations from subject to object . All property relation yield existential restrictions, with the exception of the ``has characteristic'' property, that does not yield restriction.}
+    \caption{Diagram representation of the Ontology of Social Participation (\ops). Arrows with white heads indicate ``is a'' relations (subclass points to superclass). Arrows with black heads indicate property relations from subject to object . All property relation yield existential restrictions, with the exception of the ``has characteristic'' property, that does not yield restriction. Upper ontologies \bfo\ and \foaf\ are asserted through color (\bfo) and dashed boxes (\foaf).}
     \label{fig:v1}
 \end{figure*}
 
 This section makes considerations about \ops\ label standardization and implemented classes, properties and restrictions. Features present in Figure~\ref{fig:v1}, but not present in \vcps, are fully described in Section~\ref{impl}. Examples of usage are addressed in Section~\ref{ospUtil}. 
 
-For completeness of exposition and deference to \vcps\ community efforts, consideration of upper ontologies is at Appendix~\ref{upper} and the public consultation model depicted in Figure~\ref{fig:consult} is considered in Appendix~\ref{ap:public}. 
 
 \subsection{Standardization and exhibition of implemented features}\label{impl}
 Without explicit criteria, \vcps\ \uri\ was \url{http://lumii.lv/ontologies/Corais.owl}. \opsi\ \uri\ was chosen to be \url{http://purl.org/socialparticipation/ops} for the following reasons:
 \begin{itemize}
     \item This \uri\ is directly related to the ontology name (\ops).
     \item This \uri, also an \urll, is independent from government and other political associations. This is important to coalesce with interested parties: the Brazilian Federal Social Participation Portal\cite{participa}, Brazilian government repository of vocabularies and ontologies~\cite{vocab}, academic groups,  \ngo s, and non-organized civil society.
-    \item This \uri, when reached via \http, can be redirected to where current documentation is held, as it is hosted by \url{http://purl.org}.
+    \item Derived \uri s, when reached via \http, can be redirected to where current documentation is held, as it is hosted by \url{http://purl.org}.
 \end{itemize}
 
 Labels in the languages of interest should be written in label fields. Even so, \ops\ class names should be friendly to users, bearing the attention not to take the class name as the label or as a meaning restriction.
 
-For standardization, all classes are written in CamelCase~\cite{cc} in plain English to ease internationalization, adoption and maturation. Labels are written in Portuguese, English and Spanish. Therefore, class names changed (for their \uri s), receiving respective labels (\texttt{rdfs:label}) in each language and a textual short explanation (\texttt{rdfs:comment}) in English. 
+For standardization, all classes are written in CamelCase~\cite{cc} in plain English to ease internationalization, adoption and maturation. Labels are written in Portuguese, English and Spanish. Therefore, class names changed, receiving respective labels (\texttt{rdfs:label}) in each language and a textual short explanation (\texttt{rdfs:comment}) in English. 
 Table~\ref{ospClasses} exhibits all classes is \ops.
 
-\opsi\ property names fit headlessCamelCase~\cite{hcc} format, readable in English (to ease internationalization, adoption and maturation), and some of them have defined domains and ranges. Table~\ref{ospProps} is dedicated to \ops\ properties, with labels in English, Portuguese and Spanish.
+\opsi\ property names fit headlessCamelCase~\cite{cc} format, are readable in English (to ease internationalization, adoption and maturation), and some of them have defined domains and ranges. Table~\ref{ospProps} is dedicated to \ops\ properties, with labels in English, Portuguese and Spanish.
 
-In the first versions of \ops, all properties yielded existential restrictions, except hasParticipationCharacteristic. Although such efforts were aimed at handling a better defined \ops, further developments and discussions revealed that these restrictions made \ops\ rigid, a bit more complicated, and was not of much help, at least in this stage of \ops development and adoption. The result is that all restrictions were removed. Appendix~\ref{ap:restr} and Table~\ref{ospRestr} exhibit all dropped \ops\ restrictions.
+In the first versions of \ops, all properties yielded existential restrictions, except {\tt ops:hasParticipationCharacteristic}. Although such efforts were aimed at handling a better defined \ops, further developments and discussions revealed that these restrictions made \ops\ rigid, a bit more complicated, and was not of much help, at least in this stage of \ops\ development and adoption. The result is that all restrictions were removed. Appendix~\ref{ap:restr} and Table~\ref{ospRestr} exhibit all dropped \ops\ restrictions.
+
+An inspection of \vcps\ also yielded a contradiction present in Figure~\ref{fig:diaorig}: a role cannot execute, initiate or support a cause. These are done by the social actor. Therefore, to maintain \vcps\ directions and obtain a sound ontology, {\tt ops:Role} was removed from \ops\ in preliminary versions. The result can be seen directly in Figures~\ref{fig:v1} and~\ref{fig:owlCC}.
 
 
-\begin{table*}
+\begin{table*}[!h]
     \footnotesize
   \centering
-  \caption{Classes of the OSP (Ontology of Social Participation). These are core concepts in the ontology. Along with the taxonomic structure exposed in Figure~\ref{}, these classes are related by the properties in Table~\ref{ospProps}.}
-  \begin{tabular}{|p{1.8cm}|p{1.6cm}||p{2.2cm}|p{2.2cm}|p{1.8cm}||p{4cm}|}\hline
-{\bf OSP class name} & {\bf CVSP class name} & {\bf pt-br label} & {\bf es label} & {\bf en label} & {\bf definition} \\\hline\hline
-Problem & Problema & Problema & Problema & Problem & the problem that the Action aims to solve \\\hline
-Result & Resultados & Resultado & Resultado & Result & the result obtained with action realization \\\hline
-Theme & Tema & Tema & Tema & Theme & the theme in focus by action \\\hline
-Cause & Causa & Causa & Causa &  Cause & the motivation for the execution of the action \\\hline
-Action & Acao & A\c{c}\~ao & Acci\'on & Action & what is done in terms os social participation \\\hline
-Solution & Solucao & Solução & Soluci\'on & Solution & solucion achieved with the action \\\hline
-Participation-Characteristic & NivelDe-Participacao & Caracter\'istica de Participa\c{c}\~ao & Caracter\'istica de Participaci\'on & Participation Characteristic & the way the participation of s specific actor, is happening \\\hline
-ActionScope & Espa\c{c}o de A\c{c}\~ao & Escopo de A\c{c}\~ao & Ambito de Accio\'on & Action Scope & the scope os Action execution \\\hline
-Role & Papel & Papel & Rol & Role & the role of the actor \\ \hline
-Supporter & Apoiador & Apoiador & Apoyador & Supporter & supports cause with resources of any kind (e.g. cognitive, financial, equipments) \\ \hline
-Initiator & Iniciador & Iniciador & Iniciador & Initiator & originates cause, individually or collaborativelly \\ \hline
-Executor & Executor & Executor & Ejecutor & Executor & performs action directly and is responsible for results \\ \hline
-SocialActor & Ator & Ator Social & Actor Social & Social Actor & entity that might have a role \\ \hline
-Organization & Organizacao & Organiza\c{c}\~ao & Organizaci\'on & Organization & social actor is a group of individuals, organized formally or informally (e.g. movements, collectives) \\ \hline
-Person & Pessoa & Pessoa & Persona & Person & a person (social actor is a person) \\ \hline
+  \caption{Classes of the \ops\ (Ontology of Social Participation). These are core concepts in the ontology. Along with the taxonomic structure exposed in Figure~\ref{fig:owlCC}, these classes are related by the properties in Table~\ref{ospProps}. Noteworthy is \vcps\ class name ``{\tt vcps:Espa\c{c}o de A\c{c}\~ao}'', which caused original \vcps\ \owl\ to be pointed as corrupted by \protege\ (spaces are not allowed in \uri s). Also, class {\tt vcps:Role} was dropped as it yields logical problens in \vcps.}
+  \begin{tabular}{|p{1.8cm}|p{1.6cm}||p{2.2cm}|p{2.2cm}|p{1.8cm}||p{4cm}||p{3cm}|}\hline
+      {\bf OPS class name} & {\bf VCPS class name} & {\bf pt-br label} & {\bf es label} & {\bf en label} & {\bf definition} & {\bf upper ontology classes} \\\hline\hline
+      Person & Pessoa & Pessoa & Persona & Person & a person (social actor is a person) & {\tt bfo:'Material Entity'}, {\tt foaf:Person} \\ \hline
+      Organization & Organizacao & Organiza\c{c}\~ao & Organizaci\'on & Organization & social actor is a group of individuals, organized formally or informally (e.g. movements, collectives) & {\tt bfo:'Material Entity'}, [\tt foaf:Organization] \\ \hline
+Executor & Executor & Executor & Ejecutor & Executor & performs action directly and is responsible for results & {\tt bfo:'Material Entity'} \\ \hline
+Initiator & Iniciador & Iniciador & Iniciador & Initiator & originates cause, individually or collaborativelly & {\tt bfo:'Material Entity'} \\ \hline
+      Supporter & Apoiador & Apoiador & Apoyador & Supporter & supports cause with resources of any kind (e.g. cognitive, financial, equipments) & {\tt bfo:'Material Entity'} \\ \hline
+SocialActor & Ator & Ator Social & Actor Social & Social Actor & entity that might have a participatory role & {\tt bfo:'Material Entity'} \\ \hline
+Participation-Characteristic & NivelDe-Participacao & Caracter\'istica de Participa\c{c}\~ao & Caracter\'istica de Participaci\'on & Participation Characteristic & the way the participation of the specific actor is happening & {\tt bfo:'Dependent Continuant'} \\\hline
+Cause & Causa & Causa & Causa &  Cause & the motivation for Action & {\tt bfo:'Dependent Continuant'} \\\hline
+Theme & Tema & Tema & Tema & Theme & the theme in focus by Action & {\tt bfo:'Independent Continuant'} \\\hline
+Action & Acao & A\c{c}\~ao & Acci\'on & Action & what is done in terms os social participation & {\tt bfo:'Processual Entity'} \\\hline
+      Scope &{\bf Espa\c{c}o de A\c{c}\~ao} & Escopo & Ambito & Scope & the scope os Action & {\tt bfo:'Dependent Continuant'} \\\hline
+Result & Resultados & Resultado & Resultado & Result & the result obtained with action & {\tt bfo:'Dependent Continuant'} \\\hline
+      Solution & Solucao & Solu\c{c}\~ao & Soluci\'on & Solution & solution achieved with Action & {\tt bfo:'Dependent Continuant'} \\\hline
+      Problem & Problema & Problema & Problema & Problem & the problem that the Action aims to solve & {\tt bfo:'Independent Continuant'} \\\hline
+      {\color{red} dropped class}& Papel & -//-  & -//- & -//- & the role of the actor & -//- \\ \hline
   \end{tabular}
   \label{ospClasses}
 \end{table*}
 
-\begin{table*}
-    \footnotesize
+\begin{table*}[!h]
   \centering
-  \caption{Properties of the OSP (Ontology of Social Participation).}
+  \caption{Properties of the \ops\ (Ontology of Social Participation) along original \vcps\ names. Only a few ranges were established, and no domain, as these were not currently useful and, without them, \ops\ can be used more freely.}
   \begin{tabular}{|l|l||p{2.2cm}|p{2.2cm}|p{1.8cm}||l|p{2.2cm}|}\hline
 {\bf OSP property name} & {\bf CVSP property name} & {\bf pt-br label} & {\bf es label} & {\bf en label} & {\bf domain} & {\bf range} \\\hline\hline
-hasTheme & possuiTemaAssociado & possui tema & contiene tema & has theme & Cause & Theme \\ \hline
-belongsToScope & pertenceAoEspaco & pertence ao escopo & pertence al campo & belongs to scope & Action & ActionScope \\ \hline
-hasRole & temPapel & possui papel & tener rol & has role & SocialActor & Role \\ \hline
-supportCause & apoiaCausa & apoia causa & apoya causa & supports cause & Supporter & Cause \\ \hline
-composesSolution & compoeSolucao & comp\~oe solu\c{c}\~ao & componer soluci\'on & composes solution & Result & Solution \\ \hline
-executesAction & executaAcao & executa a\c{c}\~ao & ejecuta acci\'on & executes action & Executer & Action \\ \hline
-generatesCause & geraCausa & gera causa & genera causa & generates cause & Problem & Cause \\ \hline
-startsCause & iniciaCausa & inicia causa & ainicializa causa & starts cause & Initiator & Cause \\ \hline
-solvesProblem & soluciona & soluciona problema & resuelve problema & solves problem & Solution & Problem \\ \hline
-hasAction & possuiAcao & possui a\c{c}\~ao & tiene acci\'on & has action & Cause & Action \\\hline
-producesresult & produzResultado & produz resultado & producir resultado & produces result & Action & Result \\\hline
-proposesSolution & propoeSolucao & prop\~oe solu\c{c}\~ao & propone soluci\'on & proposes solution & Cause & Solution \\\hline
-hasParticipationCharacteristic & temNivelDeParticipacao & possui caracter\'istica de participa\c{c}\~ao & tiene caracter\'istica de participaci\'on & has participation characteristic & Role & ParticipationCh-aracteristic \\\hline
+theme & possuiTemaAssociado & tema & tema & theme & -//- & Theme \\ \hline
+belongsTo & pertenceAoEspaco & pertence ao & pertence al & belongs to & -//- & Scope \\ \hline
+supports & apoiaCausa & apoia & apoya & supports & -//- & -//- \\ \hline
+contributesTo & compoeSolucao & contribui para & contribuye para & contributes to & -//- & -//- \\ \hline
+executes & executaAcao & executa & ejecuta & executes & -//- & -//- \\ \hline
+generates & geraCausa & gera & genera & generates & -//- & -//- \\ \hline
+starts & iniciaCausa & inicia & inicializa & starts & -//- & -//- \\ \hline
+solves & soluciona & soluciona & resuelve & solves & -//- & -//- \\ \hline
+action & possuiAcao & a\c{c}\~ao & acci\'on & action & -//- & Action \\\hline
+produces & produzResultado & produz & produce & produces & -//- & -//- \\\hline
+proposes & propoeSolucao & prop\~oe & propone & proposes & -//- & -//- \\\hline
+{\color{red} dropped} & temPapel & -//-  & -//-  & -//-  & -//-  & -//- \\ \hline
+      trait & temNivelDeParticipacao & tra\c{c}o & rasgo & trait & -//- & -//- \\\hline
   \end{tabular}
   \label{ospProps}
 \end{table*}
 
 A comparison of the \vcps\ \owl\ code~\cite{owlCCPtg} 
-with the diagram in Figure~\ref{fig:diaorig}, which reflects official \vcps\ documentation, revealed that a class, two properties and three restrictions were not implemented. These were fully implemented in \ops, though the restrictions were removed. These are the missing classes, properties (restrictions missing in \vcps\ and implemented in preliminary \ops\ versions are exposed in Appendix~\ref{ap:restr}):
+with the diagram in Figure~\ref{fig:diaorig}, which reflects official \vcps\ documentation, revealed that a class, two properties and three restrictions were not implemented. These were fully implemented in \ops\ before all restrictions were removed. These are the missing class and properties (restrictions missing in \vcps\ and implemented in preliminary \ops\ versions are exposed in Appendix~\ref{ap:restr}):
 
 \begin{itemize}
     \item Class: {\tt    ops:ParticipationCharacteristic}.
@@ -425,14 +427,14 @@ with the diagram in Figure~\ref{fig:diaorig}, which reflects official \vcps\ doc
 
 \opsi\ is available online~\cite{owlOSP}. To ease navigation of the ontology by interested parties, it is also available in the Webprotege interface~\cite{owlOSPwp}. The diagram of \ops\ taxonomic structure is exposed in Figure~\ref{fig:owlCC}.
 
-Upper ontologies usage with \ops\ is under development and should be available in a dedicated work, as possibilities should be inspected carefully. Pertinent and already used as upper ontologies for \ops are \foaf~\cite{foaf} (for linking and describing people and things they do) and \bfo~\cite{bfo} (``designed for use in supporting information retrieval, analysis and integration in scientific and other domains'' as stated on their documentation). Properties were not related to upper ontologies as reasonable relations are still being searched for. Table~\ref{ospClasses} exposes relations of classes to upper ontologies.
+Upper ontologies usage with \ops\ is under development and should receive a dedicated article, as possibilities should be inspected carefully. Pertinent and already used as upper ontologies for \ops\ are \foaf~\cite{foaf} (for linking and describing people and things they do) and \bfo~\cite{bfo} (``designed for use in supporting information retrieval, analysis and integration in scientific and other domains'' as stated on their documentation). Properties were not related to upper ontologies as reasonable relations are still being searched for. Table~\ref{ospClasses} exposes \ops\ classes and respective upper ontologies classes.
 
 Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties and relations to \foaf\ and \bfo. Actually, Figure~\ref{fig:v1} is more informative than \ops\ \owl\ code, as restrictions were removed and not all properties have defined domain and range. Therefore, the diagram is the remaining source of relations envisioned by \ops\ creators.
 
 \begin{figure*}
     \centering
     \includegraphics[width=\textwidth]{figs/opsTax}
-    \caption{A taxonomic tree of the Ontology of Social Participation (OSP). This image was rendered inside Protege, with the OWL code in Appendix~\ref{owl:vcps}. Figure~\ref{fig:v1} contains all this information, but this diagram is more standard and might be simpler for the newcommer. Note that the taxonomic tree does not present any information about properties further linking these classes.}
+    \caption{A taxonomic tree of the Ontology of Social Participation (\ops). This image was rendered inside \protege, with the \owl\ code in Appendix~\ref{owl:vcps}. Figure~\ref{fig:v1} is more informative, but this diagram is more standard and might be simpler for the newcomer. Note that the taxonomic tree does not present any information about properties further linking these classes. The prefixes {\tt snap:} and {\tt span:} are \bfo\ specific.}
     \label{fig:owlCC}
 \end{figure*}
 
@@ -649,6 +651,7 @@ Preliminary \ops\ was done with Protege software~\cite{protege}. Current \ops\ i
 
 \section{Glossary of terms, acronyms and abbreviations}\label{ap:glossary}
 \begin{table}[!h]
+  \footnotesize
   \centering
   \caption{Glossary for current article}
   \begin{tabular}{||l|p{5cm}|p{9cm}||}\hline
@@ -691,7 +694,7 @@ Preliminary \ops\ was done with Protege software~\cite{protege}. Current \ops\ i
       \lod  & Linked Open Data & a human legacy of open and linked data \\\hline
       \serpro  & Brazilian Federal Service of Data Processing & the biggest government-owned corporation of IT services of Brazil \\\hline
       \python  & a widely used general-purpose, high-level programming language & known as an easy scripting language among researchers, developers and hackers \\\hline
-                                        \end{tabular}
+\end{tabular}
   \label{tab:glos}
 \end{table}
 
