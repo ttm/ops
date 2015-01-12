@@ -355,7 +355,7 @@ This section makes considerations about \ops\ label standardization and implemen
 Without explicit criteria, \vcps\ \uri\ was \url{http://lumii.lv/ontologies/Corais.owl}. \opsi\ \uri\ was chosen to be \url{http://purl.org/socialparticipation/ops} for the following reasons:
 \begin{itemize}
     \item This \uri\ is directly related to the ontology name (\ops).
-    \item This \uri, also an \urll, is independent from government and other political associations. This is important to coalesce with interested parties: the Brazilian Federal Social Participation Portal\cite{participa}, Brazilian government repository of vocabularies and ontologies~\cite{vocab}, academic groups,  \ngo s, and non-organized civil society.
+    \item This \uri, also an \urll, is independent from government and other political associations. This is important to coalesce interested parties: the Brazilian Federal Social Participation Portal\cite{participa}, Brazilian government repository of vocabularies and ontologies~\cite{vocab}, academic groups,  \ngo s, and non-organized civil society.
     \item Derived \uri s, when reached via \http, can be redirected to where current documentation is held, as it is hosted by \url{http://purl.org}.
 \end{itemize}
 
@@ -378,19 +378,19 @@ An inspection of \vcps\ also yielded a contradiction present in Figure~\ref{fig:
   \begin{tabular}{|p{1.8cm}|p{1.6cm}||p{2.2cm}|p{2.2cm}|p{1.8cm}||p{4cm}||p{3cm}|}\hline
       {\bf OPS class name} & {\bf VCPS class name} & {\bf pt-br label} & {\bf es label} & {\bf en label} & {\bf definition} & {\bf upper ontology classes} \\\hline\hline
       Person & Pessoa & Pessoa & Persona & Person & a person (social actor is a person) & {\tt bfo:'Material Entity'}, {\tt foaf:Person} \\ \hline
-      Organization & Organizacao & Organiza\c{c}\~ao & Organizaci\'on & Organization & social actor is a group of individuals, organized formally or informally (e.g. movements, collectives) & {\tt bfo:'Material Entity'}, [\tt foaf:Organization] \\ \hline
+      Organization & Organizacao & Organiza\c{c}\~ao & Organizaci\'on & Organization & social actor is a group of individuals, organized formally or informally (e.g. movements, collectives) & {\tt bfo:'Material Entity'}, {\tt foaf:Organization} \\ \hline \hline
 Executor & Executor & Executor & Ejecutor & Executor & performs action directly and is responsible for results & {\tt bfo:'Material Entity'} \\ \hline
 Initiator & Iniciador & Iniciador & Iniciador & Initiator & originates cause, individually or collaborativelly & {\tt bfo:'Material Entity'} \\ \hline
       Supporter & Apoiador & Apoiador & Apoyador & Supporter & supports cause with resources of any kind (e.g. cognitive, financial, equipments) & {\tt bfo:'Material Entity'} \\ \hline
-SocialActor & Ator & Ator Social & Actor Social & Social Actor & entity that might have a participatory role & {\tt bfo:'Material Entity'} \\ \hline
+SocialActor & Ator & Ator Social & Actor Social & Social Actor & entity that might have a participatory role & {\tt bfo:'Material Entity'} \\ \hline \hline
 Participation-Characteristic & NivelDe-Participacao & Caracter\'istica de Participa\c{c}\~ao & Caracter\'istica de Participaci\'on & Participation Characteristic & the way the participation of the specific actor is happening & {\tt bfo:'Dependent Continuant'} \\\hline
 Cause & Causa & Causa & Causa &  Cause & the motivation for Action & {\tt bfo:'Dependent Continuant'} \\\hline
-Theme & Tema & Tema & Tema & Theme & the theme in focus by Action & {\tt bfo:'Independent Continuant'} \\\hline
-Action & Acao & A\c{c}\~ao & Acci\'on & Action & what is done in terms os social participation & {\tt bfo:'Processual Entity'} \\\hline
       Scope &{\bf Espa\c{c}o de A\c{c}\~ao} & Escopo & Ambito & Scope & the scope os Action & {\tt bfo:'Dependent Continuant'} \\\hline
 Result & Resultados & Resultado & Resultado & Result & the result obtained with action & {\tt bfo:'Dependent Continuant'} \\\hline
-      Solution & Solucao & Solu\c{c}\~ao & Soluci\'on & Solution & solution achieved with Action & {\tt bfo:'Dependent Continuant'} \\\hline
+      Solution & Solucao & Solu\c{c}\~ao & Soluci\'on & Solution & solution achieved with Action & {\tt bfo:'Dependent Continuant'} \\\hline \hline
       Problem & Problema & Problema & Problema & Problem & the problem that the Action aims to solve & {\tt bfo:'Independent Continuant'} \\\hline
+Theme & Tema & Tema & Tema & Theme & the theme in focus by Action & {\tt bfo:'Independent Continuant'} \\\hline \hline
+Action & Acao & A\c{c}\~ao & Acci\'on & Action & what is done in terms os social participation & {\tt bfo:'Processual Entity'} \\\hline\hline
       {\color{red} dropped class}& Papel & -//-  & -//- & -//- & the role of the actor & -//- \\ \hline
   \end{tabular}
   \label{ospClasses}
@@ -403,17 +403,17 @@ Result & Resultados & Resultado & Resultado & Result & the result obtained with 
 {\bf OSP property name} & {\bf CVSP property name} & {\bf pt-br label} & {\bf es label} & {\bf en label} & {\bf domain} & {\bf range} \\\hline\hline
 theme & possuiTemaAssociado & tema & tema & theme & -//- & Theme \\ \hline
 belongsTo & pertenceAoEspaco & pertence ao & pertence al & belongs to & -//- & Scope \\ \hline
+action & possuiAcao & a\c{c}\~ao & acci\'on & action & -//- & Action \\\hline\hline
 supports & apoiaCausa & apoia & apoya & supports & -//- & -//- \\ \hline
 contributesTo & compoeSolucao & contribui para & contribuye para & contributes to & -//- & -//- \\ \hline
 executes & executaAcao & executa & ejecuta & executes & -//- & -//- \\ \hline
 generates & geraCausa & gera & genera & generates & -//- & -//- \\ \hline
 starts & iniciaCausa & inicia & inicializa & starts & -//- & -//- \\ \hline
 solves & soluciona & soluciona & resuelve & solves & -//- & -//- \\ \hline
-action & possuiAcao & a\c{c}\~ao & acci\'on & action & -//- & Action \\\hline
 produces & produzResultado & produz & produce & produces & -//- & -//- \\\hline
 proposes & propoeSolucao & prop\~oe & propone & proposes & -//- & -//- \\\hline
+      trait & temNivelDeParticipacao & tra\c{c}o & rasgo & trait & -//- & -//- \\\hline\hline
 {\color{red} dropped} & temPapel & -//-  & -//-  & -//-  & -//-  & -//- \\ \hline
-      trait & temNivelDeParticipacao & tra\c{c}o & rasgo & trait & -//- & -//- \\\hline
   \end{tabular}
   \label{ospProps}
 \end{table*}
@@ -436,7 +436,7 @@ Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties a
 \begin{figure*}
     \centering
     \includegraphics[width=\textwidth]{figs/opsTax}
-    \caption{A taxonomic tree of the Ontology of Social Participation (\ops). This image was rendered inside \protege, with the \owl\ code in Appendix~\ref{owl:vcps}. Figure~\ref{fig:v1} is more informative, but this diagram is more standard and might be simpler for the newcomer. Note that the taxonomic tree does not present any information about properties further linking these classes. The prefixes {\tt snap:} and {\tt span:} are \bfo\ specific.}
+    \caption{A taxonomic tree of the Ontology of Social Participation (\ops). This image was rendered inside \protege, with the \owl\ code in Appendix~\ref{owl:vcps}. Figure~\ref{fig:v1} is more informative, but this diagram is more standard and might be simpler for the newcomer. Note that the taxonomic tree does not present any information about properties further linking these classes. The prefixes {\tt snap:} and {\tt span:} are \bfo\ specific for {\tt snap}shot and {\tt span}ning-time.}
     \label{fig:owlCC}
 \end{figure*}
 
@@ -540,7 +540,7 @@ Fictional examples are useful to make these points clear:
 \subsection{Real use cases}\label{sec:real}
 \opsi\ is a recent ontology. Even so, some real use cases can be pointed, from which are most notable:
 \begin{itemize}
-    \item The \pnud/\onu\ consultant contract 2013/00056, project BRA/12/018, was profoundly influenced by \ops~\cite{pnud5}. Within written products are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments where done by the computational physics researcher R. Fabbri (first author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aan\ and \cidadedemocratica; all related to \ops. These linked data resources are available in \sparql\ endpoints and can be dereferenced, in a similar fashion as done for \ops. As these are all executed in research facilities, they might lack maintenance and should be kept by a dedicated team.
+    \item The \pnud/\onu\ consultant contract 2013/00056, project BRA/12/018, was profoundly influenced by \ops~\cite{pnud5}. Within written products are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments were done by the computational physics researcher R. Fabbri (first author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aan\ and \cidadedemocratica; all related to \ops. These linked data resources are available in \sparql\ endpoints and can be dereferenced, in a similar fashion as done for \ops. As these are all executed in research facilities, they might lack maintenance and should be kept by a dedicated team.
     \item Another \pnud/\onu\ contract was responsible for some advances in information technologies. A special case is a dedicated \ops\ expansion\cite{paulo6}.
     \item The Brazilian Federal Data Processing Service (\serpro) is triplifying \participa\ data (the Brazilian federal social participation portal). Is this process, they as making direct use of \ops~\cite{tripSerpro}.
     \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud/\onu\ documentation, \serpro\ triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{circulaOps1,circulaOps2}.
@@ -645,7 +645,7 @@ Although deprecated, Figure~\ref{fig:diaorig} is the basis of \vcps\ and \ops. I
 \begin{figure*}[t]
     \centering
     \includegraphics[width=0.8\textwidth]{figs/diagramaOriginal}
-    \caption{Original \vcps diagram. Although there were substantial \owl\ modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as a \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
+    \caption{Original \vcps\ diagram. Although there were substantial \owl\ modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as a \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
     \label{fig:diaorig}
 \end{figure*}
 
@@ -660,44 +660,44 @@ The subjects involved in this article have numerous jargons, acronyms and abbrev
   \caption{Glossary for current article}
   \begin{tabular}{||l|p{5cm}|p{9cm}||}\hline
       {\bf term} & {\bf meaning} & {\bf further information} \\\hline\hline
-      \ops  & Ontology of Social Participation & Acronym from the Brazilian name: Ontologia de Participa\c{c}\~ao Social \\\hline
-      \vcps  & Common Vocabulary of Social Participation & Acronym from the Brazilian Vocabul\'ario Comum de Participa\c{c}\~ao Social\\\hline
-      \owl  & Web Ontology Language & for authoring ontologies \\\hline
-      \sparql  & \sparql\ Protocol and \rdf\ Query Language & an \rdf\ query language  \\\hline
-      \bfo  & Basic Formal Ontology & an upper ontology supporting information retrieval, analysis and integration in scientific and other domains \\hline
-      \dbpedia  & DBpedia is a crowd-sourced community effort to extract structured information from Wikipedia & consists of an ontological organization and data \\\hline
-      \foaf  & Friend Of A Friend & an ontology devoted to linking people and information using the Web, \foaf\ is a core ontology of the web semantic/linked data academic community \\\hline
-      \ict  & Information and communications technology  & often used as an extended synonym for information technology (IT) \\\hline
-      \html  & HyperText Markup Language & the standard markup language used to create Web pages \\\hline
-      \node  & an open source, cross-platform runtime environment for server-side and networking applications & applications are written in JavaScript  \\\hline
-      \facebook & an online social networking service & -//-  \\\hline
-      \wwwc     & World Wide Web Consortium & the main international standards organization for the World Wide Web \\\hline
-      \skos  & Simple Knowledge Organization System & a \wwwc recommendation designed for representation of thesauri, classification schemes, taxonomies, subject-heading systems \\\hline
-      \etherpad  & a web-based collaborative real-time editor, allowing authors to simultaneously edit a text document & -//- \\\hline
-      \ogp  & Open Government Partnership & an international organization promoting multilateral initiative and seeking strong commitments from participating government institutions to promote transparency, increase civic participation, fight corruption, and harness new technologies to make government more open, effective, and accountable \\\hline
-      \iri  & Internationalized Resource Identifier & a new internet standard to extend upon the existing uniform resource identifier (\uri) scheme, where \iri s are always utf-8 \\\hline
-      \urll  & Uniform Resource Locator & also known as a web address, particularly when used with \http \\\hline
-      \ngo  & Non-Governmental Organization & a term commonly used for an organization that is neither a part of a government nor a conventional for-profit business \\\hline
-      \http  & Hypertext Transfer Protocol & an application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web \\\hline
-      \opa  & \participa\ Ontology & from the Brazilian name Ontologia do \participa \\\hline
-      \ocd  & Cidade Democr\'atica Ontology & from the Brazilian name Ontologia do Cidade Democr\'atica \\\hline
-\ontologiaa  & \aan Ontology from the Brazilian name Ontologia do \aan \\ \hline
-      \obs  & Social Library Ontology & from the Brazilian name Ontologia da Biblioteca Social \\\hline
-      \pubby  & A Linked Data Frontend for dereferencing \uri s & -//- \\\hline
-      \rdf  & Resource Description Framework & a standard model for data interchange on the Web \\\hline
-      \mysql  & a widely used open-source relational database management system & -//-\\\hline
       \aan  & Algorithmic Autoregulation & a platform for personal transparency, sharing ongoing work and proving dedication \\\hline
+      \bfo  & Basic Formal Ontology & an upper ontology supporting information retrieval, analysis and integration in scientific and other domains \\\hline
       \cidadedemocratica  & a Brazilian civil society participatory portal & -//- \\\hline
-      \participa  & the Brazilian federal participatory portal & -//- \\\hline
-      \ontop  & a platform to query databases as virtual \rdf\ graphs using \sparql\ & -//- \\\hline
-      \quest  & the \sparql\ engine/reasoner that comes with \ontop & -//- \\\hline
-      \obda  & Ontology-Based Database Access & a general term for accessing databases through ontological criteria \\\hline
-      \pnud  & United Nations Development Programme & the United Nations' global development network \\\hline
-      \onu  & United Nations & an intergovernmental organization to promote international co-operation \\\hline
-      \vbs  & Social Library Vocabulary & from the Brazilian name Vocabulário da Biblioteca Social \\\hline
+      \dbpedia  & DBpedia is a crowd-sourced community effort to extract structured information from Wikipedia & consists of an ontological organization and data \\\hline
+      \etherpad  & a web-based collaborative real-time editor, allowing authors to simultaneously edit a text document & -//- \\\hline
+      \facebook & an online social networking service & -//-  \\\hline
+      \foaf  & Friend Of A Friend & an ontology devoted to linking people and information using the Web, \foaf\ is a core ontology of the web semantic/linked data academic community \\\hline
+      \html  & HyperText Markup Language & the standard markup language used to create Web pages \\\hline
+      \http  & Hypertext Transfer Protocol & an application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web \\\hline
+      \ict  & Information and communications technology  & often used as an extended synonym for information technology (IT) \\\hline
+      \iri  & Internationalized Resource Identifier & a new internet standard to extend upon the existing uniform resource identifier (\uri) scheme, where \iri s are always utf-8 \\\hline
       \lod  & Linked Open Data & a human legacy of open and linked data \\\hline
-      \serpro  & Brazilian Federal Service of Data Processing & the biggest government-owned corporation of IT services of Brazil \\\hline
+      \mysql  & a widely used open-source relational database management system & -//-\\\hline
+      \ngo  & Non-Governmental Organization & a term commonly used for an organization that is neither a part of a government nor a conventional for-profit business \\\hline
+      \node  & an open source, cross-platform runtime environment for server-side and networking applications & applications are written in JavaScript  \\\hline
+      \obda  & Ontology-Based Database Access & a general term for accessing databases through ontological criteria \\\hline
+      \obs  & Social Library Ontology & from the Brazilian name Ontologia da Biblioteca Social \\\hline
+      \ocd  & Cidade Democr\'atica Ontology & from the Brazilian name Ontologia do Cidade Democr\'atica \\\hline
+      \ogp  & Open Government Partnership & an international organization promoting multilateral initiative and seeking strong commitments from participating government institutions to promote transparency, increase civic participation, fight corruption, and harness new technologies to make government more open, effective, and accountable \\\hline
+\ontologiaa  & \aan Ontology from the Brazilian name Ontologia do \aan \\ \hline
+      \ontop  & a platform to query databases as virtual \rdf\ graphs using \sparql\ & -//- \\\hline
+      \opa  & \participa\ Ontology & from the Brazilian name Ontologia do \participa \\\hline
+      \ops  & Ontology of Social Participation & Acronym from the Brazilian name: Ontologia de Participa\c{c}\~ao Social \\\hline
+      \owl  & Web Ontology Language & for authoring ontologies \\\hline
+      \participa  & the Brazilian federal participatory portal & -//- \\\hline
+      \pubby  & A Linked Data Frontend for dereferencing \uri s & -//- \\\hline
       \python  & a widely used general-purpose, high-level programming language & known as an easy scripting language among researchers, developers and hackers \\\hline
+      \quest  & the \sparql\ engine/reasoner that comes with \ontop & -//- \\\hline
+      \rdf  & Resource Description Framework & a standard model for data interchange on the Web \\\hline
+      \serpro  & Brazilian Federal Service of Data Processing & the biggest government-owned corporation of IT services of Brazil \\\hline
+      \skos  & Simple Knowledge Organization System & a \wwwc recommendation designed for representation of thesauri, classification schemes, taxonomies, subject-heading systems \\\hline
+      \sparql  & \sparql\ Protocol and \rdf\ Query Language & an \rdf\ query language  \\\hline
+      \onu  & United Nations & an intergovernmental organization to promote international co-operation \\\hline
+      \pnud  & United Nations Development Programme & the United Nations' global development network \\\hline
+      \urll  & Uniform Resource Locator & also known as a web address, particularly when used with \http \\\hline
+      \vbs  & Social Library Vocabulary & from the Brazilian name Vocabulário da Biblioteca Social \\\hline
+      \vcps  & Common Vocabulary of Social Participation & Acronym from the Brazilian Vocabul\'ario Comum de Participa\c{c}\~ao Social\\\hline
+      \wwwc     & World Wide Web Consortium & the main international standards organization for the World Wide Web \\\hline
 \end{tabular}
   \label{tab:glos}
 \end{table}
