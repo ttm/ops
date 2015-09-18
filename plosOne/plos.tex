@@ -98,6 +98,12 @@
 
 % Use nameref to cite supporting information files (see Supporting Information section for more info)
 \usepackage{nameref,hyperref}
+\hypersetup{
+        colorlinks,
+        linkcolor={red!50!black},
+        citecolor={blue!50!black},
+        urlcolor={blue!80!black}
+}
 
 % line numbers
 \usepackage[right]{lineno}
@@ -259,6 +265,10 @@ literate=%
 
 
 %% END MACROS SECTION
+\usepackage{xr}
+\externaldocument{SI/S3original}
+\externaldocument{SI/S4consultation}
+\usepackage[section] {placeins}
 
 
 \begin{document}
@@ -391,8 +401,8 @@ There are various images associated with the ontology\footnote{Corais platform p
 
 \begin{itemize}
     \item Various proposals for the \vcps\ logo, some of which are in Figure~\ref{logo}.
-    \item Figure~\ref{fig:v1} shows an English and completed version of the original diagram of \ops\ in the document~\cite{conceptualMod}. For completeness of exposition, the original diagram is in Appendix~\ref{ap:dia}, Figure~\ref{fig:diaorig}.
-    \item A diagram for general public consultations. Given the details and the pertinence of public consultations for \ops, the digram is exposed in Appendix~\ref{ap:public} and Figure~\ref{fig:consult}.
+%    \item Figure~\ref{fig:v1} shows an English and completed version of the original diagram of \ops\ in the document~\cite{conceptualMod}. For completeness of exposition, the original diagram is Supporting Information Figure~\ref{fig:diaorig}.
+    \item A diagram for general public consultations. Given the details and the pertinence of public consultations for \ops, the digram is exposed in Supporting Information Figure~\ref{fig:consult}.
 \end{itemize}
 
 \begin{figure}[!h]
@@ -645,7 +655,7 @@ Fictional examples are useful to make these points clear:
     \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud/\onu\ documentation, \serpro\ triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{circulaOps1,circulaOps2}.
 \end{itemize}
 
-\section{Concluding remarks and future work}\label{conc}
+\section{Concluding remarks}\label{conc}
 \opsi, based in \vcps,
 yields initial steps in achieving an effective social participation ontology: community has registered activities and delivered reference documents, including this article.
 Sections~\ref{exp} and~\ref{ospUtil} have expansion directions for the ontology, regarding uses, further definition of classes, upper ontologies and related ontological structures.
@@ -680,7 +690,7 @@ Renato Fabbri is grateful to CNPq (process 140860/2013-4, project 870336/1997-5)
 %
 %This list is endless and further work should narrow the interest to essential upper ontologies. As part of the linkage to other participatory instances and even to other domains, this is a core 
 %
-\section{Restrictions in VCPS and initial OPS which were removed for the time being}\label{ap:restr}
+\section{Restrictions in VCPS and initial OPS which were removed from current OPS}\label{ap:restr}
 
 These restrictions were part of \vcps\ documentation, but not implemented in \vcps\ \owl\ code:
 \begin{itemize}
@@ -717,18 +727,18 @@ These were changed to the standard ``some'' existential restriction in prelimina
 
 
 
-\section{Public consultation}\label{ap:public}
-Public consultations have core importance in participatory democracy and the model in Figure~\ref{fig:consult} was conceived as part of \vcps\ community documentation.
-An \owl\ implementation of such public consultation was meant to be developed and made public, with dedicated attention.
-Considerations of this public consultation with respect to the \ops\ and formal existent instances was envisioned as well.
-This public consultation model is observed here for completeness of exposition and further details goes beyond the scope of this article. A public consultations along the lines of a recent Presidential decree~\cite{decree} was formalized in \obs\ \owl\ and in \vbs\ \skos~\cite{pnud5}.
-
-\begin{figure*}[H]
-    \centering
-%    \includegraphics[width=0.9\textwidth]{figs/publicConsultation__}
-    \caption{A diagram representation of a general public consultation, part of initial \vcps\ documentation. Further context of this image is in Appendix~\ref{ap:public}.}
-    \label{fig:consult}
-\end{figure*}
+%\section{Public consultation}\label{ap:public}
+%Public consultations have core importance in participatory democracy and the model in Figure~\ref{fig:consult} was conceived as part of \vcps\ community documentation.
+%An \owl\ implementation of such public consultation was meant to be developed and made public, with dedicated attention.
+%Considerations of this public consultation with respect to the \ops\ and formal existent instances was envisioned as well.
+%This public consultation model is observed here for completeness of exposition and further details goes beyond the scope of this article. A public consultations along the lines of a recent Presidential decree~\cite{decree} was formalized in \obs\ \owl\ and in \vbs\ \skos~\cite{pnud5}.
+%
+%\begin{figure*}[H]
+%    \centering
+%%    \includegraphics[width=0.9\textwidth]{figs/publicConsultation__}
+%    \caption{A diagram representation of a general public consultation, part of initial \vcps\ documentation. Further context of this image is in Appendix~\ref{ap:public}.}
+%    \label{fig:consult}
+%\end{figure*}
 
 \section{Script for constructing current OPS}\label{ap:script}
 Preliminary \ops\ was done with \protege\ software~\cite{protege}. Current \ops\ is the output of a Python script~\cite{opsScript}. Actually, this article, latex files, the \owl\ code, the \python\ script and auxiliary files are in a public git repository~\cite{opsRepo}, as is the common practice of the first author of this article.
