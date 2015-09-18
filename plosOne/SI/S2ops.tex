@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage[margin=1em]{geometry}
+\usepackage{xcolor}       
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{light-gray}{rgb}{0.97,0.97,0.97}
+
+\lstdefinelanguage{owlms}
+    {morekeywords={xsd,owl,xml,dc,rdf,skos,description,PlainLiteral,int,float,
+        some,only,value,min,exactly,max,and,or,not,
+        Prefix,Ontology,Import,Individual,Facts,Types,Class,
+        DataProperty,ObjectProperty,AnnotationProperty,Annotations,
+        DifferentIndividuals,SubClassOf,EquivalentTo,DisjointWith,DisjointUnionOf,SubPropertyOf,DisjointClasses,DisjointProperties,
+        Symmetric,Asymmetric,Reflexive,Irreflexive,Transitive,Functional,InverseFunctional,
+        Characteristics,Range,Domain,Datatype},
+     basicstyle=\scriptsize\ttfamily,
+     backgroundcolor=\color{light-gray},
+     keywordstyle=\color{blue},
+     commentstyle=\color{gray},
+     stringstyle=\color{dkgreen},
+     numbers=left,
+     numberstyle=\tiny\color{gray},
+     stepnumber=1,
+     numbersep=10pt,
+     tabsize=2,
+     showspaces=false,
+     showstringspaces=false,
+     breaklines=true,                           % wrap text
+     sensitive=true,                            % keywords are case sensitive
+     morecomment=[l][commentstyle]{\#},         % comment format
+     morestring=[b]",                           % string format
+literate=%
+  {ó}{{\'o}}1
+  {ã}{{\~a}}1
+  {Ã¢}{{\^a}}1
+  {õ}{{\~o}}1
+  {á}{{\'a}}1
+  {Ãº}{{\'u}}1
+  {í}{{\'i}}1
+  {é}{{\'e}}1
+  {ç}{{\c{C}}}1
+  {Ã}{{\~O}}1
+  {Ã}{{\^E}}1
+  {Ã³}{{\'o}}1
+  {Ã }{{\`a}}1
+  {Ã}{{\^A}}1
+  {Ã´}{{\^o}}1
+  {Ãª}{{\^e}}1
+  {Ã§}{{\c{c}}}1
+}
+
+
+\begin{document}
+OWL code of the Ontology of Social Participation
+\lstinputlisting[language=owlms]{../rdf/ops.ttl}
+\end{document}
