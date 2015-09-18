@@ -397,7 +397,7 @@ There are various images associated with the ontology\footnote{Corais platform p
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.4\textwidth]{figs/logoUnificadoDoPDF}
+%    \includegraphics[width=0.4\textwidth]{figs/logoUnificadoDoPDF}
     \caption{Some of the various logos for of the \vcps. (a) is a colored text logo proposal; (b) is a figurative logo; (c) is mixture of both ideas. It can be seen that these logos were conceived for the ontology when it was called a \emph{vocabulary}. Community documents reflect this nomenclature, which is being changed with this article and subsequent work with \ops\ advent.}
     \label{logo}
 \end{figure}
@@ -434,7 +434,7 @@ were written~\cite{etherpads} (these are interfaces that allows writing online t
 
 \begin{figure*}
     \centering
-    \includegraphics[width=0.9\textwidth]{figs/opsBFO___}
+%    \includegraphics[width=0.9\textwidth]{figs/opsBFO___}
     \caption{Diagram representation of the Ontology of Social Participation (\ops). Arrows with white heads indicate ``is a'' relations (subclass points to superclass). Arrows with black heads indicate property relations from subject to object . All property relation yield existential restrictions, with the exception of the ``has characteristic'' property, that does not yield restriction. Upper ontologies \bfo\ and \foaf\ are asserted through color (\bfo) and dashed boxes (\foaf).}
     \label{fig:v1}
 \end{figure*}
@@ -463,6 +463,7 @@ An inspection of \vcps\ also yielded a contradiction present in Figure~\ref{fig:
 
 
 \begin{table*}[!h]
+\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
     \footnotesize
   \centering
   \caption{Classes of the \ops\ (Ontology of Social Participation). These are core concepts in the ontology. Along with the taxonomic structure exposed in Figure~\ref{fig:owlCC}, these classes are related by the properties in Table~\ref{ospProps}. Noteworthy is \vcps\ class name ``{\tt vcps:Espa\c{c}o de A\c{c}\~ao}'', which caused original \vcps\ \owl\ to be pointed as corrupted by \protege\ (spaces are not allowed in \uri s). Also, class {\tt vcps:Role} was dropped as it yields logical problens in \vcps.}
@@ -485,12 +486,14 @@ Action & Acao & A\c{c}\~ao & Acci\'on & Action & what is done in terms os social
       {\color{red} dropped class}& Papel & -//-  & -//- & -//- & the role of the actor & -//- \\ \hline
   \end{tabular}
   \label{ospClasses}
+\end{adjustwidth}
 \end{table*}
 
 \begin{table*}[!h]
-  \centering
+\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+%  \centering
   \caption{Properties of the \ops\ (Ontology of Social Participation) along original \vcps\ names. Only a few ranges were established, and no domain, as these were not currently useful and, without them, \ops\ can be used more freely.}
-  \begin{tabular}{|l|l||p{2.2cm}|p{2.2cm}|p{1.8cm}||l|p{2.2cm}|}\hline
+  \begin{tabular}{|l|l||p{2.2cm}|p{2.2cm}|p{1.8cm}||l|p{1.2cm}|}\hline
 {\bf OSP property name} & {\bf CVSP property name} & {\bf pt-br label} & {\bf es label} & {\bf en label} & {\bf domain} & {\bf range} \\\hline\hline
 theme & possuiTemaAssociado & tema & tema & theme & -//- & Theme \\ \hline
 belongsTo & pertenceAoEspaco & pertence ao & pertence al & belongs to & -//- & Scope \\ \hline
@@ -507,6 +510,7 @@ proposes & propoeSolucao & prop\~oe & propone & proposes & -//- & -//- \\\hline
 {\color{red} dropped} & temPapel & -//-  & -//-  & -//-  & -//-  & -//- \\ \hline
   \end{tabular}
   \label{ospProps}
+\end{adjustwidth}
 \end{table*}
 
 A comparison of the \vcps\ \owl\ code~\cite{owlCCPtg} 
@@ -526,7 +530,7 @@ Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties a
 
 \begin{figure*}
     \centering
-    \includegraphics[width=\textwidth]{figs/opsTax}
+%    \includegraphics[width=\textwidth]{figs/opsTax}
     \caption{A taxonomic tree of the Ontology of Social Participation (\ops). This image was rendered inside \protege, with the \owl\ code in Appendix~\ref{owl:vcps}. Figure~\ref{fig:v1} is more informative, but this diagram is more standard and might be simpler for the newcomer. Note that the taxonomic tree does not present any information about properties further linking these classes. The prefixes {\tt snap:} and {\tt span:} are \bfo\ specific for {\tt snap}shot and {\tt span}ning-time.}
     \label{fig:owlCC}
 \end{figure*}
@@ -544,7 +548,7 @@ All \ops\ classes and properties \uri s are accessible via \http. A \pubby\ inst
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\columnwidth]{figs/pubbyDer}
+%    \includegraphics[width=\columnwidth]{figs/pubbyDer}
     \caption{Dereferencing an \ops\ class: the \uri\ is also an \urll, which, reached by \http, returns information for the user as shown. Also, if the client is not a browser, but a crawler or a linked data application, \pubby\ delivers plain \rdf, not user-friendly \html.}
     \label{fig:deref}
 \end{figure}
@@ -555,7 +559,7 @@ Linking multiple databases is an \owl\ technology core purpose. The standard way
 
 \begin{figure}
     \centering
-        \includegraphics[width=0.9\columnwidth]{figs/endpoint}
+%        \includegraphics[width=0.9\columnwidth]{figs/endpoint}
     \caption{Scheme of the common use of ontologies for multiple databases integration. A user or application reaches a \sparql\ endpoint. This endpoint, through ontologies, delivers data from one or more databases. Nowadays, the most usual is to find only one database available at an endpoint, and this database is usually duplicated and not synchronized, but available as a (converted) triplestore. Even so, it is possible to access multiple ontologies and it is desirable that the databases have synchronous access, i.e. without need to convert data to triples beforehand.}
     \label{endpoint}
 \end{figure}
@@ -571,13 +575,15 @@ Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \part
 
 \subsection{OPS expansion}\label{downwards}
 
-\begin{sidewaysfigure*}
-    \vspace{24.5em}
-    \hspace*{-3.5em}
-        \includegraphics[width=1.05\textwidth]{figs/opsExpandedTax}
+%\begin{sidewaysfigure*}
+    \begin{figure}
+%    \vspace{24.5em}
+%    \hspace*{-3.5em}
+%        \includegraphics[width=1.05\textwidth]{figs/opsExpandedTax}
         \caption{A taxonomic diagram of an example expanded instance of \ops. {\tt ops:PaidExecutor} is defined as being the subject of a \texttt{ops:receivesFrom} relation with a \texttt{ops:SocialActor}; \texttt{ops:DownloadedMob} is defined by being the subject of a \texttt{ops:convoquedBy} relation with a \texttt{ops:SocialNetwork}. \owl\ code is online for live editing~\cite{owlExp}. The new classes added to \ops\ are in Table~\ref{ospFooClass}}
     \label{fig:owlExp}
-\end{sidewaysfigure*}
+    \end{figure}
+%\end{sidewaysfigure*}
 
 \opsi\ matches \vcps\ online documentation~\cite{corais}. As an example of additional classes, an expanded \ops\ ontology is exposed in this section and is uploaded to \webprotege~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these additional classes while Figure~\ref{fig:owlExp} presents the resulting taxonomic structure.
 
