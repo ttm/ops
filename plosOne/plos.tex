@@ -639,7 +639,7 @@ Fictional examples are useful to make these points clear:
 \subsection{Real use cases}\label{sec:real}
 \opsi\ is a recent ontology. Even so, some real use cases can be pointed, from which are most notable:
 \begin{itemize}
-    \item The \pnud/\onu\ consultant contract 2013/00056, project BRA/12/018, was profoundly influenced by \ops~\cite{pnud5}. Within written products are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments were done by the computational physics researcher R. Fabbri (first author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aan\ and \cidadedemocratica; all related to \ops. These linked data resources are available in \sparql\ endpoints and can be dereferenced, in a similar fashion as done for \ops. As these are all executed in research facilities, they might lack maintenance and should be kept by a dedicated team.
+    \item The \pnud\ consultant contract 2013/00056, project BRA/12/018, was profoundly influenced by \ops~\cite{pnud5}. Within written products are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments were done by the computational physics researcher R. Fabbri (first author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aan\ and \cidadedemocratica; all related to \ops. These linked data resources are available in \sparql\ endpoints and can be dereferenced, in a similar fashion as done for \ops. As these are all executed in research facilities, they might lack maintenance and should be kept by a dedicated team.
     \item Another \pnud/\onu\ contract was responsible for some advances in information technologies. A special case is a dedicated \ops\ expansion\cite{paulo6}.
     \item The Brazilian Federal Data Processing Service (\serpro) is triplifying \participa\ data (the Brazilian federal social participation portal). Is this process, they as making direct use of \ops~\cite{tripSerpro}.
     \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud/\onu\ documentation, \serpro\ triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{circulaOps1,circulaOps2}.
@@ -730,197 +730,20 @@ This public consultation model is observed here for completeness of exposition a
     \label{fig:consult}
 \end{figure*}
 
-
-
-%\section{OWL code of the Ontology of Social Participation}
-%\label{owl:vcps}
-%
-%
-%\lstinputlisting[language=owlms]{rdf/ops.ttl}
-
-\section{Original diagram of OPS}\label{ap:dia}
-Although deprecated, Figure~\ref{fig:diaorig} is the basis of \vcps\ and \ops. It is displayed here for completeness of exposition and as support for discussions within this article. 
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.8\textwidth]{figs/diagramaOriginal}
-    \caption{Original \vcps\ diagram. Although there were substantial \owl\ modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as a \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
-    \label{fig:diaorig}
-\end{figure*}
-
 \section{Script for constructing current OPS}\label{ap:script}
-Preliminary \ops\ was done with \protege\ software~\cite{protege}. Current \ops\ is the output of a Python script~\cite{opsScript}. Actually, this article, latex files, the \owl\ code, the \python script and auxiliary files are in a public git repository~\cite{opsRepo}, as is the common practice of the first author of this article.
+Preliminary \ops\ was done with \protege\ software~\cite{protege}. Current \ops\ is the output of a Python script~\cite{opsScript}. Actually, this article, latex files, the \owl\ code, the \python\ script and auxiliary files are in a public git repository~\cite{opsRepo}, as is the common practice of the first author of this article.
 
-%\section{Glossary of terms, acronyms and abbreviations}\label{ap:glossary}
-%The subjects involved in this article have numerous jargons, acronyms and abbreviations. Table~\ref{tab:glos} should help readers as a concise references.
-%\begin{table}[!h]
-%\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-%  \footnotesize
-%  \vspace{-6mm}
-%  \centering
-%  \caption{Glossary for current article}
-%  \begin{tabular}{||l|p{5cm}|p{9cm}||}\hline
-%      {\bf term} & {\bf meaning} & {\bf further information} \\\hline\hline
-%      \aan  & Algorithmic Autoregulation & a platform for personal transparency, sharing ongoing work and proving dedication \\\hline
-%      \bfo  & Basic Formal Ontology & an upper ontology supporting information retrieval, analysis and integration in scientific and other domains \\\hline
-%      \cidadedemocratica  & a Brazilian civil society participatory portal & -//- \\\hline
-%      \dbpedia  & DBpedia is a crowd-sourced community effort to extract structured information from Wikipedia & consists of an ontological organization and data \\\hline
-%      \etherpad  & a web-based collaborative real-time editor, allowing authors to simultaneously edit a text document & -//- \\\hline
-%      \facebook & an online social networking service & -//-  \\\hline
-%      \foaf  & Friend Of A Friend & an ontology devoted to linking people and information using the Web, \foaf\ is a core ontology of the web semantic/linked data academic community \\\hline
-%      \html  & HyperText Markup Language & the standard markup language used to create Web pages \\\hline
-%      \http  & Hypertext Transfer Protocol & an application protocol for distributed, collaborative, hypermedia information systems. It is the foundation of data communication for the World Wide Web \\\hline
-%      \ict  & Information and communications technology  & often used as an extended synonym for information technology (IT) \\\hline
-%      \iri  & Internationalized Resource Identifier & a new internet standard to extend upon the existing uniform resource identifier (\uri) scheme, where \iri s are always utf-8 \\\hline
-%      \lod  & Linked Open Data & a human legacy of open and linked data \\\hline
-%      \mysql  & a widely used open-source relational database management system & -//-\\\hline
-%      \ngo  & Non-Governmental Organization & a term commonly used for an organization that is neither a part of a government nor a conventional for-profit business \\\hline
-%      \node  & an open source, cross-platform runtime environment for server-side and networking applications & applications are written in JavaScript  \\\hline
-%      \obda  & Ontology-Based Database Access & a general term for accessing databases through ontological criteria \\\hline
-%      \obs  & Social Library Ontology & from the Brazilian name Ontologia da Biblioteca Social \\\hline
-%      \ocd  & Cidade Democr\'atica Ontology & from the Brazilian name Ontologia do Cidade Democr\'atica \\\hline
-%      \ogp  & Open Government Partnership & an international organization promoting multilateral initiative and seeking strong commitments from participating government institutions to promote transparency, increase civic participation, fight corruption, and harness new technologies to make government more open, effective, and accountable \\\hline
-%      \ontologiaa  & \aan\ Ontology. &  the name is a derivative from the Brazilian ``Ontologia do \aan''. It is small, simple and entirely linked to upper ontologies (classes and properties) \\ \hline
-%      \ontop  & a platform to query databases as virtual \rdf\ graphs using \sparql\ & -//- \\\hline
-%      \opa  & \participa\ Ontology & from the Brazilian name Ontologia do \participa \\\hline
-%      \ops  & Ontology of Social Participation & Acronym from the Brazilian name: Ontologia de Participa\c{c}\~ao Social \\\hline
-%      \owl  & Web Ontology Language & for authoring ontologies \\\hline
-%      \participa  & the Brazilian federal participatory portal & -//- \\\hline
-%      \pubby  & A Linked Data Front-end for dereferencing \uri s & -//- \\\hline
-%      \python  & a widely used general-purpose, high-level programming language & known as an easy scripting language among researchers, developers and hackers \\\hline
-%      \quest  & the \sparql\ engine/reasoner that comes with \ontop & -//- \\\hline
-%      \rdf  & Resource Description Framework & a standard model for data interchange on the Web \\\hline
-%      \serpro  & Brazilian Federal Service of Data Processing & the biggest government-owned corporation of IT services of Brazil \\\hline
-%      \skos  & Simple Knowledge Organization System & a \wwwc recommendation designed for representation of thesauri, classification schemes, taxonomies, subject-heading systems \\\hline
-%      \sparql  & \sparql\ Protocol and \rdf\ Query Language & an \rdf\ query language  \\\hline
-%      \onu  & United Nations & an intergovernmental organization to promote international co-operation \\\hline
-%      \pnud  & United Nations Development Programme & the United Nations' global development network \\\hline
-%      \urll  & Uniform Resource Locator & also known as a web address, particularly when used with \http \\\hline
-%      \vbs  & Social Library Vocabulary & from the Brazilian name Vocabulário da Biblioteca Social \\\hline
-%      \vcps  & Common Vocabulary of Social Participation & Acronym from the Brazilian Vocabul\'ario Comum de Participa\c{c}\~ao Social\\\hline
-%      \wwwc     & World Wide Web Consortium & the main international standards organization for the World Wide Web \\\hline
-%\end{tabular}
-%  \label{tab:glos}
-%\end{adjustwidth}
-%\end{table}
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TEMPLATE BACKUP
-\begin{figure}[h]
-\caption{{\bf Figure Title first bold sentence Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}
-Figure Caption Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. A: Lorem ipsum dolor sit amet. B: Consectetur adipiscing elit.}
-\label{fig1}
-\end{figure}
-
-\begin{enumerate}
-\item{react}
-\item{diffuse free particles}
-\item{increment time by dt and go to 1}
-\end{enumerate}
-
-% Results and Discussion can be combined.
-\section*{Results}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-
-\begin{table}[!ht]
-\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\caption{
-{\bf Table caption Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam.}}
-\begin{tabular}{|l|l|l|l|l|l|l|l|}
-\hline
-\multicolumn{4}{|l|}{\bf Heading1} & \multicolumn{4}{|l|}{\bf Heading2}\\ \hline
-$cell1 row1$ & cell2 row 1 & cell3 row 1 & cell4 row 1 & cell5 row 1 & cell6 row 1 & cell7 row 1 & cell8 row 1\\ \hline
-$cell1 row2$ & cell2 row 2 & cell3 row 2 & cell4 row 2 & cell5 row 2 & cell6 row 2 & cell7 row 2 & cell8 row 2\\ \hline
-$cell1 row3$ & cell2 row 3 & cell3 row 3 & cell4 row 3 & cell5 row 3 & cell6 row 3 & cell7 row 3 & cell8 row 3\\ \hline
-\end{tabular}
-\begin{flushleft} Table notes Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed.
-\end{flushleft}
-\label{table1}
-\end{adjustwidth}
-\end{table}
-
-
-
-\subsection*{\lorem\ and \ipsum\ Nunc blandit a tortor.}
-
-Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed suscipit iaculis mi at feugiat. 
-
-\subsection*{Sed ac quam id nisi malesuada congue.}
-
-Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-% Please do not create a heading level below \subsection. For 3rd level headings, use \paragraph{}. 
-\subsection*{Subsection 1}
-Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-\subsection*{Subsection 2}
-\paragraph{3rd Level Heading.} Nulla mi mi, venenatis sed ipsum varius, volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-\section*{Discussion}
-Nulla mi mi, venenatis sed ipsum varius, Table~\ref{table1} volutpat euismod diam. Proin rutrum vel massa non gravida. Quisque tempor sem et dignissim rutrum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi at justo vitae nulla elementum commodo eu id massa. In vitae diam ac augue semper tincidunt eu ut eros. Fusce fringilla erat porttitor lectus cursus, vel sagittis arcu lobortis. Aliquam in enim semper, aliquam massa id, cursus neque. Praesent faucibus semper libero.
-
-\subsection*{\lorem\ and \ipsum\ Nunc blandit a tortor.}
-
-CO\textsubscript{2} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque. Quisque augue sem, tincidunt sit amet feugiat eget, ullamcorper sed velit. 
-
-Sed non aliquet felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo justo ac dui pretium imperdiet. Sed suscipit iaculis mi at feugiat. Ut neque ipsum, luctus id lacus ut, laoreet scelerisque urna. Phasellus venenatis, tortor nec vestibulum mattis, massa tortor interdum felis, nec pellentesque metus tortor nec nisl. Ut ornare mauris tellus, vel dapibus arcu suscipit sed. Nam condimentum sem eget mollis euismod. Nullam dui urna, gravida venenatis dui et, tincidunt sodales ex. Nunc est dui, sodales sed mauris nec, auctor sagittis leo. Aliquam tincidunt, ex in facilisis elementum, libero lectus luctus est, non vulputate nisl augue at dolor. For more information, see \nameref{S1_Text}.
-
-\section*{Supporting Information}
-
-% Include only the SI item label in the subsection heading. Use the \nameref{label} command to cite SI items in the text.
-\subsection*{S1 Video}
-\label{S1_Video}
-{\bf Bold the first sentence.}  Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\subsection*{S1 Text}
-\label{S1_Text}
-{\bf Lorem Ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\subsection*{S1 Fig}
-\label{S1_Fig}
-{\bf Lorem Ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\subsection*{S2 Fig}
-\label{S2_Fig}
-{\bf Lorem Ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\subsection*{S1 Table}
-\label{S1_Table}
-{\bf Lorem Ipsum.} Maecenas convallis mauris sit amet sem ultrices gravida. Etiam eget sapien nibh. Sed ac ipsum eget enim egestas ullamcorper nec euismod ligula. Curabitur fringilla pulvinar lectus consectetur pellentesque.
-
-\section*{Acknowledgments}
-Cras egestas velit mauris, eu mollis turpis pellentesque sit amet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam id pretium nisi. Sed ac quam id nisi malesuada congue. Sed interdum aliquet augue, at pellentesque quam rhoncus vitae.
-
-\nolinenumbers
-
-%\section*{References}
-% Either type in your references using
-% \begin{thebibliography}{}
-% \bibitem{}
-% Text
-% \end{thebibliography}
-%
-% OR
-%
-% Compile your BiBTeX database using our plos2015.bst
-% style file and paste the contents of your .bbl file
-% here.
-% 
-\begin{thebibliography}{10}
-\bibitem{bib1}
-Devaraju P, Gulati R, Antony PT, Mithun CB, Negi VS. Susceptibility to SLE in South Indian Tamils may be influenced by genetic selection pressure on TLR2 and TLR9 genes. Mol Immunol. 2014 Nov 22. pii: S0161-5890(14)00313-7. doi: 10.1016/j.molimm.2014.11.005
-
-\bibitem{bib2}
-Huynen MMTE, Martens P, Hilderlink HBM. The health impacts of globalisation: a conceptual framework. Global Health. 2005;1: 14. Available: http://www.globalizationandhealth.com/content/1/1/14.
-
-\end{thebibliography}
+ 
+%\begin{thebibliography}{10}
+%%\bibitem{bib1}
+%%Devaraju P, Gulati R, Antony PT, Mithun CB, Negi VS. Susceptibility to SLE in South Indian Tamils may be influenced by genetic selection pressure on TLR2 and TLR9 genes. Mol Immunol. 2014 Nov 22. pii: S0161-5890(14)00313-7. doi: 10.1016/j.molimm.2014.11.005
+%%
+%%\bibitem{bib2}
+%%Huynen MMTE, Martens P, Hilderlink HBM. The health impacts of globalisation: a conceptual framework. Global Health. 2005;1: 14. Available: http://www.globalizationandhealth.com/content/1/1/14.
+%%\bibliography{plos}
+%\end{thebibliography}
+\bibliography{plos}
+\bibliographystyle{plain}
 
 
 
