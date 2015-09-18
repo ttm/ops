@@ -5,6 +5,12 @@
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{light-gray}{rgb}{0.97,0.97,0.97}
+\AtBeginDocument{%
+%	  \renewcommand\lstlistingname{Listing}
+	%\renewcommand{\thelstlisting}{S3-\arabic{figure}}%
+	\renewcommand{\thelstlisting}{S2-\arabic{lstlisting}}%
+%	    \renewcommand\thelstlisting{\thesection.\arabic{lstlisting}}
+    }
 
 \lstdefinelanguage{owlms}
     {morekeywords={xsd,owl,xml,dc,rdf,skos,description,PlainLiteral,int,float,
@@ -49,9 +55,20 @@ literate=%
   {Ãª}{{\^e}}1
   {Ã§}{{\c{c}}}1
 }
+\usepackage{nameref,hyperref}
+\newcommand{\beginsupplement}{%
+	\setcounter{table}{0}
+	\renewcommand{\thetable}{S2\arabic{table}}%
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{S2\arabic{figure}}%
+%	\setcounter{listing}{0}
+%	\renewcommand{\thelisting}{S2\arabic{-listing}}%
+}
+\beginsupplement
+
 
 
 \begin{document}
 OWL code of the Ontology of Social Participation
-\lstinputlisting[language=owlms]{../rdf/ops.ttl}
+\lstinputlisting[language=owlms,label={lst:ops},caption=OWL code of social participation]{../rdf/ops.ttl}
 \end{document}
