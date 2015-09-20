@@ -7,8 +7,12 @@ selectedFigs/*
 
 cover letter
 striking image
+(da opsBFO__.eps)
 
 data review url
+http://datahub.io/organization/socialparticipation
+http://webprotege.stanford.edu/#Edit:projectId=d9a2b92e-f158-41e8-bd71-94ded0f7c699
+https://github.com/ttm/ops/tree/master/rdf
 
 
 
