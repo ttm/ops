@@ -1,0 +1,108 @@
+files to send:
+plos.pdf - manuscript
+(plos.tex, plos.bib)
+SI/*
+selectedFigs/*
+(how do they know which figure correspond to which image file?)
+
+cover letter
+striking image
+
+data review url
+
+
+
+Notes:
+== tab
+Current Funding Sources List
+CNPq
+Award Number: 140860/2013-4 | Recipient: Renato Fabbri
+UNDP
+Award Number: 2013/000566, BRA/12/018 | Recipient: Renato Fabbri
+Add a Funding Source
+
+== tab
+Author Contributions: conceived and designed the experiments
+RF RP
+(as experiências de levantamento de conhecimento específico,
+geralmente em forma de entrevistas online.
+Os experimentos mentais de uso da ontologia.
+Os experimentos de uso da ontologia para amadurecimentos
+conceituais e disponibilização de dados.)
+
+Author Contributions: performed the experiments
+RF RP HF RL
+(incluindo experimentos do VCPS e da OPS)
+
+Author Contributions: analyzed the data
+RF RP HF RL
+(incluindo VCPS e OPS)
+
+Author Contributions: contributed reagents/materials/analysis tools
+RF
+(pelo foco e contribuição do artigo ser a OPS final,
+senão puxa uma parte que não tem descrita no artigo,
+que foi do corais e terminou no primeiro OWL.)A
+
+Author Contributions: contributed to the writing of the manuscript0
+RF FA DM
+
+Author Contributions: other 
+Most writing and coding: RF. Preliminary versions of the ontology: HP RL RP. Translations of terms to Spanish: FA. Mentoring about semantic web: DM.
+
+Financial Disclosure 
+National Counsel of Technological and Scientific Development (process 140860/2013-4, project 870336/1997-5);
+United Nations Development Program (contract: 2013/000566; project BRA/12/018).
+The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.
+
+Competing Interests 
+The authors have declared that no competing interests exist.
+
+Dual Publication 
+This article is published at ArXiv:
+http://arxiv.org/abs/1501.02662
+which is not a peer review publication.
+
+Suggest Academic Editors
+Tudor Groza,
+Indra Neil Sarkar,
+Chris Mavergames
+
+Please describe where your data may be found...
+All RDF data files are available from the Datahub.io database and accessible at:
+http://datahub.io/organization/socialparticipation
+The RDF ontology file is maintained at github:
+https://github.com/ttm/ops/tree/master/rdf
+and at Stanford Webprotege:
+http://webprotege.stanford.edu/#Edit:projectId=d9a2b92e-f158-41e8-bd71-94ded0f7c699
+These resources are also in other nonstable URLs from State and civil society third parties.
+
+If your co-authors' institutions will not provide any funding to publish the article, indicate why.
+Three of the authors are not from research institutions, the other two are partners from a nearby department and are having the same difficulties I describe for funding from my institution.
+
+If your institution cannot provide any funding to publish the article, indicate why.
+Administrative and academic superiors enumerated two reasons:
+1) Brazilian funding agencies do not have specific programs for this kind of publication (as they do for conferences)
+2) University research funds are very reduced  due to a national (and academic) crisis and austerity measures.
+
+If you wish to make additional comments to support your request, provide them below. If you have no additional comments, enter "None" in the box. 
+This article reports on an international community effort for linking data from State participatory instances and has had already 
+some use and linkage from ArXiv and Github repositories.
+This proposed PLOS peer reviewed publication should have significant impact on academic,
+ State and civil society groups dedicated to linked data, social participation and transparency.
+Qualification of such emergent and transdisciplinary research urges so
+more consistent steps can be taken.
+
+== tab "Enter Comments"
+comments you would like to send to the editorial office.
+This manuscript reports an open conceptual formalization derived from open processes with open scripts, data and OWL ontologies which have had some uses already and should keep reverberating.
+Subsequent endeavors are being written for peer review,
+but the ontolgy in use is reported on this manuscript.
+It is the only Brazilian participatory
+ontology with
+a somewhat more general acceptance,
+and the only with so many collaborators and a community.
+
+
+
+
