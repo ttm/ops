@@ -337,7 +337,7 @@ Dilvan de Abreu Moreira\textsuperscript{4}
     Participatory democracy advances in virtually all governments. South America presents a prominent context with mixed culture and social predisposition. In 2012, civil, academic and governmental parties started elaborating the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}), as a public and online process. By May, 2013, first reference documents were publicized, together with a preliminary \owl\ code,
 logos, and a diagram of a general ``public consultation''.
 The \corais\ platform kept online records of the process, like discussions and preparation of texts. 
-This article exposes this material and proposes an elementary unfolding: the ``Social Participation Ontology'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}). To exhibit this new ontology, these steps were considered: correction of ontological contradictions and \owl\ protocol use errors; completion of \vcps\ \owl\ code into a preliminary version of the \ops; translations and standardizations; enhancements of class names and labels in Portuguese, Spanish and English; a toy expansion of the ontology by further specifying classes; linked data examples regarding dereferencing, a \sparql\ endpoint and participatory instances; use cases by researchers and public managers. Ongoing work involves further adoption of \ops\ by the official Brazilian federal portal of social participation, further adoption by civil participative organizations, and linkage to other participative ontologies. \ops\ is being used as an upper ontology, and all classes linked further to \foaf\ and \bfo\ as higher upper ontologies.
+This article exposes this material and reports an elementary unfolding: the ``Social Participation Ontology'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}). To exhibit this new ontology, these steps were considered: correction of ontological contradictions and \owl\ protocol use errors; completion of \vcps\ \owl\ code into a preliminary version of the \ops; translations and standardizations; enhancements of class names and labels in Portuguese, Spanish and English; a toy expansion of the ontology by further specifying classes; linked data examples regarding dereferencing, a \sparql\ endpoint and participatory instances; use cases by researchers and public managers. Ongoing work involves further adoption of \ops\ by the official Brazilian federal portal of social participation, further adoption by civil participative organizations, and linkage to other participative ontologies. \ops\ is being used as an upper ontology, and all classes linked further to \foaf\ and \bfo\ as higher upper ontologies.
 
 
 
@@ -353,11 +353,9 @@ This article exposes this material and proposes an elementary unfolding: the ``S
 Easy access to social media is reshaping citizen participation in government affairs~\cite{socMed}. 
 Information and communication technologies (\ict s) have exhibited such an impact on the way individuals interact
  that it is giving birth to new organizational methods in social movements. These changes can be observed, for example, in the 2010 Arab Spring and the 2013 Brazilian protests. These events gathered millions of people and, although recent, have shown direct and strong impact in governments and new laws, and the forecast is an intensification of the process~\cite{digRev1,digRev2,digRev3}.
-
 Concomitantly, electronic government initiatives are flourishing, favored mainly by the ubiquity of Internet technologies (e.g. \html\ 5, \node, open source browsers) and by the need for renewal of representative democracy practices. 
 These initiatives have taken place in various platforms, including usual social networks (e.g. \facebook, \twitter)
- and dedicated clients created by both government and civil society agents~\cite{socMed,pita2010arquitetura,barros2010alem,knowledge}.
-
+ and dedicated clients created by both government and civil society parties~\cite{socMed,pita2010arquitetura,barros2010alem,knowledge}.
 A natural challenge arises: how to link information produced into an unified knowledge base. This is being addressed, at the technology level, by semantic web developments. Endorsed by World Wide Web Consortium (\wwwc), current semantic web technologies include~\cite{Sem1}:
 \begin{itemize}
     \item reasoning by means of ontological specifications,
@@ -365,25 +363,24 @@ A natural challenge arises: how to link information produced into an unified kno
     \item organization of domain knowledge for coherent consideration.
 \end{itemize}
 
-Key among these technologies, ontologies are considered one of the pillars of the semantic web. An ontology is usually defined as a formal specification of a shared conceptualization~\cite{gruber}.
+\noindent Key among these technologies, ontologies are considered one of the pillars of the semantic web. An ontology is usually defined as a formal specification of a shared conceptualization~\cite{gruber}.
 They give meaning to data and are useful for datasets available on the web to make them automatically retrievable and linkable with other datasets. The \wwwc\ created the Web Ontology Language (\owl) as a standard to represent ontologies in the web.
 The second version of the language is called \owl\ 2 and offers greater expressive power~\cite{owl2}, but the version is omitted with very few exceptions.
 
 In this context, to describe and give meaning to social participation, the ``Common Vocabulary of Social Participation'' (\vcps\ from the Brazilian name \emph{Vocabul\'ario Comum de Participa\c{c}\~ao Social}) was proposed as a joint effort of Latin America academic, civil and governmental groups~\cite{corais}. Although started in 2012, a recent initiative for ontological developments, it already yielded relevant material, including a public preliminary \owl\ ontology with a concise taxonomy. Also important are the reference documents reporting results from a first working phase, from July to December, 2012. 
 As stated by the community, \vcps\ was propelled by three goals: 1) to ease adoption of the vocabulary; 2) to stimulate the creation of public tools to understand, visualize and summarize how participation is happening; 3) to meet the need of participative initiatives to open and link their data. 
-
 It is important to notice that \vcps, an ontology, was called a \emph{vocabulary} both to ease understanding of the general public and because it started as a vocabulary. The present article presents the ``Ontology of Social Participation'' (\ops\ from the Brazilian name \emph{Ontologia de Participa\c{c}\~ao Social}), based on \vcps, in which the term \emph{vocabulary} was substituted by the term \emph{ontology} for the following reasons:
 
 \begin{itemize}
     \item The usage of the word ``vocabulary'' can lead to confusion is some situations as \ops\ is an \owl\ ontology (not, for example, a \skos\ vocabulary).
     \item Documentation seems inconsistent when an ontology is repeatedly called a vocabulary.
     \item \opsi\ is, in fact, an ontology, with a vocabulary, a taxonomic organization and properties further relating the terms.
-    \item This coherent naming is a prerequisite for for academic acceptance and further formal adoption by government instances, such as the Brazilian Federal Portal of Open Data~\cite{dadosGov} and the Brazilian Federal Portal of Social Participation~\cite{participa}.
+    \item This coherent naming is a prerequisite for academic acceptance and further formal adoption by government instances, such as the Brazilian Federal Portal of Open Data~\cite{dadosGov} and the Brazilian Federal Portal of Social Participation~\cite{participa}.
 \end{itemize}
 
-Also, the term \emph{common} was dropped when \ops\ was conceived, as the term is redundant for an ontology. The \vcps\ presented other difficulties, such as missing classes, incorrect \uri\ specifications (containing spaces), some logical flaws, and unnecessary out-of-standards restrictions. This were all solved within \ops\ (to the extent authors were able to, of course).
+\noindent Also, the term \emph{common} was dropped when \ops\ was conceived, as the term is redundant for an ontology. The \vcps\ presented other difficulties, such as missing classes, incorrect \uri\ specifications (containing spaces), some logical flaws, and unnecessary out-of-standards restrictions. This were all solved within \ops\ (to the extent authors were able to, of course).
 
-Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, \owl\ code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops: modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: dereferencing, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
+Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, \owl\ code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops\ and modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: dereferencing, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
 
 
 \section{\vcps\ original documentation}
