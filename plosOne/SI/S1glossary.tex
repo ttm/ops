@@ -46,11 +46,21 @@
 \newcommand{\python}{\textsc{p}ython}
 \newcommand{\protege}{\textsc{p}rot\`eg\`e}
 
+\usepackage{nameref,hyperref}
+\usepackage{xcolor}       
+\hypersetup{
+        colorlinks,
+        linkcolor={red!50!black},
+        citecolor={blue!50!black},
+        urlcolor={blue!80!black}
+}
+
+
 \usepackage[margin=1em]{geometry}
 \begin{document}
 %\section{Glossary of terms, acronyms and abbreviations}\label{ap:glossary}
 \vspace{-8cm}
-The subjects involved in this article have numerous jargons, acronyms and abbreviations. Table~\ref{tab:glos} should help readers as a concise references.
+The knowledge fields involved in this article have numerous jargons, acronyms and abbreviations. Table~\ref{tab:glos} should assist readers as a concise reference.
 \begin{table}[!h]
 %\begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
   \footnotesize
@@ -59,7 +69,7 @@ The subjects involved in this article have numerous jargons, acronyms and abbrev
   \caption{Glossary for current article}
   \begin{tabular}{||l|p{5cm}|p{9cm}||}\hline
       {\bf term} & {\bf meaning} & {\bf further information} \\\hline\hline
-      \aan  & Algorithmic Autoregulation & a platform for personal transparency, sharing ongoing work and proving dedication \\\hline
+      \aan  & Algorithmic Autoregulation & a platform for personal transparency, sharing ongoing work and demonstration of dedication \\\hline
       \bfo  & Basic Formal Ontology & an upper ontology supporting information retrieval, analysis and integration in scientific and other domains \\\hline
       \cidadedemocratica  & a Brazilian civil society participatory portal & -//- \\\hline
       \dbpedia  & DBpedia is a crowd-sourced community effort to extract structured information from Wikipedia & consists of an ontological organization and data \\\hline

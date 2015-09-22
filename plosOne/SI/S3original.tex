@@ -8,6 +8,8 @@
 }
 \beginsupplement
 
+\usepackage{xr}
+\externaldocument{../plos}
 
 \usepackage{lastpage,fancyhdr,graphicx}
 \newcommand{\ops}{\textsc{ops}}
@@ -57,6 +59,17 @@
 \newcommand{\python}{\textsc{p}ython}
 \newcommand{\protege}{\textsc{p}rot\`eg\`e}
 
+\usepackage{nameref,hyperref}
+\usepackage{xcolor}       
+\hypersetup{
+        colorlinks,
+        linkcolor={red!50!black},
+        citecolor={blue!50!black},
+        urlcolor={blue!80!black}
+}
+
+
+
 \usepackage[margin=1em]{geometry}
 \begin{document}
 %\section{Glossary of terms, acronyms and abbreviations}\label{ap:glossary}
@@ -66,7 +79,7 @@ Although deprecated, the figure bellow is the basis of \vcps\ and \ops. It is di
 \begin{figure*}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{../figs/diagramaOriginal}
-    \caption{Original \vcps\ diagram. Although there were substantial \owl\ modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as a \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1}.}
+    \caption{Original \vcps\ diagram. Although there were substantial \owl\ modifications, the main difference in the diagram is that the class \texttt{Role} was removed, as a \texttt{Role} is not able to start, execute or support anything. That is done by the Social Actor, as exposed in Figure~\ref{fig:v1} of the main document.}
     \label{fig:diaorig}
 \end{figure*}
 
