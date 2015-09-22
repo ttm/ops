@@ -383,7 +383,7 @@ It is important to notice that \vcps, an ontology, was called a \emph{vocabulary
 Next section is dedicated to an inspection of the documents delivered by the \vcps: reference textual documents, images, \owl\ code, blog posts, discussions and \etherpad s. Section~\ref{exp} presents \ops\ and modifications made from \vcps\ to \ops: class and property names and labels, class restrictions and property axioms. Section~\ref{ospUtil} is dedicated to \ops\ usage: dereferencing, \sparql\ queries, a toy \ops\ expansion, discursive example of usage, and use cases from government, civil society and academic parties. Concluding remarks are stated with future work, in Section~\ref{conc}. 
 
 
-\section{VCPS original documentation}
+\section{VCPS original documentation}\label{sec:orig}
 From April to December, 2012, \vcps\ was first conceived. In the online process, as registered by \corais\ platform, 66 users interacted, 6 of them were the most active~\cite{metodologia}. Various materials were produced both as activity traces and as reference media. This section is dedicated to these materials.
 
 \subsection{Reference textual documents}\label{refDocs}
@@ -653,25 +653,27 @@ Fictional examples are useful to make these points clear:
     \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud\ development and documentation, \serpro\ data triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{circulaOps1,circulaOps2}.
 \end{itemize}
 
-\section{Concluding remarks}\label{conc}
+\section{Concluding remarks and further work}\label{conc}
 \opsi, based in \vcps,
-yields initial steps in achieving an effective social participation ontology: community has registered activities and delivered reference documents, including this article.
-Sections~\ref{exp} and~\ref{ospUtil} have expansion directions for the ontology, regarding uses, further definition of classes, upper ontologies and related ontological structures.
+yields initial steps in achieving an effective social participation ontology.
+Community has registered activities and delivered reference documents, including this present article which contains 
+an organization of the community foundational conceptualizations,
+\ops\ diligent development, uses,
+upper ontologies and expansion of the ontological structures.
 
 On the practical side, the use of this ontology or related developments for the Brazilian federal participation portal (\participa~\cite{participa}) is a desirable reality, as it implies usage and good maintenance.  Moreover, an ontology was done for \participa, based in the \ops: the \opa~\cite{pnud5} (Ontology of \participa). This is confluent with the presidential Decree that establishes a policy and commitment for social participation\cite{decree}. In this context, presidential, ministerial and academic parties started formalizing current legal participatory mechanisms (e.g. conferences, councils, forums, public consultations, round tables) in ontological terms, which resulted in the Social Library Ontology (\obs\ from the Brazilian name Ontologia da Biblioteca Social) and the Social Library Vocabulary (\vbs\ from the Brazilian name Vocabul\'ario da Biblioteca Social).
 Hosting ontologies on Webprotege~\cite{webprotege} have become central, as a way to share specific ontologies in a friendly environment and to collects observations.
 
-\subsection{Further work}
+%\subsection{Further work}
 Further work involves observing community manifestations about \ops\ and this article, accomplishing use by means of formal instances and civil society, and studying upper ontologies usage with \ops. The use of \ops\ (or a variant) in different instances is being tackled for the creation of social participation indicators and easing participation processes.
+Academic texts dedicated to the new participation ontologies created (\ocd, \obs, \ontologiaa, \opa) should be written and submitted to peer review for enhancements and quality assurance~\cite{pnud5}.
 
-Academic texts dedicated to each new participation ontology created (\ocd, \obs, \ontologiaa, \opa) should be written and submitted to peer review for enhancements and quality assurance~\cite{pnud5}.
-
-Data related to these ontologies were found in relational databases and preliminary scripts were written to make them available as \rdf. A sound linkage of this data and incorporation to the Linked Open Data (\lod~\cite{lod}) cloud is planed for a near future. This should make Brazilian participative structures and data part of the Giant Global Graph~\cite{ggg}.
+Data related to these ontologies were found in relational databases and preliminary scripts were written to make them available as \rdf~\cite{datahub}. A sound linkage of this data and the consequent incorporation to the Linked Open Data (\lod~\cite{lod}) cloud is planed for a near future. This should make Brazilian participative structures and data more relevant to the Giant Global Graph~\cite{ggg}.
 
 \subsubsection*{Acknowledgments}
-This article is deeply influenced by Protege and BFO documentation. Authors thank community and researchers related to these projects~\cite{protege,bfo}.
-Authors thank \corais\ Platform maintainers for their efforts in delivering a collaborative platform which gave birth to \vcps\ documentation.
-Renato Fabbri is grateful to CNPq (process 140860/2013-4, project 870336/1997-5), PNUD/ONU (contract 2013/00056, project BRA/12/018), SNAS/SG-PR, and the Postgraduate Committee of the IFSC/USP. 
+This article is deeply influenced by \protege\ and \bfo\ documentation. Authors thank community and researchers related to these projects~\cite{protege,bfo}.
+Authors thank \corais\ platform maintainers for their efforts in delivering a collaborative platform which gave birth to \vcps\ documentation.
+Renato Fabbri is grateful to \textsc{cnp}q (process 140860/2013-4, project 870336/1997-5), \pnud\ (contract 2013/00056, project BRA/12/018), \textsc{snas/sg-pr}, and the postgraduate committee of the \textsc{ifsc/usp}.
 % Authors thanks Prof. Dr. Dilvan de Abreu Moreira (ICMC/USP) for all help and incentives in the genesis of this article. Authors thank Flor Karina Mamani Amanqui for initial Spanish labels.
 
 
@@ -700,7 +702,7 @@ These restrictions were part of \vcps\ documentation, but not implemented in \vc
 Present in preliminary \ops\ implementation, all restrictions were removed from current \ops\ as explained in Section~\ref{impl}.
 \begin{table}[!h]
   \centering
-  \caption{Restrictions of the \ops\ (Ontology of Social Participation). All \ops\ restrictions are existential (\texttt{owl:someValuesFrom)}.}
+  \caption{Restrictions of the preliminary \ops: all restrictions are existential (\texttt{owl:someValuesFrom)}.}
   \begin{tabular}{|l|l|l|}\hline
 {\bf subject} & {\bf predicate} & {\bf object} \\\hline\hline
 Initiator    & starts        & Cause\\\hline
