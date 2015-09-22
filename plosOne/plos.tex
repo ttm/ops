@@ -561,20 +561,20 @@ All \ops\ classes and properties \uri s are accessible via \http. A \pubby~\cite
 
 \subsection{Usage of OPS through a SparQL endpoint}
 
-Linking multiple databases is an \owl\ technology core purpose. The standard way to access these data via ontologies is by using a \sparql\ endpoint. This endpoint delivers data from a triplestore (collection of \rdf\ triples) or, with more experimental technology, from relational database systems, such as a \mysql\ server (e.g. via \ontop/\quest~\cite{onTop}). Either way, the query is the same: the user or machine reaching the endpoint uses the \sparql\ protocol in order to retrieve information through semantic criteria. Figure~\ref{endpoint} is a schematic representation of \obda\ (Ontology Based Database Access), which is a common name for this multiple database access through ontologies.
+Linking multiple databases is an \owl\ technology core purpose. The standard way to access these data via ontologies is by using a \sparql\ endpoint. Such endpoint delivers data from a triplestore (a collection of \rdf\ triples) or, with more experimental technology, from relational database systems, such as a \mysql\ server (e.g. via \ontop/\quest~\cite{onTop}). Either way, the query is the same: the user or machine reaching the endpoint uses the \sparql\ protocol in order to retrieve information through semantic criteria. Figure~\ref{endpoint} is a schematic representation of \obda\ (Ontology Based Database Access), which is a common name for this multiple database access through ontologies.
 
 \begin{figure}[!h]
     \centering
 %        \includegraphics[width=0.9\columnwidth]{figs/endpoint}
-    \caption{Scheme of the common use of ontologies for multiple databases integration. A user or application reaches a \sparql\ endpoint. This endpoint, through ontologies, delivers data from one or more databases. Nowadays, the most usual is to find only one database available at an endpoint, and this database is usually duplicated and not synchronized, but available as a (converted) triplestore. Even so, it is possible to access multiple ontologies and it is desirable that the databases have synchronous access, i.e. without need to convert data to triples beforehand.}
+    \caption{Scheme of the common use of ontologies for multiple databases integration. A user or application reaches a \sparql\ endpoint. This endpoint, through ontologies, delivers data from one or more databases. Nowadays, the most usual is to find only one database available at an endpoint, and this database is usually duplicated and not synchronized, but available as a (converted) triplestore. Even so, it is possible to access multiple ontologies and it is desirable that the databases have synchronous access, i.e. without need to convert data to \rdf\ triples beforehand.}
     \label{endpoint}
 \end{figure}
 
 Some examples of this usage can be given by \sparql\ queries and concise explanations:
 \begin{itemize}
     \item \texttt{"select ?s ?s2 ?s3 where \{?s a ops:SocialActor . ?s2 a ops:Person . ?s3 a ops:Organization\}"}: this query retrieves all social actors (returned in variable \texttt{?s}), be each a person, an organization, or something else; retrieves all persons (variable \texttt{?s2}); and retrieves all organizations (\texttt{?s3}). In a similar manner, one can retrieve all roles played, all executers, all initiators and all supporters.
-    \item \texttt{"select ?s ?o where \{?s ops:starts ?o\}"}: this query retrieves all causes ({\tt ?o}) and their initiators ({\tt ?s}) or whatever use is being done of the {\tt ops:stars} property.
-    \item \texttt{"select ?s ?s2 ?o ?o2 where \{?s a ops:Action . ?s ops:belongsTo ?o . ?s2 ops:executes ?s . ?s ops:produces ?o2\}"}: this query retrieves all actions (\texttt{?s}) along their Action Field (\texttt{?o}), their Executer (\texttt{?s2}) and their Results (\texttt{?o2}), or whatever use is being made of there \ops\ classes and properties.
+    \item \texttt{"select ?s ?o where \{?s ops:starts ?o\}"}: this query retrieves all causes ({\tt ?o}) and their initiators ({\tt ?s}) or whatever use of the {\tt ops:starts} property is taking place.
+    \item \texttt{"select ?s ?s2 ?o ?o2 where \{?s a ops:Action . ?s ops:belongsTo ?o . ?s2 ops:executes ?s . ?s ops:produces ?o2\}"}: this query retrieves all Actions (\texttt{?s}) along their Action Fields (\texttt{?o}), their Executers (\texttt{?s2}) and their Results (\texttt{?o2}).
 \end{itemize}
 
 Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \participa\ participants, {\tt ocd:Participant} can be used to retrieve all \cidadedemocratica\ participants, and {\tt aa:User} can be used to retrieve all \aan\ participants; their upper ontology class {\tt ops:SocialActor} retrieves all of them and relates these entities directly to the class of generic actors of social participation processes~\cite{pnud5}.
@@ -584,34 +584,34 @@ Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \part
 %\begin{sidewaysfigure*}
 %\end{sidewaysfigure*}
 
-\opsi\ matches \vcps\ online documentation~\cite{corais}. As an example of additional classes, an expanded \ops\ ontology is exposed in this section and is uploaded to \webprotege~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these additional classes while Figure~\ref{fig:owlExp} presents the resulting taxonomic structure.
+\opsi\ matches \vcps\ online documentation~\cite{corais}. As an example of additional classes in such context, an expanded \ops\ ontology is exposed in this section and is uploaded to \webprotege~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these additional classes while Figure~\ref{fig:owlExp} presents the resulting taxonomic structure.
 
-The property {\tt ops:receivesFrom} was also added and has an inverse: \texttt{ops:SocialActor ops:paysTo ops:Executor}. Also, the {\tt ops:DownloadedMod} class is a defined class by the existential restriction: \texttt{ops:Mob ops:convoquedBy ops:Network}, with a newly defined property \texttt{ops:convoquedBy}.
+The property {\tt ops:receivesFrom} was also added and has an inverse: \texttt{ops:SocialActor ops:paysTo ops:Executor}. Also, the {\tt ops:DownloadedMob} class is a defined class by the existential restriction: \texttt{ops:Mob ops:convoquedBy ops:Network}, with a newly defined property \texttt{ops:convoquedBy}.
 
 This is one of the numerous ways by which \ops\ might deal with further classes, properties and restrictions. This particular expansion was chosen as an example by direct observance of \vcps\ documentation and recent social affairs, such as the Brazilian protests.
 
 \begin{table*}[!h]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
   \centering
-  \caption{New classes considered for expansion of the \ops. The taxonomic organization of these classes, within \ops\ can be observed in Figure~\ref{fig:owlExp}. Further information is in Section~\ref{downwards}.}
-  \begin{tabular}{|l|l|p{5cm}|p{5.7cm}|}\hline
+  \caption{New classes considered for expansion of the \ops. The taxonomic organization of these classes within \ops\ can be observed in Figure~\ref{fig:owlExp}. Further information is in Section~\ref{downwards}.}
+  \begin{tabular}{|l|l|p{5.4cm}|p{5.3cm}|}\hline
 {\bf new class} & {\bf subclass of} & {\bf description} & {\bf further notes} \\\hline\hline
 SocialNetwork & Organization & a social structure made up of social actors (such as individuals or organizations) and a set of dyadic ties between these actors & --//--\\\hline
-FreeScaleNetwork & SocialNetwork & a network whose connectivity follows a power law & disjoint with UniformrandomNetwork and GeographicNetwork \\ \hline
-ErdosRenyiNetwork & SocialNetwork & also known as Poisson network, this network sets, with equal propability, an edge between each pair of nodes & disjoint with FreeScaleNetwork and GeographicNetwork\\\hline
-GeographicNetwork & SocialNetwork & a network whose connectivity is related to the distance of nodes in a metric space & Disjoint with both FreeScaleNetwork and ErdosRenyiNetwork \\\hline
-SmallWorldNetwork & SocialNetwork & a network where most nodes can be reached from other nodes with few hops or steps & not disjoint with FreeScaleNetwork, ErdosRenyiNetwork and GeographicNetwork\\\hline\hline
+ScaleFreeNetwork & SocialNetwork & a network whose connectivity follows a power law distribution & disjoint with ErdosRenyiNetwork and GeographicNetwork. Usual social network structure \\ \hline
+ErdosRenyiNetwork & SocialNetwork & also known as Binomial network, this network sets, with equal propability, an edge between each pair of nodes & disjoint with ScaleFreeNetwork and GeographicNetwork. Unusual social network structure \\\hline
+GeographicNetwork & SocialNetwork & a network whose connectivity is related to the distance of nodes in a metric space & disjoint with both ScaleFreeNetwork and ErdosRenyiNetwork. Unusual social network structure \\\hline
+SmallWorldNetwork & SocialNetwork & a network where most nodes can be reached from other nodes with few hops or steps & disjoint with GeographicNetwork. Usual social network structure \\\hline\hline
 InformalOrganization & Organization & an organization that is not formalized & disjoint with Intitution \\ \hline
 Mob & InformalOrganization & a crowd of individuals & --//-- \\\hline
 GiantMob & Mob & a crowd with more than 10,000 individuals & --//--\\\hline
 DownloadedMob & Mob & a Mob convoqued by a network & this is a defined class, by being a network and being the subject of the relation convoquedBy with object Network \\ \hline\hline
 Institution & Organization & a mechanism of social order that governs a set of individuals & disjoint with InformalOrganization \\\hline
-PublicInstitution & Institution & an institution backed through public funds and controlled by the state & disjoint with Private Institution \\ \hline
+PublicInstitution & Institution & an institution backed through public funds and controlled by the state & disjoint with PrivateInstitution \\ \hline
 PrivateInstitution & Institution & an institution backed through private fundings and controlled by private parties & disjoint with PublicInstitution \\ \hline
 AcademicInstitution & Institution & an institution dedicated to education and research, which grants academic degrees & --//-- \\ \hline
 NGO & Institution & a legally consituted corporation created by natural or legal people that operate independently from any form of government & --//-- \\\hline
 SpuriousInstitution & Institution & an institution that holds prominent illegitimate or corrupt characteristcs & --//-- \\\hline
-ExoticInstitution & Institution & an institution that does not fit previous classes or is characterized by a very unique traces & --//-- \\\hline\hline
+ExoticInstitution & Institution & an institution that does not fit previous classes or is characterized by very unique traces & --//-- \\\hline\hline
 VoluntaryExecutor & Executor & an executor that receives no formal reward for the tasks & disjoint with PaidExecutor \\ \hline
 PaidExecutor & Executor & an Executor that receives formal reward for the tasks accomplished & a defined class, being an Executor and the subject of a receivesFrom predicate with SocialActor as object\\ \hline
   \end{tabular}
@@ -623,14 +623,14 @@ PaidExecutor & Executor & an Executor that receives formal reward for the tasks 
 %    \vspace{24.5em}
 %    \hspace*{-3.5em}
 %        \includegraphics[width=1.05\textwidth]{figs/opsExpandedTax}
-        \caption{A taxonomic diagram of an example expanded instance of \ops. {\tt ops:PaidExecutor} is defined as being the subject of a \texttt{ops:receivesFrom} relation with a \texttt{ops:SocialActor}; \texttt{ops:DownloadedMob} is defined by being the subject of a \texttt{ops:convoquedBy} relation with a \texttt{ops:SocialNetwork}. \owli\ code is online for live editing~\cite{owlExp}. The new classes added to \ops\ are in Table~\ref{ospFooClass}}
+        \caption{A taxonomic diagram of an example expanded instance of \ops. {\tt ops:PaidExecutor} is defined as being the subject of a \texttt{ops:receivesFrom} relation with a \texttt{ops:SocialActor}; \texttt{ops:DownloadedMob} is defined by being the subject of a \texttt{ops:convoquedBy} relation with a \texttt{ops:SocialNetwork}. The \owl\ code is online for live editing~\cite{owlExp}. New classes added to this expanded version of \ops\ are in Table~\ref{ospFooClass}}
     \label{fig:owlExp}
     \end{figure}
 
 
 \subsection{Fictional examples of usage}\label{examplesUsage}
 
-\opsi\ usage might not be obvious at first. How is data linked? How is field knowledge organized? Why and by whom? Core principles of these \ops\ utilities, can be understood by the following observations:
+\opsi\ usage might not be obvious at first. How is data linked? How is field knowledge organized? Why and by whom? Core principles of these \ops\ utilities can be understood by the following observations:
 \begin{itemize}
     \item Different participation instances have social actors, actions being developed, organizations involved, problems being tackled, etc. These can yield one consistent database by means of \ops\ usage.
     \item One can understand and share the mutually exclusive nature of being a paid or a voluntary contributor by observing the expanded version of \ops\ (see Section~\ref{downwards}. Also, noticing the fact that a mob can be very big or not, and that it can be convoked or not by a Network, can make the field more neat for a newcomer or ease discussions and problematization for senior researchers or politicians.
@@ -639,8 +639,8 @@ PaidExecutor & Executor & an Executor that receives formal reward for the tasks 
 
 Fictional examples are useful to make these points clear:
 \begin{itemize}
-    \item Suppose a public \sparql\ endpoint unifies several participation instances by means of \ops\ (we will see in Section~\ref{sec:real} that this is not really fictional). Thus, the number of participants is publicly available ({\tt |ops:SocialActor|}). Also, depending on the platforms involved, one can observe how many of these participants are individuals ({\tt ops:Person}), how many are organizations ({\tt ops:Organization}), and understand to which extent the corporative influence is explicit. One can observe how many of the participants are the same in each platform, and what roles they take, and make assumptions about how much the society is really participating or if these processes are manipulated by a few agents ({\tt ops:SocialActor}). One can also gaze uppon the problems being discussed and which solutions are being proposed, therefore easing the sense of what is being considered important and valid as public discussions. This list of possibilities is endless, specially when \ops\ variations and expansions are considered.
-    \item Suppose a person, say Jessica, has a new proposal for a participative system that uses \ops. She can have a quite concise understanding of the concepts involved, and how they relate. She can now make very objective observations and deliver clear suggestions that relate directly to the systems used or envisioned. She can make an \ops\ variation or another ontology, as a way to confront paradigms.
+    \item Suppose that a public \sparql\ endpoint unifies several participation instances by means of \ops\ (we will see in Section~\ref{sec:real} that this is not really fictional). Thus, the number of participants is publicly available ({\tt |ops:SocialActor|}). Also, depending on the platforms involved, one can observe how many of these participants are individuals ({\tt ops:Person}), how many are organizations ({\tt ops:Organization}), and understand to which extent the corporative influence is explicit. One can observe how many of the participants are the same in each platform, and what roles they take, and make assumptions about how much the society is really participating or if these processes are manipulated by few agents ({\tt ops:SocialActor}). One can also gaze uppon the problems being discussed and which solutions are being proposed, therefore easing the sense of what is being considered important and valid as public discussions. This list of possibilities is endless, specially when \ops\ variations and expansions are considered.
+    \item Suppose a person, say Jessica, has a new proposal for a participative system that uses \ops. She can acquire a concise understanding of the conceptualization involved and make very objective observations and deliver clear suggestions that relate directly to the systems used or envisioned. She can make an \ops\ variation or another ontology, as a way to confront paradigms.
     \item Suppose there is a system for exhibiting indicators about social participation (how effective it has been, how wide is the scope of interests, etc.). Instances that are integrated by \ops\ can be queried for information and, for example, this system registers any organization involved as a social actor. Also, reflecting the expanded \ops\ exposed above, the system registers any mob involved, whose incidence was recorded in the database as a \texttt{DownloadedMob}, as related to some social network (the network might be unknown).
 \end{itemize}
 
@@ -648,9 +648,9 @@ Fictional examples are useful to make these points clear:
 \opsi\ is a recent ontology. Even so, some real use cases can be pointed, from which are most notable:
 \begin{itemize}
     \item The \pnud\ consultant contract 2013/00056, project BRA/12/018, was profoundly influenced by \ops~\cite{pnud5}. Within written products are other participatory ontologies, such as \opa, \ocd, \ontologiaa\ and \obs, which relates directly to \ops. Also, some methods for analysing \ops\ related data and for resource recommendation were delivered. These developments were done by the computational physics researcher R. Fabbri (first author of the present article), in collaboration with other parties, specially the Brazilian General Secretariat of the Republic, University of Bras\'ilia researchers, and free software parties. Data from three participatory instances were triplified: \participa, \aan\ and \cidadedemocratica; all related to \ops. These linked data resources are available in \sparql\ endpoints and can be dereferenced, in a similar fashion as done for \ops. As these are all executed in research facilities, they might lack maintenance and should be kept by a dedicated team.
-    \item Another \pnud/\onu\ contract was responsible for some advances in information technologies. A special case is a dedicated \ops\ expansion\cite{paulo6}.
+    \item Another \pnud\ contract was responsible for some advances in information technologies. A special case is a dedicated \ops\ expansion\cite{paulo6}.
     \item The Brazilian Federal Data Processing Service (\serpro) is triplifying \participa\ data (the Brazilian federal social participation portal). Is this process, they as making direct use of \ops~\cite{tripSerpro}.
-    \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud/\onu\ documentation, \serpro\ triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{circulaOps1,circulaOps2}.
+    \item The linked data Brazilian community had some maturing related to \ops\ beyond the ontologies developed, \pnud\ development and documentation, \serpro\ data triplification, and \vcps. Interested government, civil society and academic parties circulated \ops\ documentation for conceptual and technological goals~\cite{circulaOps1,circulaOps2}.
 \end{itemize}
 
 \section{Concluding remarks}\label{conc}
