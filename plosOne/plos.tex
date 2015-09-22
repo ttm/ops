@@ -465,7 +465,7 @@ Table~\ref{ospClasses} exhibits all classes is \ops.
 
 In the first versions of \ops, all properties yielded existential restrictions, except {\tt ops:hasParticipationCharacteristic}. Although such efforts were aimed at handling a better defined \ops, further developments and discussions revealed that these restrictions made \ops\ rigid, a bit more complicated, and was not of much help, at least in this stage of \ops\ development and adoption. The result is that all restrictions were removed. Appendix~\ref{ap:restr} and Table~\ref{ospRestr} exhibit all dropped \ops\ restrictions.
 
-An inspection of \vcps\ also yielded a contradiction present in Figure~\ref{fig:diaorig}: a role cannot execute, initiate or support a cause. These are done by the social actor. Therefore, to maintain \vcps\ directions and obtain a sound ontology, {\tt ops:Role} was removed from \ops\ in preliminary versions. The result can be seen directly in Figures~\ref{fig:v1} and~\ref{fig:owlCC}.
+An inspection of \vcps\ also yielded a contradiction present in Figure~\ref{fig:diaorig}: a role cannot execute, initiate or support a cause. These are done by the social actor. Therefore, to maintain \vcps\ directions and obtain a sound ontology, {\tt ops:Role} was removed from \ops. The result can be seen directly in Figures~\ref{fig:v1} and~\ref{fig:owlCC}.
 
 
 \begin{table*}[!h]
@@ -530,7 +530,7 @@ with the diagram in Figure~\ref{fig:diaorig}, which reflects official \vcps\ doc
 
 \opsi\ is available online~\cite{owlOSP}. To ease navigation of the ontology by interested parties, it is also available in the Webprotege interface~\cite{owlOSPwp}. The diagram of \ops\ taxonomic structure is exposed in Figure~\ref{fig:owlCC}.
 
-Upper ontologies usage with \ops\ is under development and should receive a dedicated article, as possibilities should be inspected carefully. Pertinent and already used as upper ontologies for \ops\ are \foaf~\cite{foaf} (for linking and describing people and things they do) and \bfo~\cite{bfo} (``designed for use in supporting information retrieval, analysis and integration in scientific and other domains'' as stated on their documentation). Properties were not related to upper ontologies as reasonable relations are still being searched for. Table~\ref{ospClasses} exposes \ops\ classes and respective upper ontologies classes.
+Upper ontologies usage with \ops\ is under development and should receive a dedicated article, as possibilities should be inspected carefully. Pertinent and already used as upper ontologies for \ops\ are \foaf~\cite{foaf} (for linking and describing people and things they do) and \bfo~\cite{bfo} (``designed for use in supporting information retrieval, analysis and integration in scientific and other domains'' as stated on their documentation). Properties were not related to upper ontologies as reasonable relations are still being searched for. Upper ontologies classes related to each \ops\ class are also exposed in Table~\ref{ospClasses}.
 
 Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties and relations to \foaf\ and \bfo. Actually, Figure~\ref{fig:v1} is more informative than \ops\ \owl\ code, as restrictions were removed and not all properties have defined domain and range. Therefore, the diagram is the remaining source of relations envisioned by \ops\ creators.
 
@@ -543,19 +543,19 @@ Figure~\ref{fig:v1} is a complete diagram of current \ops: classes, properties a
 
 %\subsubsection{SparQL examples of usage}
 
-\section{\ops\ utility}\label{ospUtil}
+\section{OPS utility}\label{ospUtil}
 \opsi\ is meant to be useful. First, as a systematization of what is social participation to Latin America groups, as conceived by \vcps. Second, as a mean to ease linked data, and enable integration of various instances for social participation. An indicative of this pertinence is \opa, \ocd, \ontologiaa, and \obs, ontologies that already uses \ops\ as upper ontology~\cite{pnud5}.
 
 This section explores different \ops\ uses: dereferencing, \sparql\ queries, expansion, discursive fictional cases, and real use cases.
 
 \subsection{Usage of OPS through dereferencing}
 
-All \ops\ classes and properties \uri s are accessible via \http. A \pubby\ instance delivers information like name, labels and relations to other classes and properties. As an example, the \uri\ \url{http://purl.org/socialparticipation/ops/SocialActor} returns information about this class and all subclasses it is related to, as shown in Figure~\ref{fig:deref}.
+All \ops\ classes and properties \uri s are accessible via \http. A \pubby~\cite{pubby} instance delivers information like name, labels and relations to other classes and properties. As an example, the \uri\ \url{http://purl.org/socialparticipation/ops/SocialActor} returns information about this class, as shown in Figure~\ref{fig:deref}.
 
 \begin{figure}[!h]
     \centering
 %    \includegraphics[width=\columnwidth]{figs/pubbyDer}
-    \caption{Dereferencing an \ops\ class: the \uri\ is also an \urll, which, reached by \http, returns information for the user as shown. Also, if the client is not a browser, but a crawler or a linked data application, \pubby\ delivers plain \rdf, not user-friendly \html.}
+    \caption{Dereferencing an \ops\ class: the \uri\ is also an \urll, which, reached by \http, returns information for the user as shown. Also, if the client is not a browser, but a crawler or a linked data application, \pubby\ delivers plain \rdf, not an user-friendly \html.}
     \label{fig:deref}
 \end{figure}
 
@@ -563,7 +563,7 @@ All \ops\ classes and properties \uri s are accessible via \http. A \pubby\ inst
 
 Linking multiple databases is an \owl\ technology core purpose. The standard way to access these data via ontologies is by using a \sparql\ endpoint. This endpoint delivers data from a triplestore (collection of \rdf\ triples) or, with more experimental technology, from relational database systems, such as a \mysql\ server (e.g. via \ontop/\quest~\cite{onTop}). Either way, the query is the same: the user or machine reaching the endpoint uses the \sparql\ protocol in order to retrieve information through semantic criteria. Figure~\ref{endpoint} is a schematic representation of \obda\ (Ontology Based Database Access), which is a common name for this multiple database access through ontologies.
 
-\begin{figure}
+\begin{figure}[!h]
     \centering
 %        \includegraphics[width=0.9\columnwidth]{figs/endpoint}
     \caption{Scheme of the common use of ontologies for multiple databases integration. A user or application reaches a \sparql\ endpoint. This endpoint, through ontologies, delivers data from one or more databases. Nowadays, the most usual is to find only one database available at an endpoint, and this database is usually duplicated and not synchronized, but available as a (converted) triplestore. Even so, it is possible to access multiple ontologies and it is desirable that the databases have synchronous access, i.e. without need to convert data to triples beforehand.}
@@ -582,13 +582,6 @@ Noteworthy is that while {\tt opa:Participant} can be used to retrieve all \part
 \subsection{OPS expansion}\label{downwards}
 
 %\begin{sidewaysfigure*}
-    \begin{figure}
-%    \vspace{24.5em}
-%    \hspace*{-3.5em}
-%        \includegraphics[width=1.05\textwidth]{figs/opsExpandedTax}
-        \caption{A taxonomic diagram of an example expanded instance of \ops. {\tt ops:PaidExecutor} is defined as being the subject of a \texttt{ops:receivesFrom} relation with a \texttt{ops:SocialActor}; \texttt{ops:DownloadedMob} is defined by being the subject of a \texttt{ops:convoquedBy} relation with a \texttt{ops:SocialNetwork}. \owl\ code is online for live editing~\cite{owlExp}. The new classes added to \ops\ are in Table~\ref{ospFooClass}}
-    \label{fig:owlExp}
-    \end{figure}
 %\end{sidewaysfigure*}
 
 \opsi\ matches \vcps\ online documentation~\cite{corais}. As an example of additional classes, an expanded \ops\ ontology is exposed in this section and is uploaded to \webprotege~\cite{owlExp}. Table~\ref{ospFooClass} is dedicated to these additional classes while Figure~\ref{fig:owlExp} presents the resulting taxonomic structure.
@@ -597,7 +590,7 @@ The property {\tt ops:receivesFrom} was also added and has an inverse: \texttt{o
 
 This is one of the numerous ways by which \ops\ might deal with further classes, properties and restrictions. This particular expansion was chosen as an example by direct observance of \vcps\ documentation and recent social affairs, such as the Brazilian protests.
 
-\begin{table*}
+\begin{table*}[!h]
 \begin{adjustwidth}{-2.25in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
   \centering
   \caption{New classes considered for expansion of the \ops. The taxonomic organization of these classes, within \ops\ can be observed in Figure~\ref{fig:owlExp}. Further information is in Section~\ref{downwards}.}
@@ -625,6 +618,15 @@ PaidExecutor & Executor & an Executor that receives formal reward for the tasks 
   \label{ospFooClass}
 \end{adjustwidth}
 \end{table*}
+
+\begin{figure}[!h]
+%    \vspace{24.5em}
+%    \hspace*{-3.5em}
+%        \includegraphics[width=1.05\textwidth]{figs/opsExpandedTax}
+        \caption{A taxonomic diagram of an example expanded instance of \ops. {\tt ops:PaidExecutor} is defined as being the subject of a \texttt{ops:receivesFrom} relation with a \texttt{ops:SocialActor}; \texttt{ops:DownloadedMob} is defined by being the subject of a \texttt{ops:convoquedBy} relation with a \texttt{ops:SocialNetwork}. \owli\ code is online for live editing~\cite{owlExp}. The new classes added to \ops\ are in Table~\ref{ospFooClass}}
+    \label{fig:owlExp}
+    \end{figure}
+
 
 \subsection{Fictional examples of usage}\label{examplesUsage}
 
