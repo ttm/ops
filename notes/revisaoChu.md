@@ -40,5 +40,13 @@ Até onde entendi, qualquer ontologia se bem documentada é considerada contribu
 pois a área é incipiente e as conceitualizações formalizadas são de interesse para além de OWL.
 
 ### Notas minhas
-1. Passar a história da VCPS para um apêndice.
+1. Passar a história da VCPS para um apêndice. OK
 2. a OPS tem de inovador que é uma ontologia de participação social genérica, cunhada por muitas pessoas (mais de 100).
+3. Citar o uso que foi feito em um produto PNUD pelo Fernando. OK
+4. Renderizar versão com e sem imagens. ---
+5. Onde disponibilizar a OPS (para ser acessada via http)? Argumentar que os dados podem ser usados no posdoc.
+Potenciais: nuvem USP, ICMC, ParticipaBR.
+6. Pedir ao Chu para manter as quebras de linha pois facilitam a leitura e edição.
+7. Pegar vínculo atual do Poppi.
+8. Procurar sobre outras ontologias relacionadas a participação social. Talvez organizá-las em um apêndice.
+Certificar de que não apareceram outra ontologia de PS neste período em que o artigo ficou de molho.
