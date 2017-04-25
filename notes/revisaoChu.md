@@ -45,7 +45,7 @@ pois a área é incipiente e as conceitualizações formalizadas são de interes
 3. Citar o uso que foi feito em um produto PNUD pelo Fernando. OK
 4. Renderizar versão com e sem imagens. ---
 5. Onde disponibilizar a OPS (para ser acessada via http)? Argumentar que os dados podem ser usados no posdoc.
-Potenciais: nuvem USP, ICMC, ParticipaBR.
+Potenciais: nuvem USP, ICMC, ParticipaBR/SGPR, DBpedia
 6. Pedir ao Chu para manter as quebras de linha pois facilitam a leitura e edição.
 7. Pegar vínculo atual do Poppi.
 8. Procurar sobre outras ontologias relacionadas a participação social. Talvez organizá-las em um apêndice.
